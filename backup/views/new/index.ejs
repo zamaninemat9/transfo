@@ -12,7 +12,7 @@
           content="agency, business, corporate, creative, freelancer, interior, joomla template, K2 Blog, minimal, modern, multipurpose, personal, portfolio, responsive, simple"/>
 
     <!--  Title -->
-    <title>Daro - Creative Ajax Showcase Portfolio Template</title>
+    <title>ایران ترانسفو</title>
 
     <!-- Font Google -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&amp;display=swap" rel="stylesheet">
@@ -37,8 +37,8 @@
 
     <h1 class="title v-middle">
         <span class="percent ">0</span>
-        <span class="text-strok">DARO</span>
-        <span class="text-fill">DARO</span>
+        <span class="text-strok">ایران ترانسفو</span>
+        <span class="text-fill">ایران ترانسفو</span>
     </h1>
 </div>
 
@@ -47,8 +47,8 @@
         <div class="inner-header p-relative">
             <div class="main-logo">
                 <a href="index.html" data-dsn="parallax">
-                    <img class="dark-logo" src="/new/assets/img/logo-dark.png" alt=""/>
-                    <img class="light-logo" src="/new/assets/img/logo.png" alt=""/>
+                    <img class="dark-logo" src="/new/logo/im_2.png" alt=""/>
+                    <img class="light-logo" src="/new/logo/im_1.png" alt=""/>
                 </a>
             </div>
         </div>
@@ -395,352 +395,354 @@
             <div class="bg-container" id="dsn-hero-parallax-img">
                 <div class="slide-inner h-100">
                     <div class="swiper-wrapper">
-                        <div class="slide-item swiper-slide">
-                            <div class="image-bg cover-bg w-100 h-100 "
-                                 data-image-src="/new/assets/img/project/project1/1.jpg" data-overlay="2">
-                            </div>
-                            <div class="slide-content p-absolute h-100 w-100 ">
-                                <div class="row align-items-center h-100">
-                                    <div class="content p-relative w-100">
-                                        <div class="metas d-inline-block">
-                                            <span>Product</span>
-                                        </div>
-                                        <h1 class="title user-no-selection">
-                                            <a href="project1.html" class="effect-ajax"
-                                               data-dsn-ajax="slider">Diesel Watch</a>
-                                        </h1>
+                        <% for(let i in slider){ %>
+                            <div class="slide-item swiper-slide">
+                                <div class="image-bg cover-bg w-100 h-100 "
+                                     data-image-src="<%= uRoute %>/<%= slider[i].img %>" data-overlay="2">
+                                </div>
+                                <div class="slide-content p-absolute h-100 w-100 ">
+                                    <div class="row align-items-center h-100">
+                                        <div class="content p-relative w-100">
+                                            <div class="metas d-inline-block">
+<!--                                                <span>Product</span>-->
+                                            </div>
+                                            <h1 class="title user-no-selection">
+                                                <a href="project1.html">ا ی ر ا ن ت رانسفو</a>
+                                            </h1>
 
-                                        <div class="sub-text-header d-inline-block user-no-selection">
-                                            <h5>Elia Pirazzo </h5>
-                                            <span>- March 17th 2016</span>
-                                        </div>
+<!--                                            <div class="sub-text-header d-inline-block user-no-selection">-->
+<!--                                                <h5>Elia Pirazzo </h5>-->
+<!--                                                <span>- March 17th 2016</span>-->
+<!--                                            </div>-->
 
-                                        <div class="dsn-button-link mt-30 user-no-selection">
-                                            <a href="project1.html"
-                                               class="link-custom effect-ajax d-flex a-item-center p-relative"
-                                               data-dsn-ajax="slider">
-                                                <span class="link-text">View Case</span>
-                                                <span class="link-circle p-absolute">
+                                            <div class="dsn-button-link mt-30 user-no-selection">
+                                                <a href="project1.html"
+                                                   class="link-custom effect-ajax d-flex a-item-center p-relative"
+                                                   data-dsn-ajax="slider">
+                                                    <span class="link-text">View Case</span>
+                                                    <span class="link-circle p-absolute">
                                                         <i class="fas fa-arrow-right"></i>
                                                     </span>
-                                            </a>
-                                        </div>
+                                                </a>
+                                            </div>
 
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="description p-absolute d-flex a-item-center background-section">
-                                    <p>Vin tries to reflect Diesel’s vision and combines the universe of the rock of
-                                        the 80’s with a clear</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="slide-item swiper-slide">
-                            <div class="image-bg cover-bg w-100 h-100"
-                                 data-image-src="/new/assets/img/project/project6/1.jpg" data-overlay="5"
-                                 data-dsn-position="57%">
-                            </div>
-                            <div class="slide-content p-absolute h-100 w-100 ">
-                                <div class="row align-items-center h-100">
-                                    <div class="content p-relative w-100">
-                                        <div class="metas d-inline-block user-no-selection">
-                                            <span>Fashion</span>
-                                            <span>Photography</span>
-                                        </div>
-                                        <h1 class="title user-no-selection">
-                                            <a href="project6.html" class="color-white effect-ajax"
-                                               data-dsn-ajax="slider">NFL Combine</a>
-                                        </h1>
-
-                                        <div class="sub-text-header d-inline-block user-no-selection">
-                                            <h5>Kirk Roush </h5>
-                                            <span>- March 1st 2017</span>
-                                        </div>
-
-                                        <div class="dsn-button-link mt-30 user-no-selection">
-                                            <a href="project6.html"
-                                               class="link-custom effect-ajax d-flex a-item-center p-relative"
-                                               data-dsn-ajax="slider">
-                                                <span class="link-text">View Case</span>
-                                                <span class="link-circle p-absolute">
-                                                        <i class="fas fa-arrow-right"></i>
-                                                    </span>
-                                            </a>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="description p-absolute d-flex a-item-center background-section">
-                                    <p>Series of images used for Under Armour's NFL combine authentic apparel.
-                                        Photography</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="slide-item swiper-slide">
-                            <div class="image-bg cover-bg w-100 h-100"
-                                 data-image-src="/new/assets/img/project/project2/1.jpg" data-overlay="5"
-                                 data-dsn-position="38%">
-                            </div>
-                            <div class="slide-content p-absolute h-100 w-100 ">
-                                <div class="row align-items-center h-100">
-                                    <div class="content p-relative w-100">
-                                        <div class="metas d-inline-block user-no-selection">
-                                            <span>Photography</span>
-                                        </div>
-                                        <h1 class="title user-no-selection">
-                                            <a href="project2.html" class="color-white effect-ajax"
-                                               data-dsn-ajax="slider">Zero
-                                                Untitled</a>
-                                        </h1>
-
-                                        <div class="sub-text-header d-inline-block user-no-selection">
-                                            <h5>Aaron Brimhall</h5>
-                                            <span>- March 17th 2020</span>
-                                        </div>
-
-                                        <div class="dsn-button-link mt-30 user-no-selection">
-                                            <a href="project2.html"
-                                               class="link-custom effect-ajax d-flex a-item-center p-relative"
-                                               data-dsn-ajax="slider">
-                                                <span class="link-text">View Case</span>
-                                                <span class="link-circle p-absolute">
-                                                        <i class="fas fa-arrow-right"></i>
-                                                    </span>
-                                            </a>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="description p-absolute d-flex a-item-center background-section">
-                                    <p>A beautifully designed bike from
-                                        Zero Motorcycles SR/S. Huggo Eccles
-                                        from Untitled Motorcycles has created
-                                        something spectacular to the eye.</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="slide-item swiper-slide">
-                            <div class="image-bg cover-bg w-100 h-100"
-                                 data-image-src="/new/assets/img/project/project5/1.jpg" data-overlay="5"
-                                 data-dsn-position="58%">
-                            </div>
-                            <div class="slide-content p-absolute h-100 w-100 ">
-                                <div class="row align-items-center h-100">
-                                    <div class="content p-relative w-100">
-                                        <div class="metas d-inline-block user-no-selection">
-                                            <span>Fashion</span>
-                                            <span>Photography</span>
-                                        </div>
-                                        <h1 class="title user-no-selection">
-                                            <a href="project5.html" class="color-white effect-ajax"
-                                               data-dsn-ajax="slider">Blue Edition</a>
-                                        </h1>
-
-                                        <div class="sub-text-header d-inline-block user-no-selection">
-                                            <h5>Elia Pirazzo </h5>
-                                            <span>- March 29th 2020</span>
-                                        </div>
-
-                                        <div class="dsn-button-link mt-30 user-no-selection">
-                                            <a href="project5.html"
-                                               class="link-custom effect-ajax d-flex a-item-center p-relative"
-                                               data-dsn-ajax="slider">
-                                                <span class="link-text">View Case</span>
-                                                <span class="link-circle p-absolute">
-                                                        <i class="fas fa-arrow-right"></i>
-                                                    </span>
-                                            </a>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="description p-absolute d-flex a-item-center background-section">
-                                    <p>Pink Tint Photosession for popular Model in Ukraine .</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="slide-item swiper-slide">
-                            <div class="image-bg cover-bg w-100 h-100"
-                                 data-image-src="/new/assets/img/project/project3/1.jpg" data-overlay="6">
-                            </div>
-                            <div class="slide-content p-absolute h-100 w-100 ">
-                                <div class="row align-items-center h-100">
-                                    <div class="content p-relative w-100">
-                                        <div class="metas d-inline-block user-no-selection">
-                                            <span>Architecture</span>
-                                        </div>
-                                        <h1 class="title user-no-selection">
-                                            <a href="project3.html" class="color-white effect-ajax"
-                                               data-dsn-ajax="slider">Black
-                                                Apartment</a>
-                                        </h1>
-
-                                        <div class="sub-text-header d-inline-block user-no-selection">
-                                            <h5>Georgiy Traksel</h5>
-                                            <span>- March 25th 2020</span>
-                                        </div>
-
-                                        <div class="dsn-button-link mt-30 user-no-selection">
-                                            <a href="project3.html"
-                                               class="link-custom effect-ajax d-flex a-item-center p-relative"
-                                               data-dsn-ajax="slider">
-                                                <span class="link-text">View Case</span>
-                                                <span class="link-circle p-absolute">
-                                                        <i class="fas fa-arrow-right"></i>
-                                                    </span>
-                                            </a>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="description p-absolute d-flex a-item-center background-section">
-                                    <p>Used softwares: 3ds max, corona
-                                        render,quixel mixer and Photoshop Overall lighting HDRI</p>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="slide-item swiper-slide">
-                            <div class="image-bg cover-bg w-100 h-100"
-                                 data-image-src="/new/assets/img/project/project4/1.jpg" data-overlay="5">
-                            </div>
-                            <div class="slide-content p-absolute h-100 w-100 ">
-                                <div class="row align-items-center h-100">
-                                    <div class="content p-relative w-100">
-                                        <div class="metas d-inline-block user-no-selection">
-                                            <span>Digital Art</span>
-                                        </div>
-                                        <h1 class="title user-no-selection">
-                                            <a href="project4.html" class="color-white effect-ajax"
-                                               data-dsn-ajax="slider">Intentional</a>
-                                        </h1>
-
-                                        <div class="sub-text-header d-inline-block user-no-selection">
-                                            <h5>Pawel Nolbert</h5>
-                                            <span>- June 13th 2018</span>
-                                        </div>
-
-                                        <div class="dsn-button-link mt-30 user-no-selection">
-                                            <a href="project4.html"
-                                               class="link-custom effect-ajax d-flex a-item-center p-relative"
-                                               data-dsn-ajax="slider">
-                                                <span class="link-text">View Case</span>
-                                                <span class="link-circle p-absolute">
-                                                        <i class="fas fa-arrow-right"></i>
-                                                    </span>
-                                            </a>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="description p-absolute d-flex a-item-center background-section">
-                                    <p>Personal conceptual project. Reflecting on my personal style of paint
-                                        illustration.</p>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="slide-item swiper-slide">
-                            <div class="cover-bg h-100 w-100 p-absolute hidden"
-                                 data-image-src="/new/assets/img/project/project7/1.jpg" data-overlay="7">
-                            </div>
-                            <div class="image-bg cover-bg w-100 h-100">
-                                <div data-dsn="video" data-overlay="6">
-                                    <video class="bg-image cover-bg dsn-video"
-                                           poster="/new/assets/img/project/project7/1.jpg" autoplay loop muted>
-                                        <source src="http://theme.dsngrid.com/video/Equator.mp4" type="video/mp4">
-
-                                    </video>
-                                </div>
-                            </div>
-                            <div class="slide-content p-absolute h-100 w-100 ">
-                                <div class="row align-items-center h-100">
-                                    <div class="content p-relative w-100">
-                                        <div class="metas d-inline-block user-no-selection">
-                                            <span>Architecture</span>
-                                            <span>Video</span>
-                                        </div>
-                                        <h1 class="title user-no-selection">
-                                            <a href="project7.html" class="color-white effect-ajax"
-                                               data-dsn-ajax="slider">EQUATOR CGI</a>
-                                        </h1>
-
-                                        <div class="sub-text-header d-inline-block user-no-selection">
-                                            <h5>Russian Archviz</h5>
-                                            <span>- January 12th 2020</span>
-                                        </div>
-
-                                        <div class="dsn-button-link mt-30 user-no-selection">
-                                            <a href="project7.html"
-                                               class="link-custom effect-ajax d-flex a-item-center p-relative"
-                                               data-dsn-ajax="slider">
-                                                <span class="link-text">View Case</span>
-                                                <span class="link-circle p-absolute">
-                                                        <i class="fas fa-arrow-right"></i>
-                                                    </span>
-                                            </a>
-                                        </div>
-
+                                    <div class="description p-absolute d-flex a-item-center background-section">
+                                        <p>Vin tries to reflect Diesel’s vision and combines the universe of the rock of
+                                            the 80’s with a clear</p>
                                     </div>
                                 </div>
 
                             </div>
+                        <%}%>
 
-                        </div>
+<!--                        <div class="slide-item swiper-slide">-->
+<!--                            <div class="image-bg cover-bg w-100 h-100"-->
+<!--                                 data-image-src="/new/assets/img/project/project6/1.jpg" data-overlay="5"-->
+<!--                                 data-dsn-position="57%">-->
+<!--                            </div>-->
+<!--                            <div class="slide-content p-absolute h-100 w-100 ">-->
+<!--                                <div class="row align-items-center h-100">-->
+<!--                                    <div class="content p-relative w-100">-->
+<!--                                        <div class="metas d-inline-block user-no-selection">-->
+<!--                                            <span>Fashion</span>-->
+<!--                                            <span>Photography</span>-->
+<!--                                        </div>-->
+<!--                                        <h1 class="title user-no-selection">-->
+<!--                                            <a href="project6.html" class="color-white effect-ajax"-->
+<!--                                               data-dsn-ajax="slider">NFL Combine</a>-->
+<!--                                        </h1>-->
 
-                        <div class="slide-item swiper-slide">
-                            <div class="image-bg cover-bg w-100 h-100"
-                                 data-image-src="/new/assets/img/project/project8/1.jpg" data-overlay="7"
-                                 data-dsn-position="34%">
-                            </div>
-                            <div class="slide-content p-absolute h-100 w-100 ">
-                                <div class="row align-items-center h-100">
-                                    <div class="content p-relative w-100">
-                                        <div class="metas d-inline-block user-no-selection">
-                                            <span>Photography</span>
-                                        </div>
-                                        <h1 class="title user-no-selection">
-                                            <a href="project8.html" class="color-white effect-ajax"
-                                               data-dsn-ajax="slider">NATIVE UNION</a>
-                                        </h1>
+<!--                                        <div class="sub-text-header d-inline-block user-no-selection">-->
+<!--                                            <h5>Kirk Roush </h5>-->
+<!--                                            <span>- March 1st 2017</span>-->
+<!--                                        </div>-->
 
-                                        <div class="sub-text-header d-inline-block user-no-selection">
-                                            <h5>Britney Lam</h5>
-                                            <span>- September 14th 2019</span>
-                                        </div>
+<!--                                        <div class="dsn-button-link mt-30 user-no-selection">-->
+<!--                                            <a href="project6.html"-->
+<!--                                               class="link-custom effect-ajax d-flex a-item-center p-relative"-->
+<!--                                               data-dsn-ajax="slider">-->
+<!--                                                <span class="link-text">View Case</span>-->
+<!--                                                <span class="link-circle p-absolute">-->
+<!--                                                        <i class="fas fa-arrow-right"></i>-->
+<!--                                                    </span>-->
+<!--                                            </a>-->
+<!--                                        </div>-->
 
-                                        <div class="dsn-button-link mt-30 user-no-selection">
-                                            <a href="project8.html"
-                                               class="link-custom effect-ajax d-flex a-item-center p-relative"
-                                               data-dsn-ajax="slider">
-                                                <span class="link-text">View Case</span>
-                                                <span class="link-circle p-absolute">
-                                                        <i class="fas fa-arrow-right"></i>
-                                                    </span>
-                                            </a>
-                                        </div>
+<!--                                    </div>-->
+<!--                                </div>-->
 
-                                    </div>
-                                </div>
+<!--                                <div class="description p-absolute d-flex a-item-center background-section">-->
+<!--                                    <p>Series of images used for Under Armour's NFL combine authentic apparel.-->
+<!--                                        Photography</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
 
-                                <div class="description p-absolute d-flex a-item-center background-section">
-                                    <p>Personal conceptual project. Reflecting on my personal style of paint
-                                        illustration.</p>
-                                </div>
-                            </div>
+<!--                        </div>-->
+<!--                        <div class="slide-item swiper-slide">-->
+<!--                            <div class="image-bg cover-bg w-100 h-100"-->
+<!--                                 data-image-src="/new/assets/img/project/project2/1.jpg" data-overlay="5"-->
+<!--                                 data-dsn-position="38%">-->
+<!--                            </div>-->
+<!--                            <div class="slide-content p-absolute h-100 w-100 ">-->
+<!--                                <div class="row align-items-center h-100">-->
+<!--                                    <div class="content p-relative w-100">-->
+<!--                                        <div class="metas d-inline-block user-no-selection">-->
+<!--                                            <span>Photography</span>-->
+<!--                                        </div>-->
+<!--                                        <h1 class="title user-no-selection">-->
+<!--                                            <a href="project2.html" class="color-white effect-ajax"-->
+<!--                                               data-dsn-ajax="slider">Zero-->
+<!--                                                Untitled</a>-->
+<!--                                        </h1>-->
 
-                        </div>
+<!--                                        <div class="sub-text-header d-inline-block user-no-selection">-->
+<!--                                            <h5>Aaron Brimhall</h5>-->
+<!--                                            <span>- March 17th 2020</span>-->
+<!--                                        </div>-->
+
+<!--                                        <div class="dsn-button-link mt-30 user-no-selection">-->
+<!--                                            <a href="project2.html"-->
+<!--                                               class="link-custom effect-ajax d-flex a-item-center p-relative"-->
+<!--                                               data-dsn-ajax="slider">-->
+<!--                                                <span class="link-text">View Case</span>-->
+<!--                                                <span class="link-circle p-absolute">-->
+<!--                                                        <i class="fas fa-arrow-right"></i>-->
+<!--                                                    </span>-->
+<!--                                            </a>-->
+<!--                                        </div>-->
+
+<!--                                    </div>-->
+<!--                                </div>-->
+
+<!--                                <div class="description p-absolute d-flex a-item-center background-section">-->
+<!--                                    <p>A beautifully designed bike from-->
+<!--                                        Zero Motorcycles SR/S. Huggo Eccles-->
+<!--                                        from Untitled Motorcycles has created-->
+<!--                                        something spectacular to the eye.</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
+<!--                        <div class="slide-item swiper-slide">-->
+<!--                            <div class="image-bg cover-bg w-100 h-100"-->
+<!--                                 data-image-src="/new/assets/img/project/project5/1.jpg" data-overlay="5"-->
+<!--                                 data-dsn-position="58%">-->
+<!--                            </div>-->
+<!--                            <div class="slide-content p-absolute h-100 w-100 ">-->
+<!--                                <div class="row align-items-center h-100">-->
+<!--                                    <div class="content p-relative w-100">-->
+<!--                                        <div class="metas d-inline-block user-no-selection">-->
+<!--                                            <span>Fashion</span>-->
+<!--                                            <span>Photography</span>-->
+<!--                                        </div>-->
+<!--                                        <h1 class="title user-no-selection">-->
+<!--                                            <a href="project5.html" class="color-white effect-ajax"-->
+<!--                                               data-dsn-ajax="slider">Blue Edition</a>-->
+<!--                                        </h1>-->
+
+<!--                                        <div class="sub-text-header d-inline-block user-no-selection">-->
+<!--                                            <h5>Elia Pirazzo </h5>-->
+<!--                                            <span>- March 29th 2020</span>-->
+<!--                                        </div>-->
+
+<!--                                        <div class="dsn-button-link mt-30 user-no-selection">-->
+<!--                                            <a href="project5.html"-->
+<!--                                               class="link-custom effect-ajax d-flex a-item-center p-relative"-->
+<!--                                               data-dsn-ajax="slider">-->
+<!--                                                <span class="link-text">View Case</span>-->
+<!--                                                <span class="link-circle p-absolute">-->
+<!--                                                        <i class="fas fa-arrow-right"></i>-->
+<!--                                                    </span>-->
+<!--                                            </a>-->
+<!--                                        </div>-->
+
+<!--                                    </div>-->
+<!--                                </div>-->
+
+<!--                                <div class="description p-absolute d-flex a-item-center background-section">-->
+<!--                                    <p>Pink Tint Photosession for popular Model in Ukraine .</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
+<!--                        <div class="slide-item swiper-slide">-->
+<!--                            <div class="image-bg cover-bg w-100 h-100"-->
+<!--                                 data-image-src="/new/assets/img/project/project3/1.jpg" data-overlay="6">-->
+<!--                            </div>-->
+<!--                            <div class="slide-content p-absolute h-100 w-100 ">-->
+<!--                                <div class="row align-items-center h-100">-->
+<!--                                    <div class="content p-relative w-100">-->
+<!--                                        <div class="metas d-inline-block user-no-selection">-->
+<!--                                            <span>Architecture</span>-->
+<!--                                        </div>-->
+<!--                                        <h1 class="title user-no-selection">-->
+<!--                                            <a href="project3.html" class="color-white effect-ajax"-->
+<!--                                               data-dsn-ajax="slider">Black-->
+<!--                                                Apartment</a>-->
+<!--                                        </h1>-->
+
+<!--                                        <div class="sub-text-header d-inline-block user-no-selection">-->
+<!--                                            <h5>Georgiy Traksel</h5>-->
+<!--                                            <span>- March 25th 2020</span>-->
+<!--                                        </div>-->
+
+<!--                                        <div class="dsn-button-link mt-30 user-no-selection">-->
+<!--                                            <a href="project3.html"-->
+<!--                                               class="link-custom effect-ajax d-flex a-item-center p-relative"-->
+<!--                                               data-dsn-ajax="slider">-->
+<!--                                                <span class="link-text">View Case</span>-->
+<!--                                                <span class="link-circle p-absolute">-->
+<!--                                                        <i class="fas fa-arrow-right"></i>-->
+<!--                                                    </span>-->
+<!--                                            </a>-->
+<!--                                        </div>-->
+
+<!--                                    </div>-->
+<!--                                </div>-->
+
+<!--                                <div class="description p-absolute d-flex a-item-center background-section">-->
+<!--                                    <p>Used softwares: 3ds max, corona-->
+<!--                                        render,quixel mixer and Photoshop Overall lighting HDRI</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
+
+<!--                        <div class="slide-item swiper-slide">-->
+<!--                            <div class="image-bg cover-bg w-100 h-100"-->
+<!--                                 data-image-src="/new/assets/img/project/project4/1.jpg" data-overlay="5">-->
+<!--                            </div>-->
+<!--                            <div class="slide-content p-absolute h-100 w-100 ">-->
+<!--                                <div class="row align-items-center h-100">-->
+<!--                                    <div class="content p-relative w-100">-->
+<!--                                        <div class="metas d-inline-block user-no-selection">-->
+<!--                                            <span>Digital Art</span>-->
+<!--                                        </div>-->
+<!--                                        <h1 class="title user-no-selection">-->
+<!--                                            <a href="project4.html" class="color-white effect-ajax"-->
+<!--                                               data-dsn-ajax="slider">Intentional</a>-->
+<!--                                        </h1>-->
+
+<!--                                        <div class="sub-text-header d-inline-block user-no-selection">-->
+<!--                                            <h5>Pawel Nolbert</h5>-->
+<!--                                            <span>- June 13th 2018</span>-->
+<!--                                        </div>-->
+
+<!--                                        <div class="dsn-button-link mt-30 user-no-selection">-->
+<!--                                            <a href="project4.html"-->
+<!--                                               class="link-custom effect-ajax d-flex a-item-center p-relative"-->
+<!--                                               data-dsn-ajax="slider">-->
+<!--                                                <span class="link-text">View Case</span>-->
+<!--                                                <span class="link-circle p-absolute">-->
+<!--                                                        <i class="fas fa-arrow-right"></i>-->
+<!--                                                    </span>-->
+<!--                                            </a>-->
+<!--                                        </div>-->
+
+<!--                                    </div>-->
+<!--                                </div>-->
+
+<!--                                <div class="description p-absolute d-flex a-item-center background-section">-->
+<!--                                    <p>Personal conceptual project. Reflecting on my personal style of paint-->
+<!--                                        illustration.</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
+
+<!--                        <div class="slide-item swiper-slide">-->
+<!--                            <div class="cover-bg h-100 w-100 p-absolute hidden"-->
+<!--                                 data-image-src="/new/assets/img/project/project7/1.jpg" data-overlay="7">-->
+<!--                            </div>-->
+<!--                            <div class="image-bg cover-bg w-100 h-100">-->
+<!--                                <div data-dsn="video" data-overlay="6">-->
+<!--                                    <video class="bg-image cover-bg dsn-video"-->
+<!--                                           poster="/new/assets/img/project/project7/1.jpg" autoplay loop muted>-->
+<!--                                        <source src="http://theme.dsngrid.com/video/Equator.mp4" type="video/mp4">-->
+
+<!--                                    </video>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="slide-content p-absolute h-100 w-100 ">-->
+<!--                                <div class="row align-items-center h-100">-->
+<!--                                    <div class="content p-relative w-100">-->
+<!--                                        <div class="metas d-inline-block user-no-selection">-->
+<!--                                            <span>Architecture</span>-->
+<!--                                            <span>Video</span>-->
+<!--                                        </div>-->
+<!--                                        <h1 class="title user-no-selection">-->
+<!--                                            <a href="project7.html" class="color-white effect-ajax"-->
+<!--                                               data-dsn-ajax="slider">EQUATOR CGI</a>-->
+<!--                                        </h1>-->
+
+<!--                                        <div class="sub-text-header d-inline-block user-no-selection">-->
+<!--                                            <h5>Russian Archviz</h5>-->
+<!--                                            <span>- January 12th 2020</span>-->
+<!--                                        </div>-->
+
+<!--                                        <div class="dsn-button-link mt-30 user-no-selection">-->
+<!--                                            <a href="project7.html"-->
+<!--                                               class="link-custom effect-ajax d-flex a-item-center p-relative"-->
+<!--                                               data-dsn-ajax="slider">-->
+<!--                                                <span class="link-text">View Case</span>-->
+<!--                                                <span class="link-circle p-absolute">-->
+<!--                                                        <i class="fas fa-arrow-right"></i>-->
+<!--                                                    </span>-->
+<!--                                            </a>-->
+<!--                                        </div>-->
+
+<!--                                    </div>-->
+<!--                                </div>-->
+
+<!--                            </div>-->
+
+<!--                        </div>-->
+
+<!--                        <div class="slide-item swiper-slide">-->
+<!--                            <div class="image-bg cover-bg w-100 h-100"-->
+<!--                                 data-image-src="/new/assets/img/project/project8/1.jpg" data-overlay="7"-->
+<!--                                 data-dsn-position="34%">-->
+<!--                            </div>-->
+<!--                            <div class="slide-content p-absolute h-100 w-100 ">-->
+<!--                                <div class="row align-items-center h-100">-->
+<!--                                    <div class="content p-relative w-100">-->
+<!--                                        <div class="metas d-inline-block user-no-selection">-->
+<!--                                            <span>Photography</span>-->
+<!--                                        </div>-->
+<!--                                        <h1 class="title user-no-selection">-->
+<!--                                            <a href="project8.html" class="color-white effect-ajax"-->
+<!--                                               data-dsn-ajax="slider">NATIVE UNION</a>-->
+<!--                                        </h1>-->
+
+<!--                                        <div class="sub-text-header d-inline-block user-no-selection">-->
+<!--                                            <h5>Britney Lam</h5>-->
+<!--                                            <span>- September 14th 2019</span>-->
+<!--                                        </div>-->
+
+<!--                                        <div class="dsn-button-link mt-30 user-no-selection">-->
+<!--                                            <a href="project8.html"-->
+<!--                                               class="link-custom effect-ajax d-flex a-item-center p-relative"-->
+<!--                                               data-dsn-ajax="slider">-->
+<!--                                                <span class="link-text">View Case</span>-->
+<!--                                                <span class="link-circle p-absolute">-->
+<!--                                                        <i class="fas fa-arrow-right"></i>-->
+<!--                                                    </span>-->
+<!--                                            </a>-->
+<!--                                        </div>-->
+
+<!--                                    </div>-->
+<!--                                </div>-->
+
+<!--                                <div class="description p-absolute d-flex a-item-center background-section">-->
+<!--                                    <p>Personal conceptual project. Reflecting on my personal style of paint-->
+<!--                                        illustration.</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
 
                     </div>
                 </div>
@@ -790,18 +792,18 @@
                         <div class="col-lg-6">
                             <div class="intro-about-info">
                                 <div class="section-title-2">
-                                    <h2>About Us</h2>
-                                    <p>what we do</p>
+                                    <h2>گروه صنعتی ایران ترانسفو</h2>
+                                    <p>در یک نگاه</p>
                                 </div>
 
                                 <div class="intro-about-info-bottom">
                                     <h2 class="title-h2 dsn-up">We have been doing projects since 2008.</h2>
 
-                                    <p class="dsn-text">Founded in 2000, Dsn Grid has become one of the best
-                                        Digital
-                                        Agency in
-                                        ThemeForest.
-                                        Blue money going forward, but deploy to production.
+                                    <p class="dsn-text">  در حال حاضر شرکت ایران ترانسفو دارای 15 شرکت اقماری مستقل بوده
+                                        وبه عنوان بزرگترین شرکت سازنده ترانسفورماتور های قدرت ، فوق
+                                        توزیع و توزیع در خاورمیانه و تامین کننده 85 درصد از نیاز صنعت
+
+                                        برق کشور می باشد.
                                     </p>
 
                                     <div class="accordion mt-30">
