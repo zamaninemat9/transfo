@@ -18,7 +18,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/transfo', {
 
 
 app.use((req,res,next)=>{
-    res.locals.uRoute='http://iran-transfo.com'
+    res.locals.uRoute='http://localhost'
     next()
 })
 global.MYDIR=__dirname;

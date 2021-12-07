@@ -12,7 +12,6 @@ const auth_model=require('./../model/Auth');
 const users_model=require('./../model/admin')
 //ROUTES
 app.get('/', (req, res) => {
-
     auth.check(req)
         .then(async (r)=>{
             let a=await users_model.findOne({username:r.username}).exec();

@@ -40,7 +40,6 @@ app.post('/login',async (req, res) => {
                 agent,
                 username
             }).save((e, data) => {
-                console.log("login");
                 res.cookie('uuid', uuid, {maxAge: 900000, httpOnly: true});
                 res.redirect('/admin')
             })
