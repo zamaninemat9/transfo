@@ -1,0 +1,157 @@
+<%- include('../header3')-%>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>ویرایش تقاضا  استخدام</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <%if(s){%>
+                    <div class="alert alert-success">
+                        با موفقیت ویرایش شد
+                    </div>
+                    <%}%>
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <!--                            <h3 class="card-title">مثال ساده</h3>-->
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <!-- <form role="form" method="post" enctype="multipart/form-data" action="/admin/job/edit_<%=d._id%>"> -->
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="news_title">عنوان </label>
+                                    <input type="text" value="<%=d.title%>" class="form-control" id="title" name="title">
+                                </div>
+                                <div class="form-group">
+                                    <label for="img">تصویر بنر</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="img" name="img">
+                                            <label class="custom-file-label" for="img">انتخاب تصویر</label>
+                                        </div>
+                                    </div>
+                                    <img src="<%=uRoute%>/<%=d.img%>" width="100" alt="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="img1">تصویر در لیست</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="img1" name="img1">
+                                            <label class="custom-file-label" for="img1">انتخاب تصویر</label>
+                                        </div>
+                                    </div>
+                                    <img src="<%=uRoute%>/<%=d.img1%>" width="100" alt="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">توضیحات</label>
+                                    <div name="description" id="description"></div>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer">
+                                <button id="submit" class="btn btn-primary">ارسال</button>
+                            </div>
+                        <!-- </form> -->
+                    </div>
+                    <!-- /.card -->
+
+                    <!-- Form Element sizes -->
+
+                </div>
+                <!--/.col (left) -->
+                <!-- right column -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<script>
+     var fullEditor = new Quill('#description', {
+         bounds: '#description',
+         modules: {
+           'syntax': true,
+           'toolbar': [
+             [ 'bold', 'italic', 'underline', 'strike' ],
+             [{ 'color': [] }, { 'background': [] }],
+             [{ 'script': 'super' }, { 'script': 'sub' }],
+             [{ 'header': '1' }, { 'header': '2' }, 'blockquote', 'code-block' ],
+             [{ 'list': 'ordered' }, { 'list': 'bullet'}, { 'indent': '-1' }, { 'indent': '+1' }],
+             [ {'direction': 'rtl'}, { 'align': [] }],
+             [ 'link', 'image', 'formula' ],
+             //[ 'link', 'image', 'video', 'formula' ],
+             [ 'clean' ]
+           ],
+         },
+         theme: 'snow'
+       });
+       const deltas = fullEditor.clipboard.convert('<%-d.description%>')
+       fullEditor.setContents(deltas, 'silent')
+       $("#submit").click(()=>{
+        let formData = new FormData();
+        //title
+        if (!$("#title").val()) {
+            warn.iconClass = "toast-warning";
+            return toastr.error('عنوان تقاضا نمیتواند خالی بماند ', 'خطا', warn)
+        }
+        formData.append("title", $("#title").val());
+         
+        //description
+        let description=fullEditor.root.innerHTML;
+        if(description=='<p><br></p>'||!description){
+            warn.iconClass = "toast-warning";
+            return toastr.error('توضیحات خبر نمیتواند خالی بماند', 'خطا', warn)
+        }
+        formData.append("description",description);
+        //img
+        let img = document.querySelector('#img');
+        if(img.files[0]){
+            formData.append("img", img.files[0]);
+        }   
+        //img
+        let img1 = document.querySelector('#img1');
+        if(img1.files[0]){
+            formData.append("img1", img1.files[0]);
+        }  
+     axios.post('<%=uRoute%>/admin/job/edit_<%=d._id%>',formData, {
+        headers: {
+        'Content-Type': 'multipart/form-data'
+     }
+        }) 
+        .then(r=>{
+            if(r.data.status==200){
+            
+                warn.iconClass = "toast-success";
+                 toastr.error('عملیات با موفقیت انجام شد', '', warn)
+                 setTimeout(()=>{
+                    window.location.href='<%=uRoute%>/admin/job'
+                 },2000)
+                 
+            }else if(r.data.status==403){
+                window.location.href='<%=uRoute%>/admin/login'
+            }else{
+                warn.iconClass = "toast-warning";
+                return toastr.error(r.data.data, 'خطا', warn)  
+            }
+        })
+        .catch(()=>{
+            warn.iconClass = "toast-error";
+                return toastr.error('خطا در برقراری ارتباط با سرور', 'خطا', warn)
+        })
+});
+
+</script>
+<%- include('../footer3')-%>

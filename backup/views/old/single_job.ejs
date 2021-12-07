@@ -1,0 +1,210 @@
+<%- include('header_main.ejs'); -%>
+<script src="/plugins/jquery/jquery.min.js"></script>
+<script src="/editor/axios.js"></script>
+<script src="/editor/toastr.min.js"></script>
+<link rel="stylesheet" href="/editor/toastr.min.css">
+<script>
+
+    let warn = {
+
+        // tap to dismiss
+        tapToDismiss: true,
+
+        // toast class
+        // toastClass: 'toast',
+
+        // container ID
+        containerId: 'toast-container',
+
+        // debug mode
+        debug: false,
+
+        // fadeIn, slideDown, and show are built into jQuery
+        showMethod: 'fadeIn',
+
+        // duration of animation
+        showDuration: 300,
+
+        // easing function
+        showEasing: 'swing',
+
+        // callback function
+        onShown: undefined,
+        onHidden: undefined,
+
+        // hide animation
+        hideMethod: 'fadeOut',
+
+        // duration of animation
+        hideDuration: 1000,
+
+        // easing function
+        hideEasing: 'swing',
+
+        // close animation
+        closeMethod: false,
+
+        // duration of animation
+        closeDuration: false,
+
+        // easing function
+        closeEasing: false,
+
+        // timeout in ms
+        extendedTimeOut: 1000,
+
+        // you can customize icons here
+        iconClasses: {
+            error: 'toast-error',
+            info: 'toast-info',
+            success: 'toast-success',
+            warning: 'toast-warning'
+        },
+        iconClass: 'toast-warning',
+        // toast-top-center, toast-bottom-center, toast-top-full-width
+        // toast-bottom-full-width, toast-top-left, toast-bottom-right
+        // toast-bottom-left, toast-top-right
+        positionClass: 'toast-top-right',
+
+        // set timeOut and extendedTimeOut to 0 to make it sticky
+        timeOut: 5000,
+
+        // title class
+        titleClass: 'toast-title',
+
+        // message class
+        messageClass: 'toast-message',
+
+        // allows HTML content in the toast?
+        escapeHtml: false,
+
+        // target container
+        target: 'body',
+
+        // close button
+        closeHtml: '<button type="button">&times;</button>',
+
+        // place the newest toast on the top
+        newestOnTop: true,
+
+        // revent duplicate toasts
+        preventDuplicates: false,
+
+        // shows progress bar
+        progressBar: true
+
+    }
+</script>
+<main class="main-root">
+    <div id="dsn-scrollbar1">
+        <header>
+            <img src="<%=uRoute%>/<%=data.data.img%>" class="img-fluid" style="width: 100%;">
+        </header>
+        <div class="wrapper">
+            <div class="container">
+                <div class="row">
+                   
+                       
+
+                        <div class="col-md-12 mb-2 mt-4">
+                            <h4 style="display: inline-block;"><%=data.data.title%></h4>
+                        </div>
+                        
+                        <div class="col-md-12 mb-4 mt-5">
+                            <%=data.cr%>
+                        </div>
+                       
+                         
+                        <div class="col-md-12" style="direction: rtl;">
+                            <%- data.data.description %>
+                        </div>
+                        <div class="col-md-12">
+                            <input type="hidden" id="jobId" value="<%=data.data._id%>">
+                            <div class="form-group">
+                                <label for="fullName">نام کامل</label>
+                                <input style="text-align: end;" class="form-control" id="fullName" placeholder="لطفا نام کامل خود را وارد کنید">
+                            </div>
+                            <div class="form-group">
+                                <label for="phoneNumber">شماره تماس</label>
+                                <input style="text-align: end;" class="form-control" id="phoneNumber" placeholder="لطفا شماره تماس خود را وارد کنید">
+                            </div>
+                            <div class="form-group" style="direction: rtl;">
+                                <label for="resumeFile">فایل رزومه</label>
+                                <input class="form-control" type="file" accept=".pdf" id="resumeFile" placeholder="فایل رزومه خود را اپلود کنید">
+                                <small >
+                                    فایل رزومه  با فرمت 
+                                        pdf 
+                                        ارسال شود
+                                </small>
+                            </div>
+                            <div id="submitResume" style="background: darkgreen;color:#fff;padding: 5px;cursor: pointer;;border-radius: 3px;width: fit-content;float: right;">ارسال</div>
+                        </div>
+                    </div>
+                    
+            </div>
+        </div>
+
+        <!--            <section class="contact-up next-post-up section-margin section-padding">-->
+        <!--                <div class="container">-->
+        <!--                    <div class="c-wapp">-->
+        <!--                        <a href="contact.html" class="effect-ajax">-->
+        <!--                            <span class="title hiring">-->
+        <!--                                A lovely trip to London-->
+        <!--                            </span>-->
+        <!--                            <span class="career">-->
+        <!--                                Next Post-->
+        <!--                            </span>-->
+        <!--                        </a>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </section>-->
+
+<script>
+$("#submitResume").click(()=>{
+    let formData = new FormData();
+    if (!$("#fullName").val()) {
+            warn.iconClass = "toast-warning";
+            return toastr.error('نام کامل نمیتواند خالی بماند ', 'خطا', warn)
+        }
+        formData.append("fullName", $("#fullName").val());
+        if (!$("#jobId").val()) {
+            warn.iconClass = "toast-warning";
+            return toastr.error('کد شغل نمیتواند خالی بماند ', 'خطا', warn)
+        }
+        formData.append("jobId", $("#jobId").val());
+    if (!$("#phoneNumber").val()) {
+            warn.iconClass = "toast-warning";
+            return toastr.error('شماره تماس نمیتواند خالی بماند ', 'خطا', warn)
+    }
+        formData.append("phoneNumber", $("#phoneNumber").val());
+        let img1 = document.querySelector('#resumeFile');
+        if(!img1.files[0]){
+            warn.iconClass = "toast-warning";
+            return toastr.error('فایل رزومه نمیتواند خالی بماند', 'خطا', warn)
+        }
+        formData.append("resumeFile", img1.files[0]);
+
+        axios.post('<%=uRoute%>/job/add', formData, {
+        headers: {
+        'Content-Type': 'multipart/form-data'
+     }
+        }) 
+        .then(r=>{
+            if(r.data.status==200){
+                warn.iconClass = "toast-success";
+                 toastr.error('عملیات با موفقیت انجام شد', '', warn)
+                 $("#fullName").val('')
+                 $("#phoneNumber").val('')
+                 $("#resumeFile").val('')
+            }else{
+                warn.iconClass = "toast-warning";
+                return toastr.error(r.data.data, 'خطا', warn)  
+            }
+        })
+        .catch(()=>{
+            warn.iconClass = "toast-error";
+                return toastr.error('خطا در برقراری ارتباط با سرور', 'خطا', warn)
+        })
+});
+</script>
+        <%- include('foot2.ejs'); -%>

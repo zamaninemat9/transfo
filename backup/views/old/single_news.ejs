@@ -1,0 +1,147 @@
+<%- include('header_main.ejs'); -%>
+<style>
+    .tagShow{
+        background-color: mediumpurple;
+        padding: 5px;
+        border-radius: 6px;
+        color: #fff;
+        margin: 4px;
+        margin-left: 8px;
+    }
+</style>
+<main class="main-root">
+    <div id="dsn-scrollbar1">
+        <header>
+            <div class="header-single-post">
+                <div class="post-parallax-wrapper" data-overlay="6">
+                    <img id="dsn-hero-parallax-img" class="w-100 has-top-bottom"
+                         src="<%=uRoute%>/<%= data.img1 %>" alt=""
+                         data-dsn-header="blog" data-dsn-ajax="img">
+                </div>
+                <div class="container h-100">
+                    <div class="row h-100 align-items-end">
+                        <div class="inner-box">
+                            <div class="post-info" dir="rtl">
+                                <a href="#" class="blog-post-date dsn-link"><%= data.cr %></a>
+                            </div>
+
+                            <h1 class="title">
+                                <%= data.title %>
+                            </h1>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="wrapper">
+            <div class="container">
+
+                <div class="news-content mt-section">
+                    <div class="news-content-inner">
+                        <div class="News-socials-wrapper">
+
+                        </div>
+
+                        <div class="post-content" style="text-align: right">
+                            <p class="text-justify" dir="rtl">
+                                <a href="#">
+                                    <%- data.description %>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                <section class="brand-client section-margin" id="coworker">
+                    <div class="container section-title-2">
+                        <!--<h2>گروه صنعتی<br> ایران ترانسفو</h2>-->
+                        <p> تصاویر</p>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <%if(data.img2){%>
+                            <div class="col-md-4">
+                                <img src="<%=uRoute%>/<%=data.img2%>" class="img-thumbnail">
+                            </div>
+                            <%}%>
+                            <%if(data.img3){%>
+                                <div class="col-md-4">
+                                    <img src="<%=uRoute%>/<%=data.img3%>" class="img-thumbnail">
+                                </div>
+                                <%}%>
+                                <%if(data.img4){%>
+                                    <div class="col-md-4">
+                                        <img src="<%=uRoute%>/<%=data.img4%>" class="img-thumbnail">
+                                    </div>
+                                    <%}%>
+                                    <%if(data.img5){%>
+                                        <div class="col-md-4">
+                                            <img src="<%=uRoute%>/<%=data.img5%>" class="img-thumbnail">
+                                        </div>
+                                        <%}%>
+                                        <%if(data.img6){%>
+                                            <div class="col-md-4">
+                                                <img src="<%=uRoute%>/<%=data.img6%>" class="img-thumbnail">
+                                            </div>
+                                            <%}%>
+                                            <%if(data.img7){%>
+                                                <div class="col-md-4">
+                                                    <img src="<%=uRoute%>/<%=data.img7%>" class="img-thumbnail">
+                                                </div>
+                                                <%}%>
+                                                <%if(data.img8){%>
+                                                    <div class="col-md-4">
+                                                        <img src="<%=uRoute%>/<%=data.img8%>" class="img-thumbnail">
+                                                    </div>
+                                                    <%}%>
+                                                    <%if(data.img9){%>
+                                                        <div class="col-md-4">
+                                                            <img src="<%=uRoute%>/<%=data.img9%>" class="img-thumbnail">
+                                                        </div>
+                                                        <%}%>
+                                                        <%if(data.img10){%>
+                                                            <div class="col-md-4">
+                                                                <img src="<%=uRoute%>/<%=data.img10%>" class="img-thumbnail">
+                                                            </div>
+                                                            <%}%>
+                        </div>
+                        <div class="row" style="direction: rtl;">
+                            <h5>تگ های خبر</h5>
+                            &nbsp;
+                            &nbsp;
+                            &nbsp;
+                            &nbsp;
+                            <br>
+                            <%for(let i in data.tag){%>
+                                <span class="tagShow">
+                                    #
+                                    <%=data.tag[i]%>
+                                </span>
+                            <%}%>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+
+        <!--            <section class="contact-up next-post-up section-margin section-padding">-->
+        <!--                <div class="container">-->
+        <!--                    <div class="c-wapp">-->
+        <!--                        <a href="contact.html" class="effect-ajax">-->
+        <!--                            <span class="title hiring">-->
+        <!--                                A lovely trip to London-->
+        <!--                            </span>-->
+        <!--                            <span class="career">-->
+        <!--                                Next Post-->
+        <!--                            </span>-->
+        <!--                        </a>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </section>-->
+
+
+        <%- include('foot2.ejs'); -%>

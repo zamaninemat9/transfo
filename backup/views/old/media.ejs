@@ -1,0 +1,92 @@
+<%- include('header_main.ejs'); -%>
+<style>
+    .card{
+        height: 23vw;
+    }
+    .card-img-top{
+        height: 15vw;
+    }
+</style>
+</style>
+<main class="main-root">
+    <div id="dsn-scrollbark">
+        <header>
+            <!-- <div class="header-page news-header background-section" style="background-image:url('<%=uRoute%>/asset/resan.jpg')"> 
+                <div class="contenet-hero p-relative"> -->
+                    <img src="<%=bnr%>" class="img-fluid" style="width: 100%;">
+                <!-- </div> -->
+            <!-- </div> -->
+        </header>
+        <div class="wrapper">
+            <div class="root-blog mt-section our-blog our-blog-classic">
+                <div class="container">
+                    <div class="row">
+                        <% if(data){ %>
+                        <% for(let i in data){ %>
+                                    
+                            <div class="col-md-4 col-sm-6 dsn-up blog-classic-item">
+                                <div class="card">
+                                    <a href="/s_media/<%=data[i].data._id%>">
+                                    <img class="card-img-top" src="<%=uRoute%>/<%=data[i].data.img%>" alt="">
+                                    <div class="card-body" >
+                                        <h5 class="card-title mt-1 text-right"style="padding:5px !important"><%=data[i].data.title%></h5>
+                                        <p class="card-text" style="text-align: initial;display: inline;"><%=data[i].cr%>
+                                            
+                                        </p>
+                                        <%if(data[i].video){%>
+                                       <img width="60"  src="<%=uRoute%>/tg_input/video.png">
+                                       <%}%>
+                                    </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                        <% } %>
+                            <% if (data.length>0){ %>
+                                <div class="container mt-4">
+                                    <nav aria-label="Page navigation example">
+                                        <ul class="pagination justify-content-center" style="
+    display: flex;
+">
+                                            <% if (hasPreviousPage) { %>
+                                                <li class="page-item ml-4 " >
+                                                    <a class="page-item" href="?page=1">اولین </a>
+                                                </li>
+                                                <li class="page-item ml-4">
+                                                    <a class="page-item  "
+                                                       href="?page=<%= previousPage %>"><%= previousPage %></a>
+                                                </li>
+                                            <% } %>
+                                            <li class="page-item active ml-4">
+                                                <a class="page-item "
+                                                   href="?page=<%= currentPage %>"><%= currentPage %></a>
+                                            </li>
+                                            <% if (hasNextPage) { %>
+                                                <li class=" ml-4 " >
+                                                    <a class=" page-item"
+                                                       href="?page=<%= nextPage %>"><%= nextPage %></a>
+                                                </li>
+                                                <li class="page-item ml-4 ">
+                                                    <a class=" btn-link" href="?page=<%= lastPage %>">آخرین</a>
+                                                </li>
+                                            <% } %>
+                                        </ul>
+                                    </nav>
+                                </div>
+                    </div>
+                    <% } else { %>
+                        <div class="text-center">
+                            <h5>داده ای وجود ندارد</h5>
+
+                        </div>
+                    <% } %>
+                        <% } %>
+                            <br>
+                            <br>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <%- include('foot1.ejs'); -%>

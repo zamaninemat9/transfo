@@ -1,0 +1,59 @@
+<%- include('../header3')-%>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>ویرایش خدمات پس از فروش</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <%if(s){%>
+                    <div class="alert alert-success">
+                        با موفقیت ویرایش شد
+                    </div>
+                    <%}%>
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <!--                            <h3 class="card-title">مثال ساده</h3>-->
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form role="form" method="post"  action="/admin/after_sell/edit_<%=d._id%>">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="text">متن خدمات پس از فروش</label>
+                                    <input type="text" value="<%=d.text%>" class="form-control" id="text" name="text" placeholder="متن  را وارد کنید">
+                                </div>
+
+                            </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">ارسال</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.card -->
+
+                    <!-- Form Element sizes -->
+
+                </div>
+                <!--/.col (left) -->
+                <!-- right column -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<%- include('../footer3')-%>

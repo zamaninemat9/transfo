@@ -1,0 +1,101 @@
+<%- include('../header3')-%>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>ویرایش </h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <%if(s){%>
+                    <div class="alert alert-success">
+                        با موفقیت ویرایش شد
+                    </div>
+                    <%}%>
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <!--                            <h3 class="card-title">مثال ساده</h3>-->
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <!-- <form role="form" method="post"  action="/admin/about/edit_<%=d._id%>"> -->
+                            <div class="form-group">
+                                <label for="description">توضیحات</label>
+                                <div name="description" id="description"></div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">ارسال</button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+</div>
+<script>
+       var fullEditor = new Quill('#description', {
+         bounds: '#description',
+         modules: {
+           'syntax': true,
+           'toolbar': [
+             [ 'bold', 'italic', 'underline', 'strike' ],
+             [{ 'color': [] }, { 'background': [] }],
+             [{ 'script': 'super' }, { 'script': 'sub' }],
+             [{ 'header': '1' }, { 'header': '2' }, 'blockquote', 'code-block' ],
+             [{ 'list': 'ordered' }, { 'list': 'bullet'}, { 'indent': '-1' }, { 'indent': '+1' }],
+             [ {'direction': 'rtl'}, { 'align': [] }],
+             [ 'link', 'image', 'formula' ],
+             //[ 'link', 'image', 'video', 'formula' ],
+             [ 'clean' ]
+           ],
+         },
+         theme: 'snow'
+       });
+       const deltas = fullEditor.clipboard.convert(`<%-d.description%>`)
+       fullEditor.setContents(deltas, 'silent')
+       
+       $("#submit").click(()=>{
+        //description
+        let description=fullEditor.root.innerHTML;
+        if(description=='<p><br></p>'||!description){
+            warn.iconClass = "toast-warning";
+            return toastr.error('توضیحات نمیتواند خالی بماند', 'خطا', warn)
+        }
+        formData.append("description", description);
+     axios.post('<%=uRoute%>/admin/about/edit_<%=d._id%>', {
+         description
+     }) 
+        .then(r=>{
+            if(r.data.status==200){
+                warn.iconClass = "toast-success";
+                 toastr.error('عملیات با موفقیت انجام شد', '', warn)
+                 setTimeout(()=>{
+                    window.location.href='<%=uRoute%>/admin/about'
+                 },2000)
+                 
+            }else if(r.data.status==403){
+                window.location.href='<%=uRoute%>/admin/login'
+            }else{
+                warn.iconClass = "toast-warning";
+                return toastr.error(r.data.data, 'خطا', warn)  
+            }
+        })
+        .catch(()=>{
+            warn.iconClass = "toast-error";
+                return toastr.error('خطا در برقراری ارتباط با سرور', 'خطا', warn)
+        })
+});
+
+</script>
+<%- include('../footer3')-%>

@@ -1,0 +1,116 @@
+<%- include('header_main.ejs'); -%>
+    <style>
+         @media only screen and (max-width: 767px) {
+        #title_mahsol{
+            font-size: 27px !important;
+        }
+        #dsn-hero-description{
+            background: rgba(0, 0, 0,0.4);
+            padding: 3px;
+            border-radius: 3px;
+        }
+      }
+    </style>
+    <main class="main-root">
+        <div id="dsn-scrollb1ar">
+            <header  class="dsn-end-animate" data-dsn-header="project">
+                <div class="header-project p-relative h-100-v over-hidden" data-dsn-header="parallax">
+                    <div id="dsn-hero-parallax-img" data-dsn-ajax="img" class="p-absolute w-100 h-100 over-hidden"
+                         data-overlay="7">
+                        <!--<img class="cover-bg-img mahsol-img" src="assets/img/btrans/products/ghodrat1.jpg" alt=""-->
+                        <img class="cover-bg-img mahsol-img" src="<%=uRoute%>/<%=data.img1%>" alt=""
+                             data-dsn-position="34%">
+                    </div>
+                    <div class="margin-lr-100 h-100">
+                        <div class="row align-items-center h-100">
+                            <div class="content p-relative w-100">
+                                <div class="intro-project">
+                                    <div id="dsn-hero-title" class="intro-title">
+                                        <div class="metas d-inline-block">
+                                            <%if(data.parent==1){%>
+                                                <span>ترانسفورماتور های قدرت و فوق قدرت</span>
+                                            <%}else if(data.parent==2){%>
+                                                    <span>ترانسفورماتور های توزیع و فوق توزیع</span>
+                                            <%}else if(data.parent==3){%>
+                                                    <span>ترانسفورماتور های خشک رزینی</span>
+                                            <%}else if(data.parent==4){%>
+											 <span>ترانسفورماتورهای ویژه</span>
+											<%}else if(data.parent==5){%>
+											<span>تجهیزات و مواد</span>
+											<%}%>
+                                        </div>
+                                        <h3 style="font-size:44px" id="title_mahsol" class="title" data-dsn-ajax="title"><%=data.title%></h3>
+                                    </div>
+                                    <h4 id="dsn-hero-description"style="font-size:19px !important"  class="description text-justify" dir="rtl">
+                                      <%-data.description1%>
+                                    </h4>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://www.behance.net/gallery/85093605/Product-Photography-NATIVE-UNION-Rose-Collection?tracking_source=project_owner_other_projects"
+                       target="_blank" class="link-vist p-absolute">
+
+
+                    </a>
+
+                    <div class="scroll-d p-absolute">
+                        <img src="assets/img/scroll_down.svg" alt="">
+                    </div>
+                </div>
+            </header>
+
+
+            <div class="wrapper">
+                <div class="box-seat box-seat-bottom box-seat-qute section-margin">
+                    <div class="container-fluid no-padding">
+                        <div class="container pro-text dsn-animate" data-dsn-animate="section">
+                            <div class="title-cover theme-color" data-dsn-grid="move-section" data-dsn-opacity="0.02"
+                                 data-dsn-duration="170%" data-dsn-move="0%">
+
+                            </div>
+                            <h3 class="dsn-up">مشخصات  <br>
+                            <%=data.title%>
+                            </h3>
+                            <p class="dsn-up" style="text-align: center !important;">
+                                <%-data.description2%>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-project slider-project-min-height slider-project-3 mb-30  section-margin dsn-arrow">
+                    <div class="container no-padding">
+                        <div class="proj-slider-image">
+                            <div class="item-project">
+                                <img src="<%=uRoute%>/<%=data.img2%>" alt="">
+                            </div>
+
+                            <div class="item-project">
+                                <img src="<%=uRoute%>/<%=data.img3%>" alt="">
+                            </div>
+
+                            <div class="item-project">
+                                <img src="<%=uRoute%>/<%=data.img4%>" alt="">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="contact-up section-margin p-relative">
+                    <div class="container">
+                        <div class="">
+                            <div class="c-wapp p-relative section-padding text-center">
+                                <div class="section-bg p-absolute w-100 h-100"></div>
+                                <a href="https://<%=data.link%>" class="effect-ajax">
+                                    <span class="title hiring">تماس با واحد فروش</span>
+                      
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+<%- include('foot2.ejs'); -%>

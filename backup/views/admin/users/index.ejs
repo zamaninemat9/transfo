@@ -1,0 +1,109 @@
+<%- include('../header3') -%>
+<style>
+    td, th {
+        text-align: center;
+    }
+</style>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>کاربران</h1>
+                </div>
+
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <a href="/admin/users/add" class="btn btn-primary">افزودن کاربر</a>
+                        </h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>ردیف</th>
+                                <th>نام کاربری</th>
+                                <th>دسترسی ها </th>
+                                <th>عملیات</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <% if(data){ %>
+                                <% let num=1%>
+                                <% for (let i in data){ %>
+                            <tr id="tr_<%= data[i].data._id %>">
+                                <td><%=num %></td>
+                                <td><%= data[i].data.username %></td>
+                                <td><%= data[i].perm %></td>
+                                <td>
+                                    <%if(data[i].data.perm[0]!=="1"){%>
+                                    <a href="#" onclick="delete_id('<%= data[i].data._id %>')">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                    <a href="/admin/users/edit_<%= data[i].data._id %>">
+                                            <i class="fa fa-pencil"></i>
+                                        </a>
+                                        <a href="/admin/users/change_pass_<%= data[i].data._id %>">
+                                            تغییر رمز
+                                        </a>
+                                    <%}else{%>
+                                            <a href="/admin/users/change_pass_<%= data[i].data._id %>">
+                                                تغییر رمز
+                                            </a>
+                                    <%}%>
+                                </td>
+                            </tr>
+                                    <%num++%>
+                            <% } %>
+                            <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script>
+<%- include('../footer3') -%>
+<script>
+    $(function () {
+        $("#example1").DataTable({
+            "language": {
+                "paginate": {
+                    "next": "بعدی",
+                    "previous": "قبلی"
+                },
+                search: "جستجو : ",
+            },
+            "info": false,
+        });
+
+    });
+</script>
+<script>
+    function delete_id(id) {
+        axios.delete('/admin/users/remove/' + id)
+            .then(r => {
+                if(r.data.issuccessful){
+                    $("#tr_"+id).remove();
+                }
+            });
+    }
+</script>

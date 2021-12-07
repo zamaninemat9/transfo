@@ -1,0 +1,881 @@
+<%- include('hdr_main.ejs'); -%>
+<style>
+      @media only screen and (max-width: 1024px) {
+        .news_images_slider{
+            height: 439px !important;
+        }
+      }
+      
+    @media only screen and (max-width: 600px) {
+        .scol {
+            transform: rotate(180deg);
+            display: none;
+        }
+        .main-slider .description{
+            padding: 5px !important;
+            font-size: 4px !important;
+            font-weight: 200 !important;
+
+        }
+        .slider-box{
+            font-size: 9px !important;
+            font-weight: bold !important;
+            padding-left: 16px !important;
+            padding-right: 5px !important;
+            margin-top: -30% !important;
+            line-height: 15px !important;
+        }
+        #slider_head{
+            display: none;
+        }
+        #blueDescriptionParent{
+                height: 30% !important;
+        }
+       
+
+    }
+
+    #blueDescriptionParent{
+                height: 21%;
+        }
+        .slider-box{
+            margin-top: -18%;
+            font-size: 1.1rem;
+        }
+   .swiper-slide img {
+       display: block;
+       width: 100%;
+       height: 100%;
+       
+   }
+   #slider_head{
+         padding: 63px !important;
+         font-family: lalezar !important;   
+        }
+        #slider_head h1{
+            color:rgb(25, 162, 230);
+            text-shadow: 0 0 4px #000;
+            font-family: lalezar !important;
+            }
+</style>
+<link rel="stylesheet" href="/dist/swiper-bundle.min.css">
+<!-- <link rel="stylesheet" href="/dist/responsive.css"> -->
+<main class="main-root">
+    <div id="dsn-scrollbarss">
+        <div class="main-slider demo-2 p-relative w-100 h-100-v over-hidden " id="myswp" data-dsn-header="parallax">
+            <div class="bg-container" id="dsn-hero-parallax-img">
+                <div class="slide-inner h-100">
+                    <div class="swiper-wrapper">
+                      
+                            <% if(slider){ %>
+                                <% for(let i in slider){ %>
+                                    <% if(!slider[i].is_video){ %>
+                                         <!--img-->
+                                    <div class="swiper-slide">
+                                        <img class="image-bg" src="<%= uRoute %>/<%= slider[i].img %>" >
+                                        <div class="slide-content p-absolute h-100 w-100 ">
+                                            <div class="row align-items-center h-100">
+                                                <div id="slider_head" class="content p-relative w-100">
+
+                                                    <h1 class="title user-no-selection" id="bgTlt">
+                                                        ایران ترانسفو
+                                                    </h1>
+                                                    <div class="sub-text-header d-inline-block user-no-selection">
+                                                        <h5 class="subtitle-1" id="smTlt">به اصالت ایران </h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            
+                                        </div>
+                                    </div>
+                                        <%}%>
+                                        <%}%>
+                                        
+                                        <%}%>
+                            
+                       
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="box-next p-absolute nav-slider overflow-hidden header-no-scale-hero">
+                <div class="swiper-wrapper" role="navigation"></div>
+            </div>
+
+            <div class="social-network-box text-center w-100-v">
+                <div class="social-network">
+                    <ul>
+                        <% if(social.linkdin && social.linkdin.status == true){ %>
+                            <li><a href="https://<%= social.linkdin.socialLink %>"><img src="./assets/img/linkdin.png"
+                                                                                        class="scol"
+                                                                                        style="width: 30px;margin-bottom: 7px;"></a>
+                            </li>
+                        <% } %>
+                        <% if(social.aparat && social.aparat.status == true){ %>
+                            <li><a href="https://<%= social.aparat.socialLink %>"><img src="./assets/img/aparatt.png"
+                                                                                       class="scol"
+                                                                                       style="width: 30px;margin-bottom: 7px;"
+                                                                                       width="50"></a></li>
+                        <% } %>
+                        <% if(social.telegram && social.telegram.status == true){ %>
+                            <li><a href="https://<%= social.telegram.socialLink %>"><img src="./assets/img/telegram.png"
+                                                                                         class="scol"
+                                                                                         style="width: 30px;margin-bottom: 7px;"
+                                                                                         width="50"></a></li>
+                        <% } %>
+                        <% if(social.instagram && social.instagram.status == true){ %>
+                            <li><a href="https://<%= social.instagram.socialLink %>"><img src="./assets/img/ins.png"
+                                                                                          class="scol"
+                                                                                          style="width: 30px;margin-bottom: 7px;"
+                                                                                          width="50"></a></li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="dsn-slider-content p-absolute h-100 w-100">
+                <div class="content-slider margin-lr-100 p-relative w-100 h-100"></div>
+            </div>
+
+            
+        </div>
+        <div class="wrapper">
+            <section class="intro-about  section-margin have-dsn-animate-number" data-dsn-animate="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="intro-about-info">
+                                <div class="section-title-2">
+                                    <h2 style="font-family: lalezar !important;">گروه صنعتی ایران ترانسفو</h2>
+                                    <p>در یک نگاه</p>
+                                </div>
+                                <div class="intro-about-info-bottom" dir="rtl">
+                                    <div class="accordion mt-30">
+                                        <div class="accordion__wrapper">
+                                            <div class="accordion__item dsn-up">
+                                                <div
+                                                        class="accordion__question expanded d-flex align-items-center p-relative">
+                                                        <span class="icon">
+                                                            <img src="assets/img/vision.svg" alt="">
+                                                        </span>
+                                                    <h4 class="sm-title-block">تاسیس</h4>
+                                                </div>
+                                                <div class="accordion__answer active">
+                                                    <p class="text-justify"> پيرو موافقتنامه امضا شده در سال 1340 توسط
+                                                        شرکت برق منطقه اي تهران و شرکت زيمنس، در سال 1345 شرکت ايران
+                                                        ترانسفو (سهامي خاص) با سرمايه  239,852,1 ریال با مشارکت شرکت
+                                                        سهامي برق منطقه اي تهران 45%، شرکت زيمنس آلمان 45% و بانک توسعه
+                                                        صنعت و معدن ايران 10% تاسیس شد و مقدمات ساخت کارخانه در زميني به
+                                                        مساحت 54.000 متر مربع واقع در شهر ري ابتداي جاده قم فراهم
+                                                        گرديد.به منظور هماهنگ نمودن ظرفيت توليد ترانسفورماتور با نياز
+                                                        کشور و با توجه به افزايش روز افزون مصرف برق و برنامه هاي دولت،
+                                                        شرکت ايران ترانسفو در سال 1354 در زميني به مساحت 1,000,000 (يک
+                                                        ميليون) متر مربع و در 5 کيلومتري شرق شهرستان زنجان قرار داشته و
+                                                        طرح توسعه در زنجان که شامل دو کارخانه بود آغاز گرديد:
+                                                        - کارخانه ترانسفورماتورهاي توزيع با ظرفيت توليدي ساليانه 3500
+                                                        مگا ولت آمپر و محصولات توليدي آن مشابه با محصولات کارخانه ري.
+                                                        - کارخانه ترانسفورماتورهاي قدرت با ظرفيت توليدي ساليانه 10,000
+                                                        مگا ولت آمپر شامل ترانسفورماتورهاي قدرت و فوق توزیع از 2 تا 315
+                                                        مگا ولت آمپر (315000-2000 کيلو ولت آمپر) و در ولتاژهاي 63، 132،
+                                                        230 و 400 کيلو ولت.
+                                                        .</p>
+                                                </div>
+                                            </div>
+                                            <div class="accordion__item dsn-up">
+                                                <div
+                                                        class="accordion__question d-flex align-items-center p-relative">
+                                                        <span class="icon">
+                                                            <img src="assets/img/target.svg" alt="">
+                                                        </span>
+                                                    <h4 class="sm-title-block">محصولات</h4>
+                                                </div>
+                                                <div class="accordion__answer">
+                                                    <p class="text-justify">
+                                                        شرکت ایران ترانسفو تولید کننده فعال انواع متنوع ترانسفورماتور با
+   
+
+ توان 500 MVA، ردیف ولتاژ 420KV، پست‌ ‌های فشار قوی و متوسط، پست
+                                                        های کوچک، مواد عایقی سلولزی، بوشینگ های سرامیکی و تجهیزاتی از
+                                                        قبیل رادیاتورها، کلید های تنظیم ولتاژ Off load،محفظه رطوبت‌گیر،
+                                                        سیم های مسی با روکش عایق کاغذی، سیم های CTC، روغن ترانسفورماتور
+                                                        و حلال های صنعتی به شمار می‌رود.
+                                                        در حال حاضر شرکت ایران ترانسفو دارای 15 شرکت اقماری مستقل بوده
+                                                        وبه عنوان بزرگترین شرکت سازنده ترانسفورماتور های قدرت ، فوق
+                                                        توزیع و توزیع در خاورمیانه و تامین کننده 85 درصد از نیاز صنعت
+  
+                                                      برق کشور می باشد.
+                                                        شرکت ایران ترانسفو به عنوان یک شرکت مادر با بیش از 5000نفر نیروی
+                                                        کار مستقیم و غیر مستقیم نه تنها در مقابل معضلاتی چون رکود و
+                                                        تحریم مقاومت نموده است ، بلکه موفقیت های چشمگیری را در حوزه های
+                                                        مختلف تولید، تامین، ساخت داخل، اشتغال و توسعه همه جانبه کسب
+                                                        نموده است
+                                                        تا کنون محصولات این شرکت به بیش از 37 کشور جهان از جمله
+                                                        ترکمنستان، لبنان، سوریه ، عراق، افغانستان، نیجریه ، یمن ،
+                                                        پاکستان ، بنگلادش ، سودان ، لبنان ، سوریه ، نخجوان، آذربایجان،
+                                                        آفریقای جنوبی، لیبی ، اردن ، عمان ، قبرس و.. صادر شده است .
+
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="accordion__item dsn-up">
+                                                <div
+                                                        class="accordion__question d-flex align-items-center p-relative">
+                                                        <span class="icon">
+                                                            <img src="assets/img/mission.svg" alt="">
+                                                        </span>
+                                                    <h4 class="sm-title-block">دستاورد</h4>
+                                                </div>
+                                                <div class="accordion__answer">
+                                                    <p class="text-justify">
+                                                    <ul style="    line-height: 28px;">
+                                                        <li><i class="icofont-paper"></i> محاسبه، طراحی وساخت عظیم
+                                                            ترین ترانسفورماتور قدرت با توان 315مگاولت آمپر در کشور
+                                                        </li>
+                                                        <li>
+                                                            محاسبه، طراحی وساخت نخستین ترانسفورماتور 400MVAدر کشور
+                                                        </li>
+                                                        <li><i class="icofont-paper"></i>
+                                                            محاسبه، طراحی وساخت بزرگترین اتوترانسفورماتور ساخته شده در
+                                                            کشور
+                                                        </li>
+                                                        <li><i class="icofont-paper"></i>
+                                                            محاسبه، طراحی وساخت ترانسفورماتور کوره LF
+                                                        </li>
+                                                        <li><i class="icofont-paper"></i>خودکفایی در طراحی ، ساخت و
+                                                            تولید ترانسفورماتور ((کوره شار متغیر)) برای اولین بار در
+                                                            کشور
+                                                        </li>
+                                                        <li><i class="icofont-paper"></i>تولید روغن ترانسفورماتور
+                                                            برای اولین بار در کشور
+                                                        </li>
+                                                        <li><i class="icofont-paper"></i>ساخت اولین اتو
+                                                            ترانسفورماتور تک فاز قطار برقی ساخت کشور
+                                                        </li>
+                                                        <li><i class="icofont-paper"></i>محاسبه ، طراحی و ساخت
+                                                            ترانسفورماتور هوشمند با آلارم سرقت
+
+                                                        </li>
+                                                        <li><i class="icofont-paper"></i>
+                                                            محاسبه طراحی و ساخت ترانسفورماتورهای توزیع کم صدا برای اولین
+                                                            بار در کشور
+                                                        </li>
+                                                        <li><i class="icofont-paper"></i>
+                                                            اجرای طرح توسعه آزمایشگاه قدرت و نصب موتور – ژنراتور با توان
+                                                            بالا برای امکان انجام تایپ تست ترانسفورماتورهای تا توان 800
+                                                            MVA و ولتاژ 400 KV برای اولین بار در کشور
+                                                        </li>
+                                                        <li><i class="icofont-paper"></i>اخذ گواهینامه تایید صلاحیت
+                                                            آزمایشگاههای فشار قوی و مواد از مرکز تایید صلاحیت ایران بر
+                                                            اساس الزامات ISO/IEC 17025
+                                                        </li>
+                                                    </ul>
+
+
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="box-img p-relative  over-hidden">
+                                <div class="bg-section p-absolute w-100 h-100">
+                                    <div class="h-100" data-dsn-grid="move-up">
+                                        <img class="img-fluid cover-bg-img has-top-bottom"
+                                             src="assets/img/btrans/30.png"
+                                             alt="">
+                                    </div>
+                                </div>
+                                <img src="assets/img/about-intro.jpg" class="img-fluid" alt="">
+
+                                <div class="exper background-theme p-absolute">
+                                    <div class="numb-ex">
+                                        <span class="word-text  count">55</span>
+                                    </div>
+
+                                    <h4 class="sm-title-block dsn-up"> سال <br> تجربه</h4>
+                                    <div class="shap-section">
+                                        <img src="assets/img/arr.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section__slider" dir="ltr">
+                <div class="container section-title-2">
+                    <h2> اخبار </h2>
+                    <p style="color:#000 !important">آخرین اخبار</p>
+                </div>
+                <div class="container__center">
+                    <div class="swiper-container_1">
+                        <div class="swiper-wrapper">
+                            <% if(news){ %>
+                                <% let num = 1 %>
+                                <% for(let i in news){ %>
+                                    <div class="swiper-slide">
+                                        <div class="swiper-slide__block">
+                                            <div class="swiper-slide__block__img" data-swiper-parallax-y="70%">
+                                                <a target="_blank" href="http://<%= news[i].data.link %>">
+                                                    <img class="img-fluid news_images_slider" src="<%= uRoute %>/<%= news[i].data.img %>">
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide__block__text">
+                                                <h2 data-swiper-parallax-x="-60%" class="main__title">Slider
+                                                    <br>One
+                                                    <span>.</span>
+                                                </h2>
+                                                <h3 data-swiper-parallax-x="-50%" class="main__subtitle">
+                                                    <%= news[i].date %>
+                                                </h3>
+                                                <p data-swiper-parallax-x="-40%" class="paragraphe">
+                                                    <%= news[i].data.title %>
+                                                </p>
+                                                <a data-swiper-parallax-x="-30%" class="link" target="_blank" href="#"
+                                                   style="color:#000 !important">بیشتر</a>
+                                                <span data-swiper-parallax-y="60%" class="number"><%= num %></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% num++ %>
+                                <% } %>
+                            <% } %>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="box-gallery-vertical box-gallery-content  section-margin" data-dsn-animate="section"
+                 data-dsn-duration="100%" data-dsn="color">
+                <div class="mask-bg"></div>
+                <div class="container">
+                    <div class="row align-items-center h-100 dsn-z-index-2">
+                        <div class="col-lg-6  dsn-z-index-2">
+                            <div class="box-im map-img">
+                                <a href="http://itc-co.com/portal/fa/fa-ir/%D9%86%D9%85%D8%A7%DB%8C%D9%86%D8%AF%DA%AF%DB%8C%E2%80%8C_%D9%87%D8%A7">
+                                    <img class="has-top-bottom" src="assets/img/btrans/all.png" alt=""
+                                         data-dsn-move="20%">
+
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+
+                            <div class="box-info">
+                                <div class="title-cover" data-dsn-grid="move-section" data-dsn-opacity="0.2"
+                                     data-dsn-duration="170%" data-dsn-move="0%">
+                                    <img src="assets/img/btrans/cover.png">
+                                </div>
+                                <div class="vertical-title ">
+                                    <h2 class="lalezar" style="">نمایندگی</h2>
+                                </div>
+                                <div class="bg-mask-content dsn-up">
+                                    <div class="mask-bg-2 background-section"></div>
+                                    <h6 class="dsn-up text-right" dir="rtl">این شرکت ارائه دهنده خدمات مهندسی مورد نیاز
+                                        در صنعت برق به ویژه در حوزه ترانسفورماتور داخل و خارج از کشور می باشد.</h6>
+                                    <p class="dsn-up text-right" dir="rtl">این شرکت به منظور پاسخگویی به نیازهای مشتریان
+                                        و همچنین بازاریابی و فروش محصولات حوزه کاری خود، اقدام به ایجاد شبکه نمایندگی در
+                                        داخل و نیز اعطای نمایندگی و ایجاد دفتر فروش در برخی از کشورهای هدف نموده
+                                        است. </p>
+
+                                </div>
+
+                                <div class="d-inline-block dsn-up">
+
+                                    <a href="http://www.itc-co.com/portal/fa/fa-ir/login"
+                                       class="link-custom d-flex a-item-center p-relative">
+                                        <span class="link-text"> فروش اینترنتی</span>
+                                        <span class="link-circle p-absolute">
+                                                <i class="icofont-arrow-right"></i>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <section class="service service-3 section-margin">
+                <div class="container section-title" style="text-align: end">
+
+                    <h2 style="    font-family: lalezar !important;
+    color: rgb(25, 162, 230) !important
+">
+                        امور مشتریان متمرکز
+                        ایران ترانسفو
+                    </h2>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4 service-content">
+                            <div class="services-item p-relative text-center background-section no-shadow">
+                                <div class="bg-section background-section p-absolute w-100 h-100 over-hidden"></div>
+                                <div class="box-content p-relative d-flex align-items-center h-100">
+                                    <div class="content-inner">
+                                        <div class="icon">
+                                            <img src="assets/img/services/phone-call.png" alt="">
+                                        </div>
+
+                                        <div class="content">
+                                            <h4 class="title-block "> شماره تلفن</h4>
+                                            <p class="p-absolute">
+										
+											021
+											-
+											42878
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 service-content">
+                            <div class="services-item p-relative text-center background-section no-shadow">
+                                <div class="bg-section background-section p-absolute w-100 h-100 over-hidden"></div>
+
+                                <div class="box-content p-relative d-flex align-items-center h-100">
+                                    <div class="content-inner">
+                                        <div class="icon">
+                                            <img src="assets/img/services/layout.svg" alt="">
+                                        </div>
+
+                                        <div class="content text-center">
+                                            <h4 class="title-block ">
+											ثبت درخواست در وب سایت 
+											</h4>
+                                            <p class="p-absolute">
+                                                <a href="/crm">www.iran-transfo.com</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 service-content">
+                            <div class="services-item p-relative text-center background-section no-shadow">
+                                <div class="bg-section background-section p-absolute w-100 h-100 over-hidden"></div>
+
+                                <div class="box-content p-relative d-flex align-items-center h-100">
+                                    <div class="content-inner">
+                                        <div class="icon">
+                                            <img src="assets/img/services/envelope.png" alt="">
+                                        </div>
+
+                                        <div class="content">
+                                            <h4 class="title-block ">پست الکترونیکی</h4>
+                                            <p class="p-absolute">itm@iran-transfo.com
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-6 service-content">
+                            <div class="services-item p-relative text-center background-section no-shadow">
+                                <div class="bg-section background-section p-absolute w-100 h-100 over-hidden"></div>
+                                <div class="box-content p-relative d-flex align-items-center h-100">
+                                    <div class="content-inner">
+                                        <div class="icon">
+                                            <img src="assets/img/services/printer.png" alt="">
+                                        </div>
+
+                                        <div class="content">
+                                            <h4 class="title-block ">نمابر</h4>
+                                            <p class="p-absolute">021-88729847
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-6 service-content">
+                            <div class="services-item p-relative text-center background-section no-shadow">
+                                <div class="bg-section background-section p-absolute w-100 h-100 over-hidden"></div>
+
+                                <div class="box-content p-relative d-flex align-items-center h-100">
+                                    <div class="content-inner">
+                                        <div class="icon">
+                                            <img src="assets/img/services/placeholder.png" alt="">
+                                        </div>
+
+                                        <div class="content">
+                                            <h4 class="title-block ">مراجعه حضوری</h4>
+                                            <p class="p-absolute"> تهران: خیابان سید جمال الدین اسد آبادی، خیابان سوم
+                                                (شهید امیر جهانبخش)، پلاک23، شرکت بازرگانی ایران ترانسفو
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="section__slider">
+                <div class="container section-title-2">
+                    <h2> محصولات </h2>
+                    <p style="color:#000 !important">گالری محصولات</p>
+                </div>
+                <div class="container__center">
+                    <div class="swiper-container_1">
+                        <div class="swiper-wrapper">
+                            <% if(product_slider){ %>
+                                <% let num = 1 %>
+                                <% for(let i in product_slider){ %>
+                                    <div class="swiper-slide">
+                                        <div class="swiper-slide__block">
+                                            <div class="swiper-slide__block__img" data-swiper-parallax-y="70%">
+                                                <a target="_blank" href="http://<%= product_slider[i].link %>">
+                                                    <img class="img-fluid news_images_slider"
+                                                         src="<%= uRoute %>/<%= product_slider[i].img %>">
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide__block__text">
+                                                <h2 data-swiper-parallax-x="-60%" class="main__title">Slider
+                                                    <br>One
+                                                    <span>.</span>
+                                                </h2>
+
+                                                <p data-swiper-parallax-x="-40%" class="paragraphe">
+                                                    <%= product_slider[i].title %>
+                                                </p>
+                                                <a data-swiper-parallax-x="-30%" class="link" target="_blank" href="#"
+                                                   style="color:#000 !important"></a>
+                                                <span data-swiper-parallax-y="60%" class="number"><%= num %></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% num++ %>
+                                <% } %>
+                            <% } %>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </section>
+            <section class="testimonials-2 testimonials-3 testimonials-new section-margin">
+
+                <div class="container h-100 testimonials-inner background-section p-relative">
+                    <div class="section-title-2" data-dsn-grid="move-section" data-dsn-move="-60"
+                         data-dsn-duration="100%" data-dsn-opacity="1" data-dsn-responsive="tablet">
+
+                        <h2 class="lalezar">خدمات پس از فروش <br>ایران ترانسفو</h2>
+                    </div>
+                    <div class="row align-items-center h-100">
+                        <div class="col-lg-3 col-md-4 p-0">
+                            <div class="nav-container">
+                                <div class="testimonials-nav">
+                                    <% if(after_sell){ %>
+                                        <% for(let i = 1;i <= after_sell.length;i++){ %>
+                                            <div class="testimonials-nav-item">
+                                                <div class="testimonials-nav-item-inner">
+                                                    <img src="assets/img/btrans/setting.png" alt="">
+
+                                                    <div class="info">
+                                                        <h5><%= i %></h5>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        <% } %>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-9 col-md-8">
+                            <div class="testimonials-main-content dsn-is-not-fade">
+                                <% if(after_sell){ %>
+                                    <% for(let i in after_sell){ %>
+                                        <div class="testimonials-item">
+                                            <div class="top-box">
+                                                <h5 class="sm-title-block"><%= after_sell[i].text %></h5>
+                                            </div>
+                                        </div>
+                                    <% } %>
+                                <% } %>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="brand-client section-margin" id="coworker">
+                <div class="container section-title-2">
+                    <h2>گروه صنعتی<br> ایران ترانسفو</h2>
+                    <p>شرکت های تابعه</p>
+                </div>
+                <div class="container">
+                    <div class="wapper-client">
+                        <div class="container">
+                            <div class="wapper-client">
+                                <% if(tbe){ %>
+                                <% for(let i in tbe){ %>
+                                        <div class="logo-box">
+                                            <div class="after-bg p-absolute w-100 h-100 cover-bg"
+                                                 data-image-src="<%=uRoute%>/<%=tbe[i].img1%>" style='background-image: url("<%=uRoute%>/<%=tbe[i].img1%>");background-origin:content-box ;'></div>
+                                            <!--                            <img src="assets/img/btrans/tabe/s1.jpg" alt=""> -->
+                                            <h4 class="text-white"><%=tbe[i].title%></h4>
+
+                                            <div class="info">
+                                                <div class="content">
+                                                    <div class="entry">
+                                                        <div>
+                                                            <h5><%=tbe[i].title%></h5>
+                                                            <a href="/tabe_single/<%=tbe[i]._id%>"><%=tbe[i].site%></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                <% } %>
+                                <% } %>
+
+
+                                <!--<div class="logo-box">-->
+                                        <!--<div class="after-bg p-absolute w-100 h-100 cover-bg"-->
+                                             <!--data-image-src="assets/img/btrans/tabe/s1.jpg"></div>-->
+                                        <!--&lt;!&ndash;                            <img src="assets/img/btrans/tabe/s1.jpg" alt="">&ndash;&gt;-->
+                                        <!--<h4 class="text-white"> شرکت بازرگانی ایران ترانسفو</h4>-->
+
+                                        <!--<div class="info">-->
+                                            <!--<div class="content">-->
+                                                <!--<div class="entry">-->
+                                                    <!--<div>-->
+                                                        <!--<h5>شرکت بازرگانی ایران ترانسفو</h5>-->
+                                                        <!--<a href="www.itsd-co.com">www.itsd-co.com</a>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--<div class="logo-box">-->
+                                    <!--<div class="after-bg p-absolute w-100 h-100 cover-bg"-->
+                                         <!--data-image-src="assets/img/btrans/tabe/s5.jpg"></div>-->
+                                    <!--<h4 class="text-white">توسعه پست های ایران ترانسفو</h4>-->
+                                    <!--<div class="info">-->
+                                        <!--<div class="content">-->
+                                            <!--<div class="entry">-->
+                                                <!--<div>-->
+                                                    <!--<h5>توسعه پست های ایران ترانسفو</h5>-->
+                                                    <!--<a href="http://itsd-co.com">http://itsd-co.com</a>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="logo-box">-->
+                                    <!--<div class="after-bg p-absolute w-100 h-100 cover-bg"-->
+                                         <!--data-image-src="assets/img/btrans/tabe/s2.jpg"></div>-->
+                                    <!--<h4 class="text-white">ترانسفورماتور سازی كوشكن</h4>-->
+
+                                    <!--<div class="info">-->
+                                        <!--<div class="content">-->
+
+                                            <!--<div class="entry">-->
+                                                <!--<div>-->
+                                                    <!--<h5>ترانسفورماتور سازی كوشكن</h5>-->
+                                                    <!--<a href="http://kooshkan.ir">http://kooshkan.ir</a>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="logo-box">-->
+                                    <!--<div class="after-bg p-absolute w-100 h-100 cover-bg"-->
+                                         <!--data-image-src="assets/img/btrans/tabe/S3.jpg"></div>-->
+                                    <!--<h4 class="text-white">ترانسفورماتور توزیع زنگان</h4>-->
+                                    <!--<div class="info">-->
+                                        <!--<div class="content">-->
+                                            <!--<div class="entry">-->
+                                                <!--<div>-->
+                                                    <!--<h5>ترانسفورماتور توزیع زنگان</h5>-->
+                                                    <!--<a href="http://ttzco.com">http://ttzco.com</a>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="logo-box">-->
+                                    <!--<div class="after-bg p-absolute w-100 h-100 cover-bg"-->
+                                         <!--data-image-src="assets/img/btrans/tabe/s4.jpg"></div>-->
+                                    <!--<h4 class="text-white">ايران ترانسفو ری</h4>-->
+                                    <!--<div class="info">-->
+                                        <!--<div class="content">-->
+                                            <!--<div class="entry">-->
+                                                <!--<div>-->
+                                                    <!--<h5>ايران ترانسفو ری</h5>-->
+                                                    <!--<a href="http://itr.ir">http://itr.ir</a>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="logo-box">-->
+                                    <!--<div class="after-bg p-absolute w-100 h-100 cover-bg"-->
+                                         <!--data-image-src="assets/img/btrans/tabe/s6.jpg"></div>-->
+
+                                    <!--<h4 class="text-white">شركت عايقهای الكتريكی پارس</h4>-->
+                                    <!--<div class="info">-->
+                                        <!--<div class="content">-->
+                                            <!--<div class="entry">-->
+                                                <!--<div>-->
+                                                    <!--<h5>شركت عايقهای الكتريكی پارس</h5>-->
+                                                    <!--<a href="http://pei-co.com">http://pei-co.com</a>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="logo-box">-->
+                                    <!--<div class="after-bg p-absolute w-100 h-100 cover-bg"-->
+                                         <!--data-image-src="assets/img/btrans/tabe/s7.jpg"></div>-->
+
+                                    <!--<h4 class="text-white">موسسه تحقيقات ترانسفورماتور ايران</h4>-->
+                                    <!--<div class="info">-->
+                                        <!--<div class="content">-->
+                                            <!--<div class="entry">-->
+                                                <!--<div>-->
+                                                    <!--<h5>موسسه تحقيقات ترانسفورماتور ايران</h5>-->
+                                                    <!--<a href="http://www.irantri.com">http://www.irantri.com</a>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="logo-box">-->
+                                    <!--<div class="after-bg p-absolute w-100 h-100 cover-bg"-->
+                                         <!--data-image-src="assets/img/btrans/tabe/s8.jpg"></div>-->
+                                    <!--<h4 class="text-white">ترانس پست پارس</h4>-->
+
+                                    <!--<div class="info">-->
+                                        <!--<div class="content">-->
+                                            <!--<div class="entry">-->
+                                                <!--<div>-->
+                                                    <!--<h5>ترانس پست پارس</h5>-->
+                                                    <!--<a href="http//www.tpp-eng.com">http//www.tpp-eng.com</a>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="logo-box">-->
+                                    <!--<div class="after-bg p-absolute w-100 h-100 cover-bg"-->
+                                         <!--data-image-src="assets/img/btrans/tabe/s9.jpg"></div>-->
+                                    <!--<h4 class="text-white">خدمات پس از فروش ايران ترانسفو</h4>-->
+                                    <!--<div class="info">-->
+                                        <!--<div class="content">-->
+                                            <!--<div class="entry">-->
+                                                <!--<div>-->
+                                                    <!--<h5>خدمات پس از فروش ايران ترانسفو</h5>-->
+                                                    <!--<a href=" http://www.itass.ir"> http://www.itass.ir</a>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="logo-box">-->
+                                    <!--<div class="after-bg p-absolute w-100 h-100 cover-bg"-->
+                                         <!--data-image-src="assets/img/btrans/tabe/s10.jpg"></div>-->
+
+                                    <!--<h4 class="text-white">مقره سازی صدف گستر</h4>-->
+                                    <!--<div class="info">-->
+                                        <!--<div class="content">-->
+                                            <!--<div class="entry">-->
+                                                <!--<div>-->
+                                                    <!--<h5>مقره سازی صدف گستر</h5>-->
+                                                    <!--<a href="http://zsginsulator.ir">http://zsginsulator.ir</a>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="logo-box">-->
+                                    <!--<div class="after-bg p-absolute w-100 h-100 cover-bg"-->
+                                         <!--data-image-src="assets/img/btrans/tabe/s11.jpg"></div>-->
+
+                                    <!--<h4 class="text-white">پالايش روغن های صنعتی زنگان</h4>-->
+                                    <!--<div class="info">-->
+                                        <!--<div class="content">-->
+                                            <!--<div class="entry">-->
+                                                <!--<div>-->
+                                                    <!--<h5>پالايش روغن های صنعتی زنگان</h5>-->
+                                                    <!--<a href="http://www.itc-co.com/%20http://ziorefining.co">http://www.itc-co.com</a>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="logo-box">-->
+                                    <!--<div class="after-bg p-absolute w-100 h-100 cover-bg"-->
+                                         <!--data-image-src="assets/img/btrans/tabe/s12.jpg"></div>-->
+                                    <!--<p class="text-white tabe-p">خدمات بيمه زنجان صبا-->
+                                        <!--<br>-->
+                                        <!--شرکت آشنا راه سما-->
+                                    <!--</p>-->
+
+
+                                    <!--<div class="info">-->
+                                        <!--<div class="content">-->
+                                            <!--<div class="entry">-->
+                                                <!--<div>-->
+                                                    <!--<h5>خدمات بيمه زنجان صبا</h5>-->
+                                                    <!--<h5>شرکت آشنا راه سما</h5>-->
+                                                    <!--<a href="http://zanjansaba.ir">http://zanjansaba.ir</a>-->
+                                                    <!--<br>-->
+                                                    <!--<a href="http://ashna-rah-sama.ir">http://ashna-rah-sama.ir</a>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="next-up next-project p-relative section-padding">
+                <div class="bg-section p-absolute w-100 h-100 over-hidden">
+                    <div class="h-100 before-z-index" data-dsn-grid="move-up" data-overlay="5">
+                        <img class="cover-bg-img has-top-bottom" src="assets/img/btrans/27.JPG" alt="">
+                    </div>
+                </div>
+                <div class="container-fluid p-relative dsn-z-index-2">
+                    <div class="row margin-lr-100 res-margin-lr-100">
+                        <div class="col-lg-6 col-md-7 offset-lg-6 offset-md-5">
+                            <div class="next-up-inner p-relative background-section contact-us">
+                                <h4 class="title text-center" id="contact_us_h4">با ما در تماس باشید</h4>
+                                <a href="/contact" class="btn background-theme p-relative effect-ajax"
+                                   data-dsn="parallax"><span>تماس با ما</span></a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+<%- include('foot.ejs'); -%>

@@ -1,0 +1,136 @@
+<%- include('../header3')-%>
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>افزودن اسلایدر محصول</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                        </div>
+                        <!-- <form role="form" enctype="multipart/form-data" method="post" action="/admin/product_slider/add" > -->
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="news_title">عنوان محصول</label>
+                                    <input type="text" class="form-control" id="title" name="title" placeholder="عنوان محصول را وارد کنید">
+                                </div>
+                                <div class="form-group">
+                                    <label for="news_title">لینک محصول</label>
+                                    <input type="text" class="form-control" id="link" name="link" placeholder="site.com/route">
+                                </div>
+                                <div class="form-group">
+                                    <label for="img">تصویر محصول</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="img" name="img">
+                                            <label class="custom-file-label" for="img">انتخاب فایل</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">توضیحات</label>
+                                      <div name="description" id="description">
+                                                                                </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button id="submit" class="btn btn-primary">ارسال</button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script>
+  
+    var fullEditor = new Quill('#description', {
+          bounds: '#description',
+          modules: {
+            'syntax': true,
+            'toolbar': [
+              [ 'bold', 'italic', 'underline', 'strike' ],
+              [{ 'color': [] }, { 'background': [] }],
+              [{ 'script': 'super' }, { 'script': 'sub' }],
+              [{ 'header': '1' }, { 'header': '2' }, 'blockquote', 'code-block' ],
+              [{ 'list': 'ordered' }, { 'list': 'bullet'}, { 'indent': '-1' }, { 'indent': '+1' }],
+              [ {'direction': 'rtl'}, { 'align': [] }],
+              [ 'link', 'image', 'formula' ],
+              //[ 'link', 'image', 'video', 'formula' ],
+              [ 'clean' ]
+            ],
+          },
+          theme: 'snow'
+        });
+ 
+ $("#submit").click(()=>{
+ 
+         let formData = new FormData();
+         //title
+         if (!$("#title").val()) {
+             warn.iconClass = "toast-warning";
+             return toastr.error('عنوان  نمیتواند خالی بماند ', 'خطا', warn)
+         }
+         formData.append("title", $("#title").val());
+          //link
+          if (!$("#link").val()) {
+             warn.iconClass = "toast-warning";
+             return toastr.error('لینک نمیتواند خالی بماند ', 'خطا', warn)
+         }
+         formData.append("link", $("#link").val());
+         //img
+         let img = document.querySelector('#img');
+         if(!img.files[0]){
+             warn.iconClass = "toast-warning";
+             return toastr.error('تصویر  نمیتواند خالی بماند', 'خطا', warn)
+         }
+         formData.append("img", img.files[0]);
+         
+         //description
+         let description=fullEditor.root.innerHTML;
+         if(description=='<p><br></p>'||!description){
+             warn.iconClass = "toast-warning";
+             return toastr.error('توضیحات  نمیتواند خالی بماند', 'خطا', warn)
+         }
+         formData.append("description", description);
+      axios.post('<%=uRoute%>/admin/product_slider/add', formData, {
+         headers: {
+         'Content-Type': 'multipart/form-data'
+      }
+         }) 
+         .then(r=>{
+             if(r.data.status==200){
+             
+                 warn.iconClass = "toast-success";
+                  toastr.error('عملیات با موفقیت انجام شد', '', warn)
+                  setTimeout(()=>{
+                     window.location.href='<%=uRoute%>/admin/product_slider'
+                  },2000)
+                  
+             }else if(r.data.status==403){
+                 window.location.href='<%=uRoute%>/admin/login'
+             }else{
+                 warn.iconClass = "toast-warning";
+                 return toastr.error(r.data.data, 'خطا', warn)  
+             }
+         })
+         .catch(()=>{
+             warn.iconClass = "toast-error";
+                 return toastr.error('خطا در برقراری ارتباط با سرور', 'خطا', warn)
+         })
+ });
+ 
+ </script>
+<%- include('../footer3')-%>

@@ -1,0 +1,94 @@
+<form style="text-align:right"  action="/crm/actual_add" method="post">
+  <div class="row">
+        <div class="form-group col-md-4">
+        <label for="fullName">نام و نام خانوادگی</label>
+        <input type="text" class="form-control" name="fullName" id="fullName" >
+      </div>
+      <div class="form-group col-md-4">
+        <label for="nationalCode">کدملی</label>
+        <input type="text" class="form-control" id="nationalCode" name="nationalCode">
+      </div>
+      <div class="form-group col-md-4">
+          <label for="mobile">شماره همراه </label>
+          <input type="text" class="form-control" id="mobile" name="mobile">
+        </div>
+        <div class="form-group col-md-4">
+                  <label for="fax">فکس</label>
+                  <input type="text" class="form-control" id="fax" name="fax">
+        </div>
+        <div class="form-group col-md-4">
+                  <label for="email">ایمیل</label>
+                  <input type="text" class="form-control" id="email" name="email">
+        </div>
+        <div class="form-group col-md-4">
+                  <label for="address">آدرس</label>
+                  <textarea name="address" class="form-control" id="address"></textarea>
+        </div>
+        <div class="form-group col-md-3">
+                  <label for="tavan">توان</label>
+                  <input type="text" class="form-control" id="tavan" name="tavan">
+        </div>
+        <div class="form-group col-md-3">
+                          <label for="volt">ولتاژ</label>
+                          <input type="text" class="form-control" id="volt" name="volt">
+            </div>
+            <div class="form-group col-md-3">
+                          <label for="product_serial_number">شماره سریال محصول</label>
+                          <input type="text" class="form-control" id="product_serial_number" name="product_serial_number">
+            </div>
+        <div class="form-group col-md-3">
+                  <label for="request_title">عنوان درخواست</label>
+                  <select  class="form-control" name="request_title" id="request_title">
+                  <option value="1">شکایت</option><option value="2">پیشنهاد</option><option value="3">استعلام</option> </select>
+        </div>
+        <div class="form-group col-md-4">
+                  <label for="product_type">نوع محصول</label>
+                  <select class="form-control" name="product_type" id="product_type"><option value="1">نرمال خشک</option><option value="2">نرمال روغنی</option><option value="3">ویژه خشک</option><option value="4">ویژه روغنی</option><option value="5">فوق توزیع خشک</option><option value="6">
+					فوق توزیع روغنی
+				  </option><option value="7">قدرت روغنی</option> </select>
+        </div>
+        <div class="form-group col-md-4">
+        <span id="forosh_span_actual">
+        <label for="forosh">خدمات فروش از</label>
+                          <select class="form-control" name="forosh" id="forosh"><option value="1">شرکت بازرگانی</option><option value="2">نمایندگی فروش</option><option value="3">فروش اینترنتی</option><option value="4">ایران ترانسفو</option> </select>
+        </span>
+        <span id="pas_az_forosh_span_actual" style="display:none">
+        <label for="pas_az_forosh">خدمات پس فروش از</label>
+                          <select class="form-control" name="pas_az_forosh" id="pas_az_forosh"><option value="1">شرکت خدمات پس از فروش</option><option value="2">نمایندگی خدمات پس از فروش</option> </select>
+        </span>
+
+        </div>
+        <div class="form-group col-md-4">
+                          <label for="request_type_actual">نوع محصول</label>
+                          <select class="form-control" name="request_type" id="request_type_actual">
+                          <option value="1">فروش</option>
+                          <option value="2">خدمات پس از فروش</option>
+                          </select>
+                </div>
+          <div class="form-group col-md-12">
+                            <label for="request">متن درخواست</label>
+                            <textarea name="request" class="form-control" id="request"></textarea>
+          </div>
+
+      <div class="col-md-6">
+          <button class=" btn-success" style="    padding: 15px;
+    margin-bottom: 30px;background-color: #28a745 !important;
+    border-radius: 7px;"  type="submit">ثبت درخواست</button>
+      </div>
+
+  </div>
+
+</form>
+<script>
+    $("#request_type_actual").change(()=>{
+        let vl=$("#request_type_actual").val()
+        if(vl==1){
+            $("#pas_az_forosh_span_actual").css('display','none');
+            $("#forosh_span_actual").css('display','block');
+        }else{
+
+            $("#forosh_span_actual").css('display','none');
+            $("#pas_az_forosh_span_actual").css('display','block');
+        }
+    });
+</script>

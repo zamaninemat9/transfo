@@ -1,0 +1,65 @@
+<%- include('../header3')-%>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>ویرایش چارت سازمانی</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <%if(s){%>
+                    <div class="alert alert-success">
+                        با موفقیت ویرایش شد
+                    </div>
+                    <%}%>
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <!--                            <h3 class="card-title">مثال ساده</h3>-->
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form role="form" method="post" enctype="multipart/form-data" action="/admin/chart/edit_<%=d._id%>">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="img">تصویر </label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="img" name="img">
+                                            <label class="custom-file-label" for="img">انتخاب فایل</label>
+                                        </div>
+                                    </div>
+                                    <img src="<%=uRoute%>/<%=d.img%>" width="80" height="80" alt="">
+                                    <br>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">ارسال</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.card -->
+
+                    <!-- Form Element sizes -->
+
+                </div>
+                <!--/.col (left) -->
+                <!-- right column -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<%- include('../footer3')-%>

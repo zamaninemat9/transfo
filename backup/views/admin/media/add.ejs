@@ -1,0 +1,156 @@
+<%- include('../header3')-%>
+
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>افزودن چند رسانه ای</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                        </div>
+                        <!-- <form role="form" enctype="multipart/form-data" method="post" action="/admin/media/add" > -->
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="title">عنوان </label>
+                                    <input type="text" class="form-control" id="title" name="title" placeholder="عنوان  را وارد کنید">
+                                </div>
+                                <div class="form-group">
+                                    <label for="img">تصویر بنر </label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="file" name="file">
+                                            <label class="custom-file-label" for="img">انتخاب تصویر</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="video">لینک ویدئو </label>
+                                    <input type="text" class="form-control" id="video" name="video" placeholder="لینک ویدئو را وارد کنید">
+                                </div>
+                                <div class="form-group">
+                                    <label for="video2">   لینک ویدئو دوم </label>
+                                    <input type="text" class="form-control" id="video2" name="video2" placeholder="لینک ویدئو را وارد کنید">
+                                </div>
+                                <div class="form-group">
+                                    <label for="video3">   لینک ویدئو سوم </label>
+                                    <input type="text" class="form-control" id="video3" name="video3" placeholder="لینک ویدئو را وارد کنید">
+                                </div>
+                                <div class="form-group">
+                                    <label for="video4">   لینک ویدئو چهارم </label>
+                                    <input type="text" class="form-control" id="video4" name="video4" placeholder="لینک ویدئو را وارد کنید">
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">توضیحات</label>
+                                    <div name="description" id="description"></div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button id="submit" class="btn btn-primary">ارسال</button>
+                            </div>
+                        <!-- </form> -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script>
+     var fullEditor = new Quill('#description', {
+         bounds: '#description',
+         modules: {
+           'syntax': true,
+           'toolbar': [
+             [ 'bold', 'italic', 'underline', 'strike' ],
+             [{ 'color': [] }, { 'background': [] }],
+             [{ 'script': 'super' }, { 'script': 'sub' }],
+             [{ 'header': '1' }, { 'header': '2' }, 'blockquote', 'code-block' ],
+             [{ 'list': 'ordered' }, { 'list': 'bullet'}, { 'indent': '-1' }, { 'indent': '+1' }],
+             [ {'direction': 'rtl'}, { 'align': [] }],
+             [ 'link', 'image', 'formula' ],
+             //[ 'link', 'image', 'video', 'formula' ],
+             [ 'clean' ]
+           ],
+         },
+         theme: 'snow'
+       });
+
+$("#submit").click(()=>{
+
+let formData = new FormData();
+        //title
+        if (!$("#title").val()) {
+            warn.iconClass = "toast-warning";
+            return toastr.error('عنوان  نمیتواند خالی بماند ', 'خطا', warn)
+        }
+        formData.append("title", $("#title").val());
+        //video
+        if (!$("#video").val()) {
+            warn.iconClass = "toast-warning";
+            return toastr.error('ویدئو  نمیتواند خالی بماند ', 'خطا', warn)
+        }
+        formData.append("video", $("#video").val());
+
+        if($("#video2").val()){
+            formData.append("video2", $("#video2").val());
+        }
+        if($("#video3").val()){
+            formData.append("video3", $("#video3").val());
+        }
+        if($("#video4").val()){
+            formData.append("video4", $("#video4").val());
+        }
+        //img1
+        let img1 = document.querySelector('#file');
+        if(!img1.files[0]){
+            warn.iconClass = "toast-warning";
+            return toastr.error('تصویر  نمیتواند خالی بماند', 'خطا', warn)
+        }
+        formData.append("file", img1.files[0]);
+        //description
+        let description=fullEditor.root.innerHTML;
+        if(description=='<p><br></p>'||!description){
+            warn.iconClass = "toast-warning";
+            return toastr.error('توضیحات  نمیتواند خالی بماند', 'خطا', warn)
+        }
+        formData.append("description", description);
+
+     axios.post('<%=uRoute%>/admin/media/add', formData, {
+        headers: {
+        'Content-Type': 'multipart/form-data'
+     }
+        }) 
+        .then(r=>{
+            if(r.data.status==200){
+            
+                warn.iconClass = "toast-success";
+                 toastr.error('عملیات با موفقیت انجام شد', '', warn)
+                 setTimeout(()=>{
+                    window.location.href='<%=uRoute%>/admin/media'
+                 },2000)
+                 
+            }else if(r.data.status==403){
+                window.location.href='<%=uRoute%>/admin/login'
+            }else{
+                warn.iconClass = "toast-warning";
+                return toastr.error(r.data.data, 'خطا', warn)  
+            }
+        })
+        .catch(()=>{
+            warn.iconClass = "toast-error";
+                return toastr.error('خطا در برقراری ارتباط با سرور', 'خطا', warn)
+        })
+});
+
+
+</script>
+<%- include('../footer3')-%>

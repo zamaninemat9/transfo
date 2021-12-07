@@ -1,0 +1,61 @@
+<%- include('header_main.ejs'); -%>
+
+<main class="main-root" dir="rtl">
+    <div id="dsn-scrollb1ar">
+        <!--==================== Header ====================-->
+        <header data-dsn-header="parallax">
+            <img src="<%=bnr%>" class="img-fluid" style="width: 100%;">
+        </header>
+        <!--==================== End Header ====================-->
+
+        <div class="wrapper">
+            <!--==================== Our Work ====================-->
+            <section class="work-inner work-masonry p-relative section-margin has-story-popup" data-dsn="rStories">
+                <div class="container">
+                    <div class="filterings-t text-center">
+                        <div class="filtering-wrap">
+                            <div class="filtering">
+                                <button type="button" data-filter="*" class="active">
+                                    همه
+                                </button>
+                                <button type="button" data-filter=".p1"> قدرت و فوق قدرت</button>
+                                <button type="button" data-filter=".p2"> توزیع و فوق توزیع</button>
+                                <button type="button" data-filter=".p3"> خشک رزینی</button>
+                                <button type="button" data-filter=".p4">  ویژه</button>
+                                <button type="button" data-filter=".p5">تجهیزات و مواد</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="projects-list p-relative w-100 gallery-portfolio ">
+                        <% if(data){ %>
+                        <%for(let i in data){%>
+                            <div class="story-item <%if(data[i].parent==1){%> p1 <%}else if(data[i].parent==2){%> p2 <%}else if(data[i].parent==3){%> p3 <%}else if(data[i].parent==4){%>p4<%}else if(data[i].parent==5){%>p5<%}%>">
+                                <img onclick="clicker('/product/<%=data[i]._id%>')"
+                                     src="<%=uRoute%>/<%=data[i].img%>" alt=""
+									 style="width:80% !important"
+                                     class="img-responsive  cover-bg-img">
+                                <div class="rs-content">
+                                    <h4 class="r-s-title" style="background: rgb(0 0 0 / 68%);
+    color: #fff;
+    padding: 9px;
+    width: fit-content;"><%=data[i].title%></h4>
+                                    <!--                                        <p class="r-s-date">August 8, 2018</p>-->
+                                </div>
+                            </div>
+                        <% } %>
+                        <% } %>
+                        
+                        
+
+
+                    </div>
+                </div>
+            </section>
+            <!--==================== End Our Work ====================-->
+        </div>
+        <script>
+            function clicker(url) {
+                window.location.href=url
+            }
+        </script>
+<%- include('foot2.ejs'); -%>

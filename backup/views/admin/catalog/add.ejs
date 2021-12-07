@@ -1,0 +1,153 @@
+<%- include('../header3')-%>
+
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>افزودن کاتالوگ</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                  
+                    <div class="card card-primary">
+                        <div class="card-header">
+                        </div>
+                        <!-- <form role="form" enctype="multipart/form-data" method="post" action="/admin/catalog/add" > -->
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="title">عنوان </label>
+                                    <input type="text" class="form-control" id="title" name="title" placeholder="عنوان خبر را وارد کنید">
+                                </div>
+                                <div class="form-group">
+                                    <label for="file">فایل پی دی اف</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="file" name="file">
+                                            <label class="custom-file-label" for="img">انتخاب فایل</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="img">تصویر در لیست</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="img" name="img">
+                                            <label class="custom-file-label" for="img">انتخاب فایل</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">توضیحات</label>
+                                    <div name="description" id="description"></div>
+                                </div>
+								<div class="form-group">
+                                    <label for="to_date">تاریخ </label>
+                                    <input  class="form-control" id="to_date" name="to_date" placeholder=" 1399/01/01">
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button id="submit" class="btn btn-primary">ارسال</button>
+                            </div>
+                        <!-- </form> -->
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </section>
+</div>
+<script>
+    var fullEditor = new Quill('#description', {
+         bounds: '#description',
+         modules: {
+           'syntax': true,
+           'toolbar': [
+             [ 'bold', 'italic', 'underline', 'strike' ],
+             [{ 'color': [] }, { 'background': [] }],
+             [{ 'script': 'super' }, { 'script': 'sub' }],
+             [{ 'header': '1' }, { 'header': '2' }, 'blockquote', 'code-block' ],
+             [{ 'list': 'ordered' }, { 'list': 'bullet'}, { 'indent': '-1' }, { 'indent': '+1' }],
+             [ {'direction': 'rtl'}, { 'align': [] }],
+             [ 'link', 'image', 'formula' ],
+             //[ 'link', 'image', 'video', 'formula' ],
+             [ 'clean' ]
+           ],
+         },
+         theme: 'snow'
+       });
+       $("#submit").click(()=>{
+
+    let formData = new FormData();
+        //title
+        if (!$("#title").val()) {
+            warn.iconClass = "toast-warning";
+            return toastr.error('عنوان  نمیتواند خالی بماند ', 'خطا', warn)
+        }
+        formData.append("title", $("#title").val());
+        //img1
+        let img1 = document.querySelector('#file');
+        if(!img1.files[0]){
+            warn.iconClass = "toast-warning";
+            return toastr.error(' فایل نمیتواند خالی بماند', 'خطا', warn)
+        }
+        formData.append("file", img1.files[0]);
+        //description
+        let description=fullEditor.root.innerHTML;
+        if(description=='<p><br></p>'||!description){
+            warn.iconClass = "toast-warning";
+            return toastr.error('توضیحات  نمیتواند خالی بماند', 'خطا', warn)
+        }
+        formData.append("description", description);
+        //to_date
+        
+         if (!$("#to_date").val()) {
+            warn.iconClass = "toast-warning";
+            return toastr.error('تاریخ  نمیتواند خالی بماند ', 'خطا', warn)
+        }
+        var regEx = /^\d{4}\/\d{2}\/\d{2}$/;
+        if(!$("#to_date").val().match(regEx)){
+            warn.iconClass = "toast-warning";
+            return toastr.error('فرمت تاریخ اشتباه میباشد', 'خطا', warn)
+        }
+        formData.append("to_date", $("#to_date").val());
+        let img = document.querySelector('#img');
+         if(!img.files[0]){
+             warn.iconClass = "toast-warning";
+             return toastr.error(' فایل نمیتواند خالی بماند', 'خطا', warn)
+         }
+         formData.append("img", img.files[0]);
+     axios.post('<%=uRoute%>/admin/catalog/add', formData, {
+        headers: {
+        'Content-Type': 'multipart/form-data'
+     }
+        }) 
+        .then(r=>{
+            if(r.data.status==200){
+            
+                warn.iconClass = "toast-success";
+                 toastr.error('عملیات با موفقیت انجام شد', '', warn)
+                 setTimeout(()=>{
+                    window.location.href='<%=uRoute%>/admin/catalog'
+                 },2000)
+                 
+            }else if(r.data.status==403){
+                window.location.href='<%=uRoute%>/admin/login'
+            }else{
+                warn.iconClass = "toast-warning";
+                return toastr.error(r.data.data, 'خطا', warn)  
+            }
+        })
+        .catch(()=>{
+            warn.iconClass = "toast-error";
+                return toastr.error('خطا در برقراری ارتباط با سرور', 'خطا', warn)
+        })
+});
+
+</script>
+<%- include('../footer3')-%>

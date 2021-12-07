@@ -1,0 +1,217 @@
+<%- include('../header3')-%>
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>افزودن شرکت تابعه</h1>
+                </div>
+
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-12">
+                   
+                    <div class="card card-primary">
+                        <div class="card-header">
+                        </div>
+                        <!-- <form role="form" enctype="multipart/form-data" method="post" action="/admin/subsidiary/add" > -->
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="title">عنوان شرکت تابعه</label>
+                                    <input type="text" class="form-control" id="title" name="title" placeholder="عنوان شرکت  را وارد کنید">
+                                </div>
+                                <div class="form-group">
+                                    <label for="site">وب سایت </label>
+                                    <input type="text" class="form-control" id="site" name="site" placeholder="آدرس وب سایت را وارد کنید">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">تلفن</label>
+                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="آدرس وب سایت را وارد کنید">
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">آدرس</label>
+                                    <textarea name="address" id="address" class="form-control" cols="30" rows="10"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="img1">تصویر لوگو</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="img1" name="img1">
+                                            <label class="custom-file-label" for="img1">انتخاب فایل</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="img2">تصویر </label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="img2" name="img2">
+                                            <label class="custom-file-label" for="img2">انتخاب فایل</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="description1">توضیحات اول</label>
+                                    <textarea name="description1" class="form-control" id="description1"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="description2">توضیحات دوم</label>
+                                    <div name="description2" id="description2"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="description3">توضیحات سوم</label>
+                                    <div name="description3" id="description3"></div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button id="submit" class="btn btn-primary">ارسال</button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+  
+    
+        var fullEditor2 = new Quill('#description2', {
+          bounds: '#description2',
+          modules: {
+            'syntax': true,
+            'toolbar': [
+              [ 'bold', 'italic', 'underline', 'strike' ],
+              [{ 'color': [] }, { 'background': [] }],
+              [{ 'script': 'super' }, { 'script': 'sub' }],
+              [{ 'header': '1' }, { 'header': '2' }, 'blockquote', 'code-block' ],
+              [{ 'list': 'ordered' }, { 'list': 'bullet'}, { 'indent': '-1' }, { 'indent': '+1' }],
+              [ {'direction': 'rtl'}, { 'align': [] }],
+              [ 'link', 'image', 'formula' ],
+              //[ 'link', 'image', 'video', 'formula' ],
+              [ 'clean' ]
+            ],
+          },
+          theme: 'snow'
+        });
+        var fullEditor3 = new Quill('#description3', {
+          bounds: '#description3',
+          modules: {
+            'syntax': true,
+            'toolbar': [
+              [ 'bold', 'italic', 'underline', 'strike' ],
+              [{ 'color': [] }, { 'background': [] }],
+              [{ 'script': 'super' }, { 'script': 'sub' }],
+              [{ 'header': '1' }, { 'header': '2' }, 'blockquote', 'code-block' ],
+              [{ 'list': 'ordered' }, { 'list': 'bullet'}, { 'indent': '-1' }, { 'indent': '+1' }],
+              [ {'direction': 'rtl'}, { 'align': [] }],
+              [ 'link', 'image', 'formula' ],
+              //[ 'link', 'image', 'video', 'formula' ],
+              [ 'clean' ]
+            ],
+          },
+          theme: 'snow'
+        });
+ $("#submit").click(()=>{
+// title
+// site
+// phone
+// address
+// img1
+// img2
+// description1
+// description2
+// description3
+         let formData = new FormData();
+         //title
+         if (!$("#title").val()) {
+             warn.iconClass = "toast-warning";
+             return toastr.error('عنوان نمیتواند خالی بماند ', 'خطا', warn)
+         }
+         //site
+         if (!$("#site").val()) {
+             warn.iconClass = "toast-warning";
+             return toastr.error('وبسایت نمیتواند خالی بماند ', 'خطا', warn)
+         }
+         formData.append("site", $("#site").val());
+         //phone
+         if (!$("#phone").val()) {
+             warn.iconClass = "toast-warning";
+             return toastr.error('تلفن نمیتواند خالی بماند ', 'خطا', warn)
+         }
+         formData.append("phone", $("#phone").val());
+          //address
+          if (!$("#address").val()) {
+             warn.iconClass = "toast-warning";
+             return toastr.error('آدرس نمیتواند خالی بماند ', 'خطا', warn)
+         }
+         formData.append("address", $("#address").val());
+         //img1
+         let img1 = document.querySelector('#img1');
+         if(!img1.files[0]){
+             warn.iconClass = "toast-warning";
+             return toastr.error('تصویر لوگو نمیتواند خالی بماند', 'خطا', warn)
+         }
+         formData.append("img1", img1.files[0]);
+         //img2
+         let img2 = document.querySelector('#img2');
+         if(!img2.files[0]){
+             warn.iconClass = "toast-warning";
+             return toastr.error('تصویر  نمیتواند خالی بماند', 'خطا', warn)
+         }
+         formData.append("img2", img2.files[0]);
+         //description1
+         if(!$("#description1").val()){
+             warn.iconClass = "toast-warning";
+             return toastr.error('توضیحات اول نمیتواند خالی بماند', 'خطا', warn)
+         }
+         formData.append("description1", $("#description1").val());
+         //description2
+         let description2=fullEditor2.root.innerHTML;
+         if(description2=='<p><br></p>'||!description2){
+             warn.iconClass = "toast-warning";
+             return toastr.error('توضیحات دوم نمیتواند خالی بماند', 'خطا', warn)
+         }
+         formData.append("description2", description2);
+         //description3
+         let description3=fullEditor3.root.innerHTML;
+         if(description3=='<p><br></p>'||!description3){
+             warn.iconClass = "toast-warning";
+             return toastr.error('توضیحات سوم نمیتواند خالی بماند', 'خطا', warn)
+         }
+         formData.append("description3", description3);
+      axios.post('<%=uRoute%>/admin/subsidiary/add', formData, {
+         headers: {
+         'Content-Type': 'multipart/form-data'
+      }
+         }) 
+         .then(r=>{
+             if(r.data.status==200){
+                 warn.iconClass = "toast-success";
+                  toastr.error('عملیات با موفقیت انجام شد', '', warn)
+                  setTimeout(()=>{
+                     window.location.href='<%=uRoute%>/admin/subsidiary'
+                  },2000)
+                  
+             }else if(r.data.status==403){
+                 window.location.href='<%=uRoute%>/admin/login'
+             }else{
+                 warn.iconClass = "toast-warning";
+                 return toastr.error(r.data.data, 'خطا', warn)  
+             }
+         })
+         .catch(()=>{
+             warn.iconClass = "toast-error";
+                 return toastr.error('خطا در برقراری ارتباط با سرور', 'خطا', warn)
+         })
+ });
+ 
+ </script>
+<%- include('../footer3')-%>

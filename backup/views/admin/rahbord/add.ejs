@@ -1,0 +1,122 @@
+<%- include('../header3')-%>
+
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>افزودن </h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                        </div>
+                        <!-- <form role="form" enctype="multipart/form-data" method="post" action="/admin/rahbord/add" > -->
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="title">عنوان </label>
+                                    <input type="text" class="form-control" id="title" name="title" >
+                                </div>
+                                <div class="form-group">
+                                    <label for="img">تصویر </label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="img" name="img">
+                                            <label class="custom-file-label" for="img">انتخاب فایل</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">متن </label>
+                                           <div name="description" id="description"> </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button id="submit" class="btn btn-primary">ارسال</button>
+                            </div>
+                        <!-- </form> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+
+<script>
+  
+    var fullEditor = new Quill('#description', {
+          bounds: '#description',
+          modules: {
+            'syntax': true,
+            'toolbar': [
+              [ 'bold', 'italic', 'underline', 'strike' ],
+              [{ 'color': [] }, { 'background': [] }],
+              [{ 'script': 'super' }, { 'script': 'sub' }],
+              [{ 'header': '1' }, { 'header': '2' }, 'blockquote', 'code-block' ],
+              [{ 'list': 'ordered' }, { 'list': 'bullet'}, { 'indent': '-1' }, { 'indent': '+1' }],
+              [ {'direction': 'rtl'}, { 'align': [] }],
+              [ 'link', 'image', 'formula' ],
+              //[ 'link', 'image', 'video', 'formula' ],
+              [ 'clean' ]
+            ],
+          },
+          theme: 'snow'
+        });
+ $("#submit").click(()=>{
+         let formData = new FormData();
+         //title
+         if (!$("#title").val()) {
+             warn.iconClass = "toast-warning";
+             return toastr.error('عنوان خبر نمیتواند خالی بماند ', 'خطا', warn)
+         }
+         formData.append("title", $("#title").val());
+         //img
+         let img = document.querySelector('#img');
+         if(!img.files[0]){
+             warn.iconClass = "toast-warning";
+             return toastr.error('تصویر  نمیتواند خالی بماند', 'خطا', warn)
+         }
+         formData.append("img", img.files[0]);
+         //description
+         let description=fullEditor.root.innerHTML;
+         if(description=='<p><br></p>'||!description){
+             warn.iconClass = "toast-warning";
+             return toastr.error('توضیحات خبر نمیتواند خالی بماند', 'خطا', warn)
+         }
+         formData.append("description", description);
+      axios.post('<%=uRoute%>/admin/rahbord/add', formData, {
+         headers: {
+         'Content-Type': 'multipart/form-data'
+      }
+         }) 
+         .then(r=>{
+             if(r.data.status==200){
+                 warn.iconClass = "toast-success";
+                  toastr.error('عملیات با موفقیت انجام شد', '', warn)
+                  setTimeout(()=>{
+                     window.location.href='<%=uRoute%>/admin/rahbord'
+                  },2000)
+                  
+             }else if(r.data.status==403){
+                 window.location.href='<%=uRoute%>/admin/login'
+             }else{
+                 warn.iconClass = "toast-warning";
+                 return toastr.error(r.data.data, 'خطا', warn)  
+             }
+         })
+         .catch(()=>{
+             warn.iconClass = "toast-error";
+                 return toastr.error('خطا در برقراری ارتباط با سرور', 'خطا', warn)
+         })
+ });
+ 
+ </script>
+
+<%- include('../footer3')-%>

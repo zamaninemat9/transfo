@@ -1,0 +1,96 @@
+<%- include('header_main.ejs'); -%>
+
+<main class="main-root">
+    <div id="dsn-scrol1lbar">
+        <header>
+            <div class="header-single-post">
+                <div class="post-parallax-wrapper" data-overlay="6">
+                    <img id="dsn-hero-parallax-img" class="w-100 has-top-bottom"
+                         src="<%=uRoute%>/<%= data.img1 %>" alt=""
+                         data-dsn-header="blog" data-dsn-ajax="img">
+                </div>
+                <div class="container h-100">
+                    <div class="row h-100 align-items-end">
+                        <div class="inner-box">
+                            <div class="post-info" dir="rtl">
+                                <a href="#" class="blog-post-date dsn-link"><%= data.cr %></a>
+                            </div>
+
+                            <h1 class="title">
+                                <%= data.title %>
+                            </h1>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </header>
+
+        <div class="wrapper">
+            <div class="container">
+                <div class="news-content mt-section">
+                    <div class="news-content-inner">
+                        <div class="News-socials-wrapper">
+
+                        </div>
+
+                        <div class="post-content" style="text-align: right">
+                            <p class="text-justify" dir="rtl">
+                                <a href="#">
+                                    <%- data.description %>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <section class="brand-client section-margin" id="coworker">
+                    <div class="container section-title-2">
+                        <!--<h2>گروه صنعتی<br> ایران ترانسفو</h2>-->
+                        <p> تصاویر</p>
+                    </div>
+                    <div class="container">
+                        <div class="slider-project slider-project-min-height slider-project-3  section-margin dsn-arrow">
+                            <div class="container no-padding">
+                                <div class="proj-slider-image">
+                                    <div class="item-project">
+                                        <img src="<%=uRoute%>/<%=data.img2%>">
+                                    </div>
+                                    <div class="item-project">
+                                        <img src="<%=uRoute%>/<%=data.img3%>">
+                                    </div>
+                                    <div class="item-project">
+                                        <img src="<%=uRoute%>/<%=data.img4%>">
+                                    </div>
+                                    <div class="item-project">
+                                        <img src="<%=uRoute%>/<%=data.img5%>">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+
+        <!--            <section class="contact-up next-post-up section-margin section-padding">-->
+        <!--                <div class="container">-->
+        <!--                    <div class="c-wapp">-->
+        <!--                        <a href="contact.html" class="effect-ajax">-->
+        <!--                            <span class="title hiring">-->
+        <!--                                A lovely trip to London-->
+        <!--                            </span>-->
+        <!--                            <span class="career">-->
+        <!--                                Next Post-->
+        <!--                            </span>-->
+        <!--                        </a>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </section>-->
+
+
+        <%- include('foot2.ejs'); -%>

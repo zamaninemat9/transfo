@@ -1,0 +1,110 @@
+<%- include('header_main.ejs'); -%>
+<style>
+    @media only screen and (max-width: 600px) {
+        .player{
+        width: 100% !important;
+        border-radius: 28px;
+
+        }
+       
+
+    }
+    .player{
+        margin-bottom: 20px !important;
+        width: 60%;
+        border-radius: 28px;
+    }
+
+</style>
+<main class="main-root">
+    <div id="dsn-scr1ollbar">
+        <header dir="rtl">
+            <img src="<%=uRoute%>/<%= data.img %>" class="img-fluid" style="width: 100%;">
+        </header>
+        
+
+        <div class="wrapper">
+            <div class="container">
+                <div class="news-content mt-section">
+                    <div class="news-content-inner">
+                        <div class="News-socials-wrapper">
+
+                        </div>
+
+                        <div class="post-content" style="text-align: right">
+                            <p class="text-justify" dir="rtl">
+                                <a href="#">
+                                    <%- data.description %>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <%if(data.video){%>
+                        <center>
+                        <video
+    class="player"
+    controls
+    width="640"
+  >
+  <source src="<%=data.video%>" type="video/mp4">
+  </video>
+</center>
+                    <%}%>
+                    <%if(data.video2){%>
+                        <br>
+                        <center>
+                        <video
+    class="player"
+    controls
+    width="640"
+  >
+  <source src="<%=data.video2%>" type="video/mp4">
+  </video>
+</center>
+                    <%}%>
+                    <%if(data.video3){%>
+                        <br>
+                        <center>
+                        <video
+    class="player"
+    controls
+    width="640"
+  >
+  <source src="<%=data.video3%>" type="video/mp4">
+  </video>
+</center>
+                    <%}%>
+                    <%if(data.video4){%>
+                        <br>
+                        <center>
+                        <video
+    class="player"
+    controls
+    width="640"
+  >
+  <source src="<%=data.video4%>" type="video/mp4">
+  </video>
+</center>
+                    <%}%>
+                </div>
+            </div>
+
+        </div>
+
+        <!--            <section class="contact-up next-post-up section-margin section-padding">-->
+        <!--                <div class="container">-->
+        <!--                    <div class="c-wapp">-->
+        <!--                        <a href="contact.html" class="effect-ajax">-->
+        <!--                            <span class="title hiring">-->
+        <!--                                A lovely trip to London-->
+        <!--                            </span>-->
+        <!--                            <span class="career">-->
+        <!--                                Next Post-->
+        <!--                            </span>-->
+        <!--                        </a>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </section>-->
+
+        <%- include('foot2.ejs'); -%>

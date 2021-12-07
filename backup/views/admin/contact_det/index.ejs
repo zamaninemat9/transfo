@@ -1,0 +1,87 @@
+<%- include('../header2') -%>
+<style>
+    td, th {
+        text-align: center;
+    }
+</style>
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>اطلاعات تماس با ما</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>ردیف</th>
+                                <th>دفتر مرکزی</th>
+                                <th>کد پستی</th>
+                                <th>شماره تماس دفتر مرکزی</th>
+                                <th>فکس</th>
+                                <th>کارخانه زنجان</th>
+                                <th>کدپستی</th>
+                                <th>شماره تماس کارخانه زنجان</th>
+                                <th>فکس</th>
+                                <th>عملیات</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <% if(data){ %>
+                                    <tr id="tr_<%= data._id %>">
+                                        <td>1</td>
+                                        <td><%= data.central_office %></td>
+                                        <td><%= data.post_code %></td>
+                                        <td><%= data.central_office_phone %></td>
+                                        <td><%= data.fax %></td>
+                                        <td><%= data.zanjan_company %></td>
+                                        <td><%= data.post_code_2 %></td>
+                                        <td><%= data.zanjan_company_phone %></td>
+                                        <td><%= data.fax_2 %></td>
+                                        <td>
+                                            <a href="/admin/contact_det/<%= data._id %>">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                            <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script>
+<%- include('../footer2') -%>
+<script>
+    $(function () {
+        $("#example1").DataTable({
+            "language": {
+                "paginate": {
+                    "next": "بعدی",
+                    "previous": "قبلی"
+                },
+                search: "جستجو : ",
+            },
+            "info": false,
+        });
+
+    });
+</script>

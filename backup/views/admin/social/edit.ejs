@@ -1,0 +1,59 @@
+<%- include('../header3')-%>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>ویرایش شبکه اجتماعی</h1>
+                    <h2><%=d.socialName%></h2>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-12">
+                    <%if(data){%>
+                        <div class="alert alert-success">
+                            با موفقیت ویرایش شد
+                        </div>
+                    <%}%>
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <!--                            <h3 class="card-title">مثال ساده</h3>-->
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form role="form"  method="post" action="/admin/social/edit_<%=d._id%>" >
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="title">لینک شبکه اجتماعی</label>
+                                    <input type="text" class="form-control" value="<%=d.socialLink%>" id="title" name="socialLink" placeholder="لینک را وارد کنید">
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">ارسال</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.card -->
+
+                    <!-- Form Element sizes -->
+
+                </div>
+                <!--/.col (left) -->
+                <!-- right column -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<%- include('../footer3')-%>

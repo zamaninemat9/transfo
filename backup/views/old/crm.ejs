@@ -1,0 +1,44 @@
+<%- include('header_main.ejs'); -%>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://cpch.ir/v1.0/js/hl6DZ6c1dfz7UwTSn"> </script>
+
+<style>
+    .dsn-title-menu{
+        color: #fff !important;
+    }
+</style>
+<header dir="rtl">
+    <img src="<%=bnr%>" class="img-fluid" style="width: 100%;">
+</header>
+<!--<div class="container mt-5" style="text-align: right  ;margin-top: 55px;">-->
+<div style="    padding: 44px;
+    text-align: center;">
+    <br><br>
+    <%if(st==1){%>
+        <span class="alert alert-success"> باموفقیت ثبت شد</span>
+    <%}else if(st==2){%>
+        <span class="alert alert-danger"><%=f%></span>
+    <%}%>
+    <ul class="nav nav-tabs mt-5">
+        <li style="float: right" class="ml-4 active"><a data-toggle="tab" href="#legal">حقوقی</a></li>
+        <li style="float: right" class="ml-4"><a data-toggle="tab" href="#actual">حقیقی</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="legal" class="show tab-pane fade in active">
+            <h3 class="mt-2">مشتری حقوقی</h3>
+            <br>
+            <%- include('legal.ejs'); -%>
+        </div>
+        <div id="actual" class="tab-pane fade">
+            <h3>مشتری حقیقی</h3>
+            <br>
+            <%- include('actual.ejs'); -%>
+        </div>
+    </div>
+</div>
+
+<!--</div>-->
+<%- include('foot1.ejs'); -%>

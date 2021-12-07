@@ -1,0 +1,143 @@
+<%- include('../header3')-%>
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>افزودن گزارش گیری</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                        </div>
+                        <!-- <form role="form" enctype="multipart/form-data" method="post" action="/admin/reporting/add" > -->
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="title">عنوان </label>
+                                    <input type="text" class="form-control" id="title" name="title" placeholder="عنوان را وارد کنید">
+                                </div>
+                                <div class="form-group">
+                                    <label for="file">فایل پی دی اف</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="file" name="file">
+                                            <label class="custom-file-label" for="file">انتخاب فایل</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="img">تصویر در لیست</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="img" name="img">
+                                            <label class="custom-file-label" for="img">انتخاب فایل</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer">
+                                <button id="submit" class="btn btn-primary">ارسال</button>
+                            </div>
+                        <!-- </form> -->
+                    </div>
+                    <!-- /.card -->
+
+                    <!-- Form Element sizes -->
+
+                </div>
+                <!--/.col (left) -->
+                <!-- right column -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+
+<script>
+  
+    var fullEditor = new Quill('#description', {
+          bounds: '#description',
+          modules: {
+            'syntax': true,
+            'toolbar': [
+              [ 'bold', 'italic', 'underline', 'strike' ],
+              [{ 'color': [] }, { 'background': [] }],
+              [{ 'script': 'super' }, { 'script': 'sub' }],
+              [{ 'header': '1' }, { 'header': '2' }, 'blockquote', 'code-block' ],
+              [{ 'list': 'ordered' }, { 'list': 'bullet'}, { 'indent': '-1' }, { 'indent': '+1' }],
+              [ {'direction': 'rtl'}, { 'align': [] }],
+              [ 'link', 'image', 'formula' ],
+              //[ 'link', 'image', 'video', 'formula' ],
+              [ 'clean' ]
+            ],
+          },
+          theme: 'snow'
+        });
+ 
+ $("#submit").click(()=>{
+ 
+         let formData = new FormData();
+         //title
+         if (!$("#title").val()) {
+             warn.iconClass = "toast-warning";
+             return toastr.error('عنوان خبر نمیتواند خالی بماند ', 'خطا', warn)
+         }
+         formData.append("title", $("#title").val());
+         //file
+         let file = document.querySelector('#file');
+         if(!file.files[0]){
+             warn.iconClass = "toast-warning";
+             return toastr.error(' فایل نمیتواند خالی بماند', 'خطا', warn)
+         }
+         formData.append("file", file.files[0]);
+         //file
+         let img = document.querySelector('#img');
+         if(!img.files[0]){
+             warn.iconClass = "toast-warning";
+             return toastr.error(' فایل نمیتواند خالی بماند', 'خطا', warn)
+         }
+         formData.append("img", img.files[0]);
+         
+         
+      axios.post('<%=uRoute%>/admin/reporting/add', formData, {
+         headers: {
+         'Content-Type': 'multipart/form-data'
+      }
+         }) 
+         .then(r=>{
+             if(r.data.status==200){
+             
+                 warn.iconClass = "toast-success";
+                  toastr.error('عملیات با موفقیت انجام شد', '', warn)
+                  setTimeout(()=>{
+                     window.location.href='<%=uRoute%>/admin/reporting'
+                  },2000)
+                  
+             }else if(r.data.status==403){
+                 window.location.href='<%=uRoute%>/admin/login'
+             }else{
+                 warn.iconClass = "toast-warning";
+                 return toastr.error(r.data.data, 'خطا', warn)  
+             }
+         })
+         .catch(()=>{
+             warn.iconClass = "toast-error";
+                 return toastr.error('خطا در برقراری ارتباط با سرور', 'خطا', warn)
+         })
+ });
+ 
+ </script>
+<%- include('../footer3')-%>

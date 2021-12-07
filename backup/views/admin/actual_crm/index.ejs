@@ -1,0 +1,122 @@
+<%- include('../header2') -%>
+<style>
+    td, th {
+        text-align: center;
+    }
+</style>
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>crm (اشخاص حقیقی)</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content" style="overflow: scroll;">
+        <div class="row">
+            <div class="col-12">
+                <div class="card" style="    width: fit-content;">
+                    <!-- /.card-header -->
+                    <div class="card-body"  style="    width: fit-content;">
+                        <table  class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>ردیف</th>
+                                <th>نام و نام خانوادگی </th>
+                                <th>شماره ملی</th>
+                                <th>شماره همراه</th>
+                                <th>آدرس</th>
+                                <th>ایمیل</th>
+                                <th>فکس</th>
+                                <th>عنوان درخواست</th>
+                                <th>شماره سریال محصول</th>
+                                <th>ولتاژ</th>
+                                <th>توان</th>
+                                <th>موضوع درخواست</th>
+                                <th>خدمات فروش از</th>
+                                <th>خدمات پس از فروش از</th>
+                                <th>نوع محصول</th>
+                                <th>شرح درخواست</th>
+                                <th>تاریخ ایجاد</th>
+                                <th>عملیات</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <% if(data){ %>
+                                <% let num = 1 %>
+                                <% for (let i in data){ %>
+                                    <tr id="tr_<%= data[i].data._id %>">
+                                        <td><%= num %></td>
+                                        <td><%= data[i].data.fullName %></td>
+                                        <td><%= data[i].data.nationalCode %></td>
+                                        <td><%= data[i].data.mobile %></td>
+                                        <td><%= data[i].data.address %></td>
+                                        <td><%= data[i].data.email %></td>
+                                        <td><%= data[i].data.fax %></td>
+                                        <td><%= data[i].request_tile %></td>
+                                        <td><%= data[i].data.product_serial_number %></td>
+                                        <td><%= data[i].data.volt %></td>
+                                        <td><%= data[i].data.tavan %></td>
+                                        <td><%= data[i].request_type %></td>
+                                        <td><%= data[i].forosh %></td>
+                                        <td><%= data[i].pas_az_forosh %></td>
+                                        <td><%= data[i].product_type %></td>
+                                        <td><%= data[i].data.request %></td>
+                                        <td><%= data[i].cr %></td>
+                                        <td>
+                                            <a href="#" onclick="delete_('<%= data[i].data._id %>')">
+                                                <i class="fa fa-trash" title="حذف"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <% num++ %>
+                                <% } %>
+                            <% } %>
+                            </tbody>
+
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script>
+<%- include('../footer2') -%>
+<script>
+    $(function () {
+        $("#example1").DataTable({
+            "language": {
+                "paginate": {
+                    "next": "بعدی",
+                    "previous": "قبلی"
+                },
+                search: "جستجو : ",
+            },
+            "info": false,
+				dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+        });
+
+    });
+</script>
+<script>
+    function delete_(id) {
+        axios.delete('/admin/actual_crm/remove/' + id)
+            .then(r => {
+                if (r.data.issuccessful) {
+                    $("#tr_" + id).remove();
+                }
+            });
+    }
+</script>

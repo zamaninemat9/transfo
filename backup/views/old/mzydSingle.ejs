@@ -1,0 +1,95 @@
+<%- include('header_main.ejs'); -%>
+<style>
+.mycustomefile{
+    color:#fff;
+    background-color:#2196f3 ;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+</style>
+
+<main class="main-root">
+    <div id="dsn-scrollbar1">
+        <header>
+            <div class="header-single-post">
+                <div class="post-parallax-wrapper" data-overlay="6">
+                    <img id="dsn-hero-parallax-img" class="w-100 has-top-bottom"
+                         src="<%=uRoute%>/<%= data.data.img %>" alt=""
+                         data-dsn-header="blog" data-dsn-ajax="img">
+                </div>
+                <div class="container h-100">
+                    <div class="row h-100 align-items-end">
+                        <div class="inner-box">
+                            <div class="post-info" dir="rtl">
+                                <a href="#" class="blog-post-date dsn-link"><%= data.cr %></a>
+                            </div>
+
+                            <h1 class="title">
+                                <%= data.data.title %>
+                            </h1>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="wrapper">
+            <div class="container">
+
+                <div class="news-content mt-section">
+                    <div class="news-content-inner">
+                        <div class="News-socials-wrapper">
+
+                        </div>
+
+                        <div class="post-content" style="text-align: right">
+                            <p class="text-justify" dir="rtl">
+                                <a href="#">
+                                    <%- data.data.description %>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                <section class="brand-client section-margin" id="coworker">
+                    <div class="container section-title-2">
+                        <!--<h2>گروه صنعتی<br> ایران ترانسفو</h2>-->
+                        <p> فایل های ضمیمه</p>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <%if(data.data.file){%>
+                            <div class="col-md-4">
+                                <a class="mycustomefile" href="/download/<%=data.data.file%>">فایل شماره 1</a>
+                            </div>
+                            <%}%>
+                            <%if(data.data.file2){%>
+                                <div class="col-md-4">
+                                    <a class="mycustomefile" href="/download/<%=data.data.file2%>">فایل شماره 2</a>
+                                </div>
+                            <%}%>
+                            <%if(data.data.file3){%>
+                                <div class="col-md-4">
+                                    <a class="mycustomefile" href="/download/<%=data.data.file3%>">فایل شماره 3</a>
+                                </div>
+                            <%}%>
+                            <%if(data.data.file4){%>
+                                <div class="col-md-4">
+                                    <a class="mycustomefile" href="/download/<%=data.data.file4%>">فایل شماره 4</a>
+                                </div>
+                            <%}%>
+                                   
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+
+
+
+        <%- include('foot2.ejs'); -%>

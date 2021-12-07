@@ -1,0 +1,329 @@
+<%- include('header_main.ejs'); -%>
+<script src="https://cpch.ir/v1.0/js/hl6DZ6c1dfz7UwTSn"> </script>
+<style>
+   #captcha{
+        border-color: rgb(25, 162, 230) !important;
+        color: #0009;
+        overflow: visible;
+        font-family: "Roboto";
+        font-weight: bold;
+        font-size: 16px;
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1.5px solid #a56433;
+        padding-bottom: 20px;
+        margin-top: 10px;
+        margin-bottom: 0;
+        letter-spacing: -0.5px;
+        margin-bottom: 13px;
+    }
+</style>
+<main class="main-root">
+    <div id="dsn1-scrollbar">
+        <header dir="rtl">
+            <img src="<%=bnr%>" class="img-fluid" style="width: 100%;">
+            </div>
+        </header>
+
+
+        <div class="wrapper root-contact">
+
+            <div class=" mb-section">
+                <div class="container">
+                    <div class="row mt-5">
+                        <div class="col-md-6">
+                            <div class="form-box">
+                                <div class=" mt-2 section-title text-center">
+                                    <h2>تماس با ما</h2>
+                                </div>
+                                <%if(d==1){%>
+                                    <div class="alert alert-success" style="background: green;
+    border-radius: 13px;
+    padding: 15px;
+    text-align: center;
+    color: white;
+    margin-bottom: 12px;">پیام با موفقیت ارسال شد</div>
+                                <%}else if(d==2){%>
+                                    <div class="alert alert-danger" style="background: red;
+    border-radius: 13px;
+    padding: 15px;
+    text-align: center;
+    color: white;
+    margin-bottom: 12px;">کد امنیتی اشتباه است</div>
+                                <%}%>
+                                <!-- <form action="/contact" method="post"> -->
+                                    <div>
+                                        <div class="messages"></div>
+                                        <div class="input__wrap controls">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <div class="entry">
+                                                            <label>* نام </label>
+                                                            <input id="name" type="text" name="name"
+                                                                   placeholder="نام خود را وارد کنید"
+                                                                   required="required"
+                                                                   data-error="نام الزامی است">
+                                                        </div>
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <div class="entry">
+                                                            <label> * ایمیل</label>
+                                                            <input id="email" type="email" name="email"
+                                                                   placeholder="ایمیل خود را وارد کنید"
+                                                                   required="required"
+                                                                   data-error="ایمیل اجباری است">
+                                                        </div>
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                        <div class="entry">
+                                                            <label>متن پیام</label>
+                                                            <textarea id="message" class="form-control" name="text"
+                                                                      placeholder="متن پیام خود را وارد کنید"
+                                                                      required="required"
+                                                                      data-error="متن پیام اجباری است"></textarea>
+                                                        </div>
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-xs-12">
+                                                        <div id="almascaptcha"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <div class="image-zoom w-auto d-inline-block"
+                                                             data-dsn="parallax">
+                                                            <button id="submit" class="btn-form">
+                                                                <span class="label">ارسال پیام</span>
+                                                                <span class="icon-c"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-2">
+                            <div class="box-text margin-lr-100 section-padding p-relative background-theme" style="padding: 19px;">
+                                <div class="address-container" style="direction: rtl">
+                                    <ul>
+                                        <li class="contact-info-item">
+                                            <strong>دفتر مرکزی</strong>
+                                            <span class="dott">:</span>
+                                            <p class="mt-1"><%=contact_det.central_office%></p>
+                                        </li>
+                                        <li class="contact-info-item ">
+                                            <strong>کد پستی</strong>
+                                            <span class="dott">:</span>
+                                            <p class="mt-1"><%=contact_det.post_code%></p>
+                                        </li>
+                                        <li class="contact-info-item ">
+                                            <strong>شماره تماس دفتر مرکزی</strong>
+
+                                            <span class="dott">:</span>
+                                            <p class="mt-1"><%=contact_det.central_office_phone%></p>
+
+                                        </li>
+                                        <li class="contact-info-item  ">
+                                            <strong>فکس</strong>
+
+                                            <span class="dott">:</span>
+                                            <p class="mt-1"><%=contact_det.fax%></p>
+
+                                        </li>
+                                        <li class="contact-info-item ">
+                                            <strong>کارخانه زنجان</strong>
+
+                                            <span class="dott">:</span>
+                                            <p class="mt-1"><%=contact_det.zanjan_company%></p>
+
+                                        </li>
+                                        <li class="contact-info-item ">
+                                            <strong>کدپستی</strong>
+
+                                            <span class="dott">:</span>
+                                            <p class="mt-1"><%=contact_det.post_code_2%></p>
+
+                                        </li>
+                                        <li class="contact-info-item  ">
+                                            <strong>شماره تماس کارخانه زنجان</strong>
+
+                                            <span class="dott">:</span>
+                                            <p class="mt-1"><%=contact_det.zanjan_company_phone%></p>
+											<br>
+                                        </li>
+                                        <li class="contact-info-item ">
+                                            <strong>فکس</strong>
+
+                                            <span class="dott">:</span>
+                                            <p class="mt-1"><%=contact_det.fax_2%></p>
+
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="shap-section">
+                                    <img src="assets/img/arr.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <script src="/plugins/jquery/jquery.min.js"></script>
+<script src="/editor/axios.js"></script>
+<script src="/editor/toastr.min.js"></script>
+<link rel="stylesheet" href="/editor/toastr.min.css">
+<script>
+
+    let warn = {
+
+        // tap to dismiss
+        tapToDismiss: true,
+
+        // toast class
+        // toastClass: 'toast',
+
+        // container ID
+        containerId: 'toast-container',
+
+        // debug mode
+        debug: false,
+
+        // fadeIn, slideDown, and show are built into jQuery
+        showMethod: 'fadeIn',
+
+        // duration of animation
+        showDuration: 300,
+
+        // easing function
+        showEasing: 'swing',
+
+        // callback function
+        onShown: undefined,
+        onHidden: undefined,
+
+        // hide animation
+        hideMethod: 'fadeOut',
+
+        // duration of animation
+        hideDuration: 1000,
+
+        // easing function
+        hideEasing: 'swing',
+
+        // close animation
+        closeMethod: false,
+
+        // duration of animation
+        closeDuration: false,
+
+        // easing function
+        closeEasing: false,
+
+        // timeout in ms
+        extendedTimeOut: 1000,
+
+        // you can customize icons here
+        iconClasses: {
+            error: 'toast-error',
+            info: 'toast-info',
+            success: 'toast-success',
+            warning: 'toast-warning'
+        },
+        iconClass: 'toast-warning',
+        // toast-top-center, toast-bottom-center, toast-top-full-width
+        // toast-bottom-full-width, toast-top-left, toast-bottom-right
+        // toast-bottom-left, toast-top-right
+        positionClass: 'toast-top-right',
+
+        // set timeOut and extendedTimeOut to 0 to make it sticky
+        timeOut: 5000,
+
+        // title class
+        titleClass: 'toast-title',
+
+        // message class
+        messageClass: 'toast-message',
+
+        // allows HTML content in the toast?
+        escapeHtml: false,
+
+        // target container
+        target: 'body',
+
+        // close button
+        closeHtml: '<button type="button">&times;</button>',
+
+        // place the newest toast on the top
+        newestOnTop: true,
+
+        // revent duplicate toasts
+        preventDuplicates: false,
+
+        // shows progress bar
+        progressBar: true
+
+    }
+</script>
+<script>
+    $("#submit").click(()=>{
+        let obj={};
+        if(!$("#name").val()){
+            warn.iconClass = "toast-warning";
+            return toastr.error(' نام نمیتواند خالی بماند ', 'خطا', warn)       
+        }
+        if(!$("#email").val()){
+            warn.iconClass = "toast-warning";
+            return toastr.error(' ایمل نمیتواند خالی بماند ', 'خطا', warn)       
+        }
+        if(!$("#message").val()){
+            warn.iconClass = "toast-warning";
+            return toastr.error(' پیام نمیتواند خالی بماند ', 'خطا', warn)       
+        }
+        axios.post('/contact',{
+            name:$('#name').val(),
+            email:$('#email').val(),
+            message:$('#message').val(),
+            captcha:$('#captcha').val(),
+            captcha_code:$('#captcha_code').val(),
+        })
+        .then(r=>{
+                    if(r.data.status==200){
+                        warn.iconClass = "toast-success";
+            toastr.error('باموفقیت انجام شد', '', warn)       
+            $("#name").val('')
+            $("#email").val('')
+            $("#message").val('')
+            $('#captcha').val('')
+                    }else{
+                        warn.iconClass = "toast-warning";
+            return toastr.error('    خطا در برقراری ارتباط با سرور ', 'خطا', warn)                   
+                    }
+        })
+        .catch(()=>{
+            warn.iconClass = "toast-error";
+            return toastr.error('    خطا در برقراری ارتباط با سرور ', 'خطا', warn)       
+        })
+    })
+</script>
+
+        <%- include('foot1.ejs'); -%>
+        <!--rgb(234,220,21)-->

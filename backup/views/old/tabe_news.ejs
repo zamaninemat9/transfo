@@ -1,0 +1,89 @@
+<%- include('header_main.ejs'); -%>
+
+<main class="main-root">
+    <div id="dsn-s1crollbar">
+        <header dir="rtl">
+            <div class="header-page news-header background-section">
+                <div class="contenet-hero p-relative">
+                    <h2 class="title-page p-relative"></h2>
+                    <h1 class="title">اخبار و مقالات</h1>
+                </div>
+
+
+            </div>
+        </header>
+        <div class="wrapper">
+            <div class="root-blog mt-section our-blog our-blog-classic">
+                <div class="container">
+                    <div class="row">
+                        <% if(data){ %>
+                        <% for(let i in data){ %>
+                            <div class="col-md-4 col-sm-6 dsn-up blog-classic-item">
+                                <div class=" blog-item p-relative d-flex align-items-center h-100 w-100">
+                                    <div class="after-bg p-absolute w-100 h-100 cover-bg"
+                                         data-image-src="assets/img/pattern.png">
+                                        <img src="<%=uRoute%>/<%=data[i].data.img%>" alt="" class="cover-bg-img">
+                                    </div>
+                                    <div class="box-content p-relative">
+                                        <div class="box-content-body">
+                                            <div class="entry-date">
+                                                <a href="/tabe_news/<%=data[i].data._id%>"><%=data[i].cr%></a>
+                                            </div>
+                                            <h4 class="title-block"><a href="/tabe_news/<%=data[i].data._id%>"><%=data[i].data.title%></a></h4>
+
+                                            <a href="/tabe_news/<%=data[i].data._id%>" class="link-vist p-relative">
+                                                <span class="link-vist-text">جزییات بیشتر</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
+                            <% if (data.length>0){ %>
+                                <div class="container mt-4">
+                                    <nav aria-label="Page navigation example">
+                                        <ul class="pagination justify-content-center" style="
+    display: flex;
+">
+                                            <% if (hasPreviousPage) { %>
+                                                <li class="page-item ml-4 " >
+                                                    <a class="page-item" href="?page=1">اولین </a>
+                                                </li>
+                                                <li class="page-item ml-4">
+                                                    <a class="page-item  "
+                                                       href="?page=<%= previousPage %>"><%= previousPage %></a>
+                                                </li>
+                                            <% } %>
+                                            <li class="page-item active ml-4">
+                                                <a class="page-item "
+                                                   href="?page=<%= currentPage %>"><%= currentPage %></a>
+                                            </li>
+                                            <% if (hasNextPage) { %>
+                                                <li class=" ml-4 " >
+                                                    <a class=" page-item"
+                                                       href="?page=<%= nextPage %>"><%= nextPage %></a>
+                                                </li>
+                                                <li class="page-item ml-4 ">
+                                                    <a class=" btn-link" href="?page=<%= lastPage %>">آخرین</a>
+                                                </li>
+                                            <% } %>
+                                        </ul>
+                                    </nav>
+                                </div>
+                    </div>
+                    <% } else { %>
+                        <div class="text-center">
+                            <h5>داده ای وجود ندارد</h5>
+
+                        </div>
+                    <% } %>
+                        <% } %>
+                            <br>
+                            <br>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+<%- include('foot1.ejs'); -%>

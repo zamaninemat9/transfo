@@ -1,0 +1,258 @@
+<%- include('header_main.ejs'); -%>
+
+<main class="main-root">
+    <div id="dsn-scroll1bar">
+
+        <div class="wrapper">
+            <div class="box-seat box-seat-full box-seat-qute ">
+                <div class="container-fluid no-padding">
+                    <div class="inner-img" data-dsn-grid="move-up" data-overlay="7" data-dsn-triggerhook="0"
+                         data-dsn-duration="100%">
+                        <img class="has-bigger-scale" src="./assets/img/btrans/51.jpg" alt="">
+                    </div>
+                    <div class="pro-text dsn-animate dsn-z-index-2">
+                        <div class="title-cover theme-color" data-dsn-grid="move-section" data-dsn-opacity="0.02"
+                             data-dsn-duration="170%" data-dsn-move="0%">
+
+                        </div>
+                        <h3 class="dsn-up text-right">گروه صنعتی <br> ایران ترانسفو</h3>
+                        <p class="dsn-up text-justify" dir="rtl">گروه صنعتی ایران ترانسفو با بیش از 50 سال سابقه در
+                            تولید و ساخت و نصب و راه اندازی ترانسفورماتور، یکی از معتبرترین و قدیمی ترین شرکت های صنعت
+                            برق کشور عزیزمان به حساب می آید.</p>
+                    </div>
+                </div>
+            </div>
+
+            <section class="brand-client section-margin" id="coworker">
+                <div class="container section-title-2">
+                    <h2>گروه صنعتی<br> ایران ترانسفو</h2>
+                    <p>گالری تصاویر</p>
+                </div>
+                <div class="container">
+                    <div class="wapper-client">
+                        <% if(data){ %>
+                            <% for(let i in data){ %>
+                                <div class="logo-box">
+
+                                    <div class="after-bg p-absolute w-100 h-100 cover-bg"
+                                         data-image-src="<%=uRoute%>/<%=data[i].img1%>"></div>
+                                    <!--                            <img src="assets/img/btrans/tabe/s1.jpg" alt="">-->
+                                    <h4 class="text-white">
+                                        <a href="tabe_single/<%=data[i]._id%>">
+                                            <%=data[i].title%>
+                                        </a>
+                                    </h4>
+
+                                    <div class="info">
+                                        <div class="content">
+                                            <div class="entry">
+                                                <div>
+                                                    <h5> <a href="tabe_single/<%=data[i]._id%>">
+                                                            <%=data[i].title%>
+                                                        </a>    </h5>
+                                                    <a href="http://<%=data[i].site%>"><%=data[i].site%></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% } %>
+                        <% } %>
+
+
+                        <!--<div class="logo-box">-->
+                            <!--<div class="after-bg p-absolute w-100 h-100 cover-bg"-->
+                                 <!--data-image-src="assets/img/btrans/tabe/s5.jpg"></div>-->
+                            <!--<h4 class="text-white">توسعه پست های ایران ترانسفو</h4>-->
+                            <!--<div class="info">-->
+                                <!--<div class="content">-->
+                                    <!--<div class="entry">-->
+                                        <!--<div>-->
+                                            <!--<h5>توسعه پست های ایران ترانسفو</h5>-->
+                                            <!--<a href="http://itsd-co.com">http://itsd-co.com</a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="logo-box">-->
+                            <!--<div class="after-bg p-absolute w-100 h-100 cover-bg"-->
+                                 <!--data-image-src="assets/img/btrans/tabe/s2.jpg"></div>-->
+                            <!--<h4 class="text-white">ترانسفورماتور سازی كوشكن</h4>-->
+
+                            <!--<div class="info">-->
+                                <!--<div class="content">-->
+
+                                    <!--<div class="entry">-->
+                                        <!--<div>-->
+                                            <!--<h5>ترانسفورماتور سازی كوشكن</h5>-->
+                                            <!--<a href="http://kooshkan.ir">http://kooshkan.ir</a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="logo-box">-->
+                            <!--<div class="after-bg p-absolute w-100 h-100 cover-bg"-->
+                                 <!--data-image-src="assets/img/btrans/tabe/S3.jpg"></div>-->
+                            <!--<h4 class="text-white">ترانسفورماتور توزیع زنگان</h4>-->
+                            <!--<div class="info">-->
+                                <!--<div class="content">-->
+                                    <!--<div class="entry">-->
+                                        <!--<div>-->
+                                            <!--<h5>ترانسفورماتور توزیع زنگان</h5>-->
+                                            <!--<a href="http://ttzco.com">http://ttzco.com</a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="logo-box">-->
+                            <!--<div class="after-bg p-absolute w-100 h-100 cover-bg"-->
+                                 <!--data-image-src="assets/img/btrans/tabe/s4.jpg"></div>-->
+                            <!--<h4 class="text-white">ايران ترانسفو ری</h4>-->
+                            <!--<div class="info">-->
+                                <!--<div class="content">-->
+                                    <!--<div class="entry">-->
+                                        <!--<div>-->
+                                            <!--<h5>ايران ترانسفو ری</h5>-->
+                                            <!--<a href="http://itr.ir">http://itr.ir</a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="logo-box">-->
+                            <!--<div class="after-bg p-absolute w-100 h-100 cover-bg"-->
+                                 <!--data-image-src="assets/img/btrans/tabe/s6.jpg"></div>-->
+
+                            <!--<h4 class="text-white">شركت عايقهای الكتريكی پارس</h4>-->
+                            <!--<div class="info">-->
+                                <!--<div class="content">-->
+                                    <!--<div class="entry">-->
+                                        <!--<div>-->
+                                            <!--<h5>شركت عايقهای الكتريكی پارس</h5>-->
+                                            <!--<a href="http://pei-co.com">http://pei-co.com</a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="logo-box">-->
+                            <!--<div class="after-bg p-absolute w-100 h-100 cover-bg"-->
+                                 <!--data-image-src="assets/img/btrans/tabe/s7.jpg"></div>-->
+
+                            <!--<h4 class="text-white">موسسه تحقيقات ترانسفورماتور ايران</h4>-->
+                            <!--<div class="info">-->
+                                <!--<div class="content">-->
+                                    <!--<div class="entry">-->
+                                        <!--<div>-->
+                                            <!--<h5>موسسه تحقيقات ترانسفورماتور ايران</h5>-->
+                                            <!--<a href="http://www.irantri.com">http://www.irantri.com</a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="logo-box">-->
+                            <!--<div class="after-bg p-absolute w-100 h-100 cover-bg"-->
+                                 <!--data-image-src="assets/img/btrans/tabe/s8.jpg"></div>-->
+                            <!--<h4 class="text-white">ترانس پست پارس</h4>-->
+
+                            <!--<div class="info">-->
+                                <!--<div class="content">-->
+                                    <!--<div class="entry">-->
+                                        <!--<div>-->
+                                            <!--<h5>ترانس پست پارس</h5>-->
+                                            <!--<a href="http//www.tpp-eng.com">http//www.tpp-eng.com</a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+                        <!--<div class="logo-box">-->
+                            <!--<div class="after-bg p-absolute w-100 h-100 cover-bg"-->
+                                 <!--data-image-src="assets/img/btrans/tabe/s9.jpg"></div>-->
+                            <!--<h4 class="text-white">خدمات پس از فروش ايران ترانسفو</h4>-->
+                            <!--<div class="info">-->
+                                <!--<div class="content">-->
+                                    <!--<div class="entry">-->
+                                        <!--<div>-->
+                                            <!--<h5>خدمات پس از فروش ايران ترانسفو</h5>-->
+                                            <!--<a href=" http://www.itass.ir"> http://www.itass.ir</a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="logo-box">-->
+                            <!--<div class="after-bg p-absolute w-100 h-100 cover-bg"-->
+                                 <!--data-image-src="assets/img/btrans/tabe/s10.jpg"></div>-->
+
+                            <!--<h4 class="text-white">مقره سازی صدف گستر</h4>-->
+                            <!--<div class="info">-->
+                                <!--<div class="content">-->
+                                    <!--<div class="entry">-->
+                                        <!--<div>-->
+                                            <!--<h5>مقره سازی صدف گستر</h5>-->
+                                            <!--<a href="http://zsginsulator.ir">http://zsginsulator.ir</a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="logo-box">-->
+                            <!--<div class="after-bg p-absolute w-100 h-100 cover-bg"-->
+                                 <!--data-image-src="assets/img/btrans/tabe/s11.jpg"></div>-->
+
+                            <!--<h4 class="text-white">پالايش روغن های صنعتی زنگان</h4>-->
+                            <!--<div class="info">-->
+                                <!--<div class="content">-->
+                                    <!--<div class="entry">-->
+                                        <!--<div>-->
+                                            <!--<h5>پالايش روغن های صنعتی زنگان</h5>-->
+                                            <!--<a href="http://www.itc-co.com/%20http://ziorefining.co">http://www.itc-co.com</a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="logo-box">-->
+                            <!--<div class="after-bg p-absolute w-100 h-100 cover-bg"-->
+                                 <!--data-image-src="assets/img/btrans/tabe/s12.jpg"></div>-->
+                            <!--<p class="text-white tabe-p">خدمات بيمه زنجان صبا-->
+                                <!--<br>-->
+                                <!--شرکت آشنا راه سما-->
+                            <!--</p>-->
+                            <!--<div class="info">-->
+                                <!--<div class="content">-->
+                                    <!--<div class="entry">-->
+                                        <!--<div>-->
+                                            <!--<h5>خدمات بيمه زنجان صبا</h5>-->
+                                            <!--<h5>شرکت آشنا راه سما</h5>-->
+                                            <!--<a href="http://zanjansaba.ir">http://zanjansaba.ir</a>-->
+                                            <!--<br>-->
+                                            <!--<a href="http://ashna-rah-sama.ir">http://ashna-rah-sama.ir</a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+
+            </section>
+
+
+        </div>
+        <%- include('foot1.ejs'); -%>

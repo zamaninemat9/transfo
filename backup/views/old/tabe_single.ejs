@@ -1,0 +1,263 @@
+<%- include('header_main.ejs'); -%>
+<style>
+    @media only screen and (max-width: 768px) {
+
+    }
+</style>
+    <main class="main-root">
+        <div id="dsn-scrol1lbar">
+            <header data-dsn-header="project">
+                <div class="header-project p-relative h-100-v over-hidden" data-dsn-header="parallax">
+                    <div id="dsn-hero-parallax-img" data-dsn-ajax="img" class="p-absolute w-100 h-100 over-hidden"
+                        data-overlay="5">
+                        <img class="cover-bg-img" src="<%=uRoute%>/<%=data.img2%>" alt="">
+                    </div>
+                    <div class="margin-lr-100 h-100">
+                        <div class="row align-items-center h-100">
+                            <div class="content p-relative w-100">
+                                <div class="intro-project">
+                                    <div  class="intro-title">
+                                        <div class="metas d-inline-block">
+                                            <span><%=data.title%></span>
+                                        </div>
+                                        <h1 class="title" >ایران ترانسفو</h1>
+                                    </div>
+                                    <p id="dsn-hero-description" style="padding: 5px;direction: rtl;text-align: justify;border-radius: 7px;" class="description text-justify" dir="rtl">
+                                        <%=data.description1%>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="http://<%=data.site%>"
+                        target="_blank" class="link-vist p-absolute">
+                        <span class="link-vist-text">مشاهده سایت</span>
+                        <div class="link-vist-arrow">
+                            <svg viewBox="0 0 80 80">
+                                <polyline points="19.89 15.25 64.03 15.25 64.03 59.33"></polyline>
+                                <line x1="64.03" y1="15.25" x2="14.03" y2="65.18"></line>
+                            </svg>
+                        </div>
+                    </a>
+
+                   
+                </div>
+            </header>
+
+            <div class="wrapper">
+
+                <div class="box-seat box-seat-bottom box-seat-qute section-margin">
+                    <div class="container-fluid no-padding">
+                        <div class="container pro-text dsn-animate" data-dsn-animate="section">
+                            <div class="title-cover theme-color" data-dsn-grid="move-section" data-dsn-opacity="0.02"
+                                data-dsn-duration="170%" data-dsn-move="0%">
+
+                            </div>
+                            <h3 class="dsn-up"><%=data.title%></h3>
+                            <p class="dsn-up">
+                                <!--<ul class="text-right active-box" dir="rtl">-->
+                            <!--<li>پست‌های کیوسکی شامل: روزمینی، نیمه دفنی و ویژه تا توان ۳۱۵۰kva و سطح ولتاژ ۳۶kv-->
+                            <!--</li>-->
+                            <!--<li>پست‌های سیار (موبایل) تا توان ۱۰۰۰kva و سطح ولتاژ ۳۶kv-->
+                            <!--</li>-->
+                            <!--<li>پست‌های پدمانتد نیمه روغنی تا توان ۲۵۰۰kva و سطح ولتاژ ۳۶kv-->
+                            <!--</li>-->
+                            <!--<li>پست‌های پدمانتد تمام روغنی تا توان ۱۰۰۰kva و سطح ولتاژ ۳۶kv-->
+                            <!--</li>-->
+                            <!--<li>پست‌های زیرزمینی (دفنی) تا توان ۱۰۰۰kva و سطح ولتاژ ۳۶kv-->
+                            <!--</li>-->
+                            <!--<li>پست‌های یونیت تا توان ۵۰۰۰kva و سطح ولتاژ ۳۶kv-->
+                            <!--</li>-->
+                            <!--<li>تابلوهای فشار متوسط شامل: AIS و GIS تا سطح ولتاژ ۳۶kv-->
+                            <!--</li>-->
+                            <!--<li>تابلوهای فشار ضعیف شامل: تابلوهای توزیع، تابلوهای کنترلی، بانک‌های خازنی و تابلوهای-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                                <%-data.description2%>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box-gallery-vertical box-gallery-content  section-margin section-padding"
+                     data-dsn-animate="section">
+                    <div class="mask-bg"></div>
+                    <div class="container">
+                        <div class="row align-items-center h-100">
+                            <div class="col-lg-6 dsn-z-index-2">
+                                <div class="box-im" >
+                                    <img class="has-top-bottom" src="<%=uRoute%>/<%data.img1%>" alt=""
+                                         data-dsn-move="20%">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+
+                                <div class="box-info">
+                                    <div class="title-cover theme-color" data-dsn-grid="move-section"
+                                         data-dsn-opacity="0.03" data-dsn-duration="170%" data-dsn-move="0%">
+                                    </div>
+                                    <div class="vertical-title dsn-up">
+                                        <h2><%-data.title%></h2>
+                                    </div>
+                                    <div class="bg-mask-content ">
+                                        <div class="mask-bg-2 dsn-up"></div>
+
+                                        <p class="dsn-up text-justify" dir="rtl">
+                                            <%-data.description3%>
+                                        </p>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <header class="over-hidden" data-dsn-header="parallax">
+                    <div class="header-page header-page-contact background-section">
+                        <div class="image-head image-head-contact p-relative d-flex align-items-center">
+
+                           
+                            <form method="post" action="./ShowAgents_Map.aspx?City_Id=7" id="form1" class=" p-absolute w-100 h-100">
+                                <div class="aspNetHidden">
+                                <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTgzMjAwMzc5MA9kFgICAw9kFgICAQ8WAh4JaW5uZXJodG1sBZ9IPHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiPnZhciBtYXJrZXJzID0gW3sidGl0bGUiOiAn2LTYsdqp2Kog2LPbjNmFINix2KfYryDYs9mF2KcnLCJsYXQiOiAnMzUuNjg5MicsImxuZyI6ICc1MS4zODkwJywiZGVzY3JpcHRpb24iOic8ZGl2IGNsYXNzPSJjb2wteHMtMTIgRm9udElTIiBzdHlsZT0icGFkZGluZy1sZWZ0OjBweDtmb250LWZhbWlseTogY3JjYm9va3NhbnMiPjxkaXYgY2xhc3M9ImNvbC1tZC05Ij48ZGl2IGNsYXNzPSJjb2wtc20tNiIgc3R5bGU9InBhZGRpbmctbGVmdDogMDsgcGFkZGluZy1yaWdodDogMCI+PHA+PGI+2YbYp9mFINi02LHaqdiqIDogPC9iPjxzcGFuPti02LHaqdiqINiz24zZhSDYsdin2K8g2LPZhdinPC9zcGFuPjwvcD48ZGl2PjxiPtiq2YTZgdmGINiq2YXYp9izIDogPC9iPjxwIHN0eWxlPSJmbG9hdDpsZWZ0O21hcmdpbi1sZWZ0OjE1cHgiPjIxNjYzNDQwMDA8L3A+PC9kaXY+PC9kaXY+PGRpdiBjbGFzcz0iY29sLXNtLTYiIHN0eWxlPSJwYWRkaW5nLWxlZnQ6IDA7IHBhZGRpbmctcmlnaHQ6IDAiPjxwPjxiPtmF2K/bjNix2LnYp9mF2YQgOiA8L2I+PHNwYW4+2YXYrNiq2KjbjCDYtNuM2LTZhyDar9ixPC9zcGFuPjwvcD48cD48Yj7aqdivINmG2YXYp9uM2YbYr9qv24wgOiA8L2I+PHNwYW4+MjM3PC9zcGFuPjwvcD48L2Rpdj48ZGl2IGNsYXNzPSJjb2wteHMtMTIiIHN0eWxlPSJwYWRkaW5nLWxlZnQ6IDA7IHBhZGRpbmctcmlnaHQ6IDAiPjxiPtii2K/YsdizIDogPC9iPjxzcGFuPtmE2KfZhNmHINiy2KfYsSDZhtmIICDYqNin2YTYp9iq2LEg2KfYsiDZhdmG2YjahtmH2LHZiiDYs9in2K7YqtmF2KfZhiDZg9mF2b7Yp9mG2YogINmI2LHZiNiv2Yog2LPZhdiqINqG2b4gINi32KjZgtmH27IgINm+2YTYp9mDICAg27XbsNu3PC9zcGFuPjwvZGl2PjwvZGl2PjxkaXYgY2xhc3M9ImNvbC14cy0zIiBzdHlsZT0icGFkZGluZy10b3A6IDBweDsiPjxpbWcgY2xhc3M9ImltZy1yZXNwb25zaXZlIHB1bGwtbGVmdCIgc3R5bGU9InBhZGRpbmctdG9wOiAwcHg7d2lkdGg6MTAwcHg7aGVpZ2h0OjEwMHB4O3BhZGRpbmctcmlnaHQ6MHB4IiBzcmM9Imh0dHA6Ly9jbXMuY3JjYm9vay5pci9JbWFnZUNvbnRlbnQvMzRjZmMwYTQtZjQ2NC00MDY5LThmMzktYWZkODQxMzM2NGM2L0FnZW50L1NtYWxsMzE0ZGFlZWZjMTlkNGMzYTg0YjZiMmNkNTg3NzhjZDEucG5nIiAvPjwvZGl2PjwvZGl2Pid9LHsidGl0bGUiOiAn2LTYsdqp2Kog2KjYs9iqINin2YTaqdiq2LHZiNmG24zaqSDYrtin2YjYsdmF24zYp9mG2YcnLCJsYXQiOiAnMzUuNjkzOTk2JywibG5nIjogJzUxLjM3ODQ0MScsImRlc2NyaXB0aW9uIjonPGRpdiBjbGFzcz0iY29sLXhzLTEyIEZvbnRJUyIgc3R5bGU9InBhZGRpbmctbGVmdDowcHg7Zm9udC1mYW1pbHk6IGNyY2Jvb2tzYW5zIj48ZGl2IGNsYXNzPSJjb2wtbWQtOSI+PGRpdiBjbGFzcz0iY29sLXNtLTYiIHN0eWxlPSJwYWRkaW5nLWxlZnQ6IDA7IHBhZGRpbmctcmlnaHQ6IDAiPjxwPjxiPtmG2KfZhSDYtNix2qnYqiA6IDwvYj48c3Bhbj7YtNix2qnYqiDYqNiz2Kog2KfZhNqp2KrYsdmI2YbbjNqpINiu2KfZiNix2YXbjNin2YbZhzwvc3Bhbj48L3A+PGRpdj48Yj7YqtmE2YHZhiDYqtmF2KfYsyA6IDwvYj48cCBzdHlsZT0iZmxvYXQ6bGVmdDttYXJnaW4tbGVmdDoxNXB4Ij4wMjE2NjM4MTU1MjwvcD48L2Rpdj48L2Rpdj48ZGl2IGNsYXNzPSJjb2wtc20tNiIgc3R5bGU9InBhZGRpbmctbGVmdDogMDsgcGFkZGluZy1yaWdodDogMCI+PHA+PGI+2YXYr9uM2LHYudin2YXZhCA6IDwvYj48c3Bhbj7Yp9mF24zYsdit2LPbjNmGINin2LPZhdin2LnbjNmE24w8L3NwYW4+PC9wPjxwPjxiPtqp2K8g2YbZhdin24zZhtiv2q/bjCA6IDwvYj48c3Bhbj4yMzM8L3NwYW4+PC9wPjwvZGl2PjxkaXYgY2xhc3M9ImNvbC14cy0xMiIgc3R5bGU9InBhZGRpbmctbGVmdDogMDsgcGFkZGluZy1yaWdodDogMCI+PGI+2KLYr9ix2LMgOiA8L2I+PHNwYW4+2YXbjNiv2KfZhiDYrNmF2YfZiNix24zYjNmG2KjYtCDZhdiq2LHZiNmG2YjYp9io2IzYqNix2Kwg2LTZh9in2Kjbs9iMINi327LYjCDZiNin2K3YryDbs9ux27Y8L3NwYW4+PC9kaXY+PC9kaXY+PGRpdiBjbGFzcz0iY29sLXhzLTMiIHN0eWxlPSJwYWRkaW5nLXRvcDogMHB4OyI+PGltZyBjbGFzcz0iaW1nLXJlc3BvbnNpdmUgcHVsbC1sZWZ0IiBzdHlsZT0icGFkZGluZy10b3A6IDBweDt3aWR0aDoxMDBweDtoZWlnaHQ6MTAwcHg7cGFkZGluZy1yaWdodDowcHgiIHNyYz0iaHR0cDovL2Ntcy5jcmNib29rLmlyL0ltYWdlQ29udGVudC8zNGNmYzBhNC1mNDY0LTQwNjktOGYzOS1hZmQ4NDEzMzY0YzYvQWdlbnQvU21hbGwxMDZhYzk5Mjc5NTQ0Y2MwOTg3NDczZDZlYzQ4M2JiNS5wbmciIC8+PC9kaXY+PC9kaXY+J30seyJ0aXRsZSI6ICfYs9in24zZhtin2b7Yp9ix2LMnLCJsYXQiOiAnMzUuNjkyODkzJywibG5nIjogJzUxLjQ0NDYzMycsImRlc2NyaXB0aW9uIjonPGRpdiBjbGFzcz0iY29sLXhzLTEyIEZvbnRJUyIgc3R5bGU9InBhZGRpbmctbGVmdDowcHg7Zm9udC1mYW1pbHk6IGNyY2Jvb2tzYW5zIj48ZGl2IGNsYXNzPSJjb2wtbWQtOSI+PGRpdiBjbGFzcz0iY29sLXNtLTYiIHN0eWxlPSJwYWRkaW5nLWxlZnQ6IDA7IHBhZGRpbmctcmlnaHQ6IDAiPjxwPjxiPtmG2KfZhSDYtNix2qnYqiA6IDwvYj48c3Bhbj7Ys9in24zZhtin2b7Yp9ix2LM8L3NwYW4+PC9wPjxkaXY+PGI+2KrZhNmB2YYg2KrZhdin2LMgOiA8L2I+PHAgc3R5bGU9ImZsb2F0OmxlZnQ7bWFyZ2luLWxlZnQ6MTVweCI+MDIxNzc2ODQxMDc8L3A+PC9kaXY+PC9kaXY+PGRpdiBjbGFzcz0iY29sLXNtLTYiIHN0eWxlPSJwYWRkaW5nLWxlZnQ6IDA7IHBhZGRpbmctcmlnaHQ6IDAiPjxwPjxiPtmF2K/bjNix2LnYp9mF2YQgOiA8L2I+PHNwYW4+2LnZhNuMINmF2YLYr9mFPC9zcGFuPjwvcD48cD48Yj7aqdivINmG2YXYp9uM2YbYr9qv24wgOiA8L2I+PHNwYW4+MjEwPC9zcGFuPjwvcD48L2Rpdj48ZGl2IGNsYXNzPSJjb2wteHMtMTIiIHN0eWxlPSJwYWRkaW5nLWxlZnQ6IDA7IHBhZGRpbmctcmlnaHQ6IDAiPjxiPtii2K/YsdizIDogPC9iPjxzcGFuPtiq2YfYsdin2YbYjCDZhduM2K/Yp9mGINi02YfYr9in2Iwg2LHZiNio2LHZiNuMINio2LHZgiDYqtmH2LHYp9mG2Iwg2K7bjNin2KjYp9mGINi02YfbjNivINmH2YXYp9uM2YjZhiDZhtin2LfZgtuMICjYrtmI2LHYtNuM2K8pINiMINm+2YTYp9qpIDcx2Iwg2LfYqNmC2Ycg2KfZiNmEPC9zcGFuPjwvZGl2PjwvZGl2PjxkaXYgY2xhc3M9ImNvbC14cy0zIiBzdHlsZT0icGFkZGluZy10b3A6IDBweDsiPjxpbWcgY2xhc3M9ImltZy1yZXNwb25zaXZlIHB1bGwtbGVmdCIgc3R5bGU9InBhZGRpbmctdG9wOiAwcHg7d2lkdGg6MTAwcHg7aGVpZ2h0OjEwMHB4O3BhZGRpbmctcmlnaHQ6MHB4IiBzcmM9Imh0dHA6Ly9jbXMuY3JjYm9vay5pci9JbWFnZUNvbnRlbnQvMzRjZmMwYTQtZjQ2NC00MDY5LThmMzktYWZkODQxMzM2NGM2L0FnZW50L1NtYWxsN2Y3YmZhZTFmZjMxNGVjOWJkNTkwNDI3Yjk2YWRkMDkucG5nIiAvPjwvZGl2PjwvZGl2Pid9LHsidGl0bGUiOiAn2LTYsdmD2Kog2KrYsdin2YbYsyDZvtiz2Kog2b7Yp9ix2LMnLCJsYXQiOiAnMzUuNzU5MDgzJywibG5nIjogJzUxLjQwMTQ2MycsImRlc2NyaXB0aW9uIjonPGRpdiBjbGFzcz0iY29sLXhzLTEyIEZvbnRJUyIgc3R5bGU9InBhZGRpbmctbGVmdDowcHg7Zm9udC1mYW1pbHk6IGNyY2Jvb2tzYW5zIj48ZGl2IGNsYXNzPSJjb2wtbWQtOSI+PGRpdiBjbGFzcz0iY29sLXNtLTYiIHN0eWxlPSJwYWRkaW5nLWxlZnQ6IDA7IHBhZGRpbmctcmlnaHQ6IDAiPjxwPjxiPtmG2KfZhSDYtNix2qnYqiA6IDwvYj48c3Bhbj7YtNix2YPYqiDYqtix2KfZhtizINm+2LPYqiDZvtin2LHYszwvc3Bhbj48L3A+PGRpdj48Yj7YqtmE2YHZhiDYqtmF2KfYsyA6IDwvYj48cCBzdHlsZT0iZmxvYXQ6bGVmdDttYXJnaW4tbGVmdDoxNXB4Ij4wMjE4ODYwNjI5MTwvcD48L2Rpdj48L2Rpdj48ZGl2IGNsYXNzPSJjb2wtc20tNiIgc3R5bGU9InBhZGRpbmctbGVmdDogMDsgcGFkZGluZy1yaWdodDogMCI+PHA+PGI+2YXYr9uM2LHYudin2YXZhCA6IDwvYj48c3Bhbj7ZhdmH2YbYr9izINmF2YfYr9uMINuM2YjYs9mB24w8L3NwYW4+PC9wPjxwPjxiPtqp2K8g2YbZhdin24zZhtiv2q/bjCA6IDwvYj48c3Bhbj4zODwvc3Bhbj48L3A+PC9kaXY+PGRpdiBjbGFzcz0iY29sLXhzLTEyIiBzdHlsZT0icGFkZGluZy1sZWZ0OiAwOyBwYWRkaW5nLXJpZ2h0OiAwIj48Yj7Yotiv2LHYsyA6IDwvYj48c3Bhbj7YqtmH2LHYp9mG2Iwg2K7bjNin2KjYp9mGINmF2YTYp9i12K/YsdinINiMINiu24zYp9io2KfZhiDYtNuM2LHYp9iyINi02YXYp9mE24zYjCDYrtuM2KfYqNin2YYg2K3aqduM2YUg2KfYudi42YXYjNm+2YTYp9qpIDE1PC9zcGFuPjwvZGl2PjwvZGl2PjxkaXYgY2xhc3M9ImNvbC14cy0zIiBzdHlsZT0icGFkZGluZy10b3A6IDBweDsiPjxpbWcgY2xhc3M9ImltZy1yZXNwb25zaXZlIHB1bGwtbGVmdCIgc3R5bGU9InBhZGRpbmctdG9wOiAwcHg7d2lkdGg6MTAwcHg7aGVpZ2h0OjEwMHB4O3BhZGRpbmctcmlnaHQ6MHB4IiBzcmM9Imh0dHA6Ly9jbXMuY3JjYm9vay5pci9JbWFnZUNvbnRlbnQvMzRjZmMwYTQtZjQ2NC00MDY5LThmMzktYWZkODQxMzM2NGM2L0FnZW50L1NtYWxsZTJiZTdiZDdkNmZjNDBhNDg2ZGEyOGQ2NzhkNmYwZjgucG5nIiAvPjwvZGl2PjwvZGl2Pid9LHsidGl0bGUiOiAn2YfZhduM2KfYsdin2YYg2KrYsdin2YbYs9mB2YgnLCJsYXQiOiAnMzUuNzA1NDY3JywibG5nIjogJzUxLjQyNDQ4OCcsImRlc2NyaXB0aW9uIjonPGRpdiBjbGFzcz0iY29sLXhzLTEyIEZvbnRJUyIgc3R5bGU9InBhZGRpbmctbGVmdDowcHg7Zm9udC1mYW1pbHk6IGNyY2Jvb2tzYW5zIj48ZGl2IGNsYXNzPSJjb2wtbWQtOSI+PGRpdiBjbGFzcz0iY29sLXNtLTYiIHN0eWxlPSJwYWRkaW5nLWxlZnQ6IDA7IHBhZGRpbmctcmlnaHQ6IDAiPjxwPjxiPtmG2KfZhSDYtNix2qnYqiA6IDwvYj48c3Bhbj7Zh9mF24zYp9ix2KfZhiDYqtix2KfZhtiz2YHZiDwvc3Bhbj48L3A+PGRpdj48Yj7YqtmE2YHZhiDYqtmF2KfYsyA6IDwvYj48cCBzdHlsZT0iZmxvYXQ6bGVmdDttYXJnaW4tbGVmdDoxNXB4Ij4wMjE4ODM0ODE5ODwvcD48L2Rpdj48L2Rpdj48ZGl2IGNsYXNzPSJjb2wtc20tNiIgc3R5bGU9InBhZGRpbmctbGVmdDogMDsgcGFkZGluZy1yaWdodDogMCI+PHA+PGI+2YXYr9uM2LHYudin2YXZhCA6IDwvYj48c3Bhbj7Zhdit2YXYryDYtNuM2K7YudmE24w8L3NwYW4+PC9wPjxwPjxiPtqp2K8g2YbZhdin24zZhtiv2q/bjCA6IDwvYj48c3Bhbj4yMTM8L3NwYW4+PC9wPjwvZGl2PjxkaXYgY2xhc3M9ImNvbC14cy0xMiIgc3R5bGU9InBhZGRpbmctbGVmdDogMDsgcGFkZGluZy1yaWdodDogMCI+PGI+2KLYr9ix2LMgOiA8L2I+PHNwYW4+2KrZh9ix2KfZhiDYrtuM2KfYqNin2YYg2LPZhduM2YfYjCDYqNi52K8g2KfYsiDahtmH2KfYsdix2KfZhyDZhdmB2KrYrdiMINm+2YTYp9qp27Hbsduy2Iwg2LfYqNmC2YfbtNiMINmI2KfYrdiv27HbtDwvc3Bhbj48L2Rpdj48L2Rpdj48ZGl2IGNsYXNzPSJjb2wteHMtMyIgc3R5bGU9InBhZGRpbmctdG9wOiAwcHg7Ij48aW1nIGNsYXNzPSJpbWctcmVzcG9uc2l2ZSBwdWxsLWxlZnQiIHN0eWxlPSJwYWRkaW5nLXRvcDogMHB4O3dpZHRoOjEwMHB4O2hlaWdodDoxMDBweDtwYWRkaW5nLXJpZ2h0OjBweCIgc3JjPSJodHRwOi8vY21zLmNyY2Jvb2suaXIvSW1hZ2VDb250ZW50LzM0Y2ZjMGE0LWY0NjQtNDA2OS04ZjM5LWFmZDg0MTMzNjRjNi9BZ2VudC9TbWFsbDVlMjc0NmNiNjQ4ZjQ2MzFiNzQ0ZDliMjIwNmE1NmU1LnBuZyIgLz48L2Rpdj48L2Rpdj4nfSx7InRpdGxlIjogJ9i02LHaqdiqINm+2YjbjNinINi12YbYudiqINmI2YHYpycsImxhdCI6ICczNS43MTgxMDgnLCJsbmciOiAnNTEuMzY0Mjg3JywiZGVzY3JpcHRpb24iOic8ZGl2IGNsYXNzPSJjb2wteHMtMTIgRm9udElTIiBzdHlsZT0icGFkZGluZy1sZWZ0OjBweDtmb250LWZhbWlseTogY3JjYm9va3NhbnMiPjxkaXYgY2xhc3M9ImNvbC1tZC05Ij48ZGl2IGNsYXNzPSJjb2wtc20tNiIgc3R5bGU9InBhZGRpbmctbGVmdDogMDsgcGFkZGluZy1yaWdodDogMCI+PHA+PGI+2YbYp9mFINi02LHaqdiqIDogPC9iPjxzcGFuPti02LHaqdiqINm+2YjbjNinINi12YbYudiqINmI2YHYpzwvc3Bhbj48L3A+PGRpdj48Yj7YqtmE2YHZhiDYqtmF2KfYsyA6IDwvYj48cCBzdHlsZT0iZmxvYXQ6bGVmdDttYXJnaW4tbGVmdDoxNXB4Ij42NjU1MDI2MDwvcD48L2Rpdj48L2Rpdj48ZGl2IGNsYXNzPSJjb2wtc20tNiIgc3R5bGU9InBhZGRpbmctbGVmdDogMDsgcGFkZGluZy1yaWdodDogMCI+PHA+PGI+2YXYr9uM2LHYudin2YXZhCA6IDwvYj48c3Bhbj7Zhdiz2LnZiNivINiv2KfZiNmI2K/bjDwvc3Bhbj48L3A+PHA+PGI+2qnYryDZhtmF2KfbjNmG2K/ar9uMIDogPC9iPjxzcGFuPjIyMDwvc3Bhbj48L3A+PC9kaXY+PGRpdiBjbGFzcz0iY29sLXhzLTEyIiBzdHlsZT0icGFkZGluZy1sZWZ0OiAwOyBwYWRkaW5nLXJpZ2h0OiAwIj48Yj7Yotiv2LHYsyA6IDwvYj48c3Bhbj7YqtmH2LHYp9mG2IzYs9iq2KfYsdiu2KfZhtiM2KfYqNiq2K/Yp9uMINiuINit2KjbjNioINin2YTZh9iM2b4zMDfYjNi3Mjwvc3Bhbj48L2Rpdj48L2Rpdj48ZGl2IGNsYXNzPSJjb2wteHMtMyIgc3R5bGU9InBhZGRpbmctdG9wOiAwcHg7Ij48aW1nIGNsYXNzPSJpbWctcmVzcG9uc2l2ZSBwdWxsLWxlZnQiIHN0eWxlPSJwYWRkaW5nLXRvcDogMHB4O3dpZHRoOjEwMHB4O2hlaWdodDoxMDBweDtwYWRkaW5nLXJpZ2h0OjBweCIgc3JjPSJodHRwOi8vY21zLmNyY2Jvb2suaXIvSW1hZ2VDb250ZW50LzM0Y2ZjMGE0LWY0NjQtNDA2OS04ZjM5LWFmZDg0MTMzNjRjNi9BZ2VudC9TbWFsbDdjMmIwZDcyMjVjODQ5MjNhZTUzNWY3YWViM2Y4NWFkLnBuZyIgLz48L2Rpdj48L2Rpdj4nfSx7InRpdGxlIjogJ9in2YTaqdiq2LHZiCDZhdmI2YTYryDYrtmE24zYrCDZgdin2LHYsycsImxhdCI6ICczNS42OTAwMzInLCJsbmciOiAnNTEuNDIyMTgzJywiZGVzY3JpcHRpb24iOic8ZGl2IGNsYXNzPSJjb2wteHMtMTIgRm9udElTIiBzdHlsZT0icGFkZGluZy1sZWZ0OjBweDtmb250LWZhbWlseTogY3JjYm9va3NhbnMiPjxkaXYgY2xhc3M9ImNvbC1tZC05Ij48ZGl2IGNsYXNzPSJjb2wtc20tNiIgc3R5bGU9InBhZGRpbmctbGVmdDogMDsgcGFkZGluZy1yaWdodDogMCI+PHA+PGI+2YbYp9mFINi02LHaqdiqIDogPC9iPjxzcGFuPtin2YTaqdiq2LHZiCDZhdmI2YTYryDYrtmE24zYrCDZgdin2LHYszwvc3Bhbj48L3A+PGRpdj48Yj7YqtmE2YHZhiDYqtmF2KfYsyA6IDwvYj48cCBzdHlsZT0iZmxvYXQ6bGVmdDttYXJnaW4tbGVmdDoxNXB4Ij4zMzkzMTgwNTwvcD48L2Rpdj48L2Rpdj48ZGl2IGNsYXNzPSJjb2wtc20tNiIgc3R5bGU9InBhZGRpbmctbGVmdDogMDsgcGFkZGluZy1yaWdodDogMCI+PHA+PGI+2YXYr9uM2LHYudin2YXZhCA6IDwvYj48c3Bhbj48L3NwYW4+PC9wPjxwPjxiPtqp2K8g2YbZhdin24zZhtiv2q/bjCA6IDwvYj48c3Bhbj48L3NwYW4+PC9wPjwvZGl2PjxkaXYgY2xhc3M9ImNvbC14cy0xMiIgc3R5bGU9InBhZGRpbmctbGVmdDogMDsgcGFkZGluZy1yaWdodDogMCI+PGI+2KLYr9ix2LMgOiA8L2I+PHNwYW4+2KrZh9ix2KfZhiDYriDZhNin2YTZhyDYstin2LEg2KzZhtmI2KjbjCDaqdmI24wg2KjYp9ix2KjYryDZvtmE2KfaqSAxMjwvc3Bhbj48L2Rpdj48L2Rpdj48ZGl2IGNsYXNzPSJjb2wteHMtMyIgc3R5bGU9InBhZGRpbmctdG9wOiAwcHg7Ij48aW1nIGNsYXNzPSJpbWctcmVzcG9uc2l2ZSBwdWxsLWxlZnQiIHN0eWxlPSJwYWRkaW5nLXRvcDogMHB4O3dpZHRoOjEwMHB4O2hlaWdodDoxMDBweDtwYWRkaW5nLXJpZ2h0OjBweCIgc3JjPSJodHRwOi8vY21zLmNyY2Jvb2suaXIvSW1hZ2VDb250ZW50LzM0Y2ZjMGE0LWY0NjQtNDA2OS04ZjM5LWFmZDg0MTMzNjRjNi9BZ2VudC9TbWFsbDBlMDBhZTRhY2FhODRiNzQ5MTdlMDFlOTFlZjE0OTZjLnBuZyIgLz48L2Rpdj48L2Rpdj4nfSx7InRpdGxlIjogJ9i02LHaqdiqINqp2KfYsdiv2KfZhiDYqtix2KfZhtizJywibGF0IjogJzM1LjcyMTQyMicsImxuZyI6ICc1MS4zNDcyMjAnLCJkZXNjcmlwdGlvbiI6JzxkaXYgY2xhc3M9ImNvbC14cy0xMiBGb250SVMiIHN0eWxlPSJwYWRkaW5nLWxlZnQ6MHB4O2ZvbnQtZmFtaWx5OiBjcmNib29rc2FucyI+PGRpdiBjbGFzcz0iY29sLW1kLTkiPjxkaXYgY2xhc3M9ImNvbC1zbS02IiBzdHlsZT0icGFkZGluZy1sZWZ0OiAwOyBwYWRkaW5nLXJpZ2h0OiAwIj48cD48Yj7Zhtin2YUg2LTYsdqp2KogOiA8L2I+PHNwYW4+2LTYsdqp2Kog2qnYp9ix2K/Yp9mGINiq2LHYp9mG2LM8L3NwYW4+PC9wPjxkaXY+PGI+2KrZhNmB2YYg2KrZhdin2LMgOiA8L2I+PHAgc3R5bGU9ImZsb2F0OmxlZnQ7bWFyZ2luLWxlZnQ6MTVweCI+MDIxNDQzODAwNjg3ODk4PC9wPjwvZGl2PjwvZGl2PjxkaXYgY2xhc3M9ImNvbC1zbS02IiBzdHlsZT0icGFkZGluZy1sZWZ0OiAwOyBwYWRkaW5nLXJpZ2h0OiAwIj48cD48Yj7Zhdiv24zYsdi52KfZhdmEIDogPC9iPjxzcGFuPjwvc3Bhbj48L3A+PHA+PGI+2qnYryDZhtmF2KfbjNmG2K/ar9uMIDogPC9iPjxzcGFuPjwvc3Bhbj48L3A+PC9kaXY+PGRpdiBjbGFzcz0iY29sLXhzLTEyIiBzdHlsZT0icGFkZGluZy1sZWZ0OiAwOyBwYWRkaW5nLXJpZ2h0OiAwIj48Yj7Yotiv2LHYsyA6IDwvYj48c3Bhbj7YqtmH2LHYp9mG2Iwg2K7bjNin2YYg2LPYqtin2LHYrtin2YbYjCDZhtio2LQg2K7bjNin2KjYp9mGINiu2LPYsdmIINis2YbZiNio24zYjCDZhdis2KrZhdi5INin2YTZhdin2LMg2LrYsdio2Iwg2YjYsdmI2K/bjCBC2Iwg2LfYqNmC2YcgNNiMINmI2KfYrdivIDQwMTwvc3Bhbj48L2Rpdj48L2Rpdj48ZGl2IGNsYXNzPSJjb2wteHMtMyIgc3R5bGU9InBhZGRpbmctdG9wOiAwcHg7Ij48aW1nIGNsYXNzPSJpbWctcmVzcG9uc2l2ZSBwdWxsLWxlZnQiIHN0eWxlPSJwYWRkaW5nLXRvcDogMHB4O3dpZHRoOjEwMHB4O2hlaWdodDoxMDBweDtwYWRkaW5nLXJpZ2h0OjBweCIgc3JjPSJodHRwOi8vY21zLmNyY2Jvb2suaXIvSW1hZ2VDb250ZW50LzM0Y2ZjMGE0LWY0NjQtNDA2OS04ZjM5LWFmZDg0MTMzNjRjNi9BZ2VudC9TbWFsbGQ0YTcxZjIzMTA0YTRjN2E4NDdhYWMxOWNkYTZhMTMxLnBuZyIgLz48L2Rpdj48L2Rpdj4nfSxdOzwvc2NyaXB0PmRkWhFkqxtCGrcUzwLcpcOaEvkJP+yaoQ9obFTK5tJdKsA=" />
+                                </div>
+                                
+                                <div class="aspNetHidden">
+                                
+                                    <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="12057975" />
+                                </div>
+                                        
+                                        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8fPcByLf28nJfPnmMlnujqhSXW5XvPaw"></script>
+                                        
+                                        <div id="div_ShowCustINTProduct"><script type="text/javascript">var markers = [{"title": 'شرکت سیم راد سما',"lat": '35.6892',"lng": '51.3890'}];</script></div>
+                                        
+                                        <script type="text/javascript">
+                                            window.onload = function () {
+                                                var mapOptions = {
+                                                    center: new google.maps.LatLng(markers[0].lat, markers[0].lng),
+                                                    zoom: 10,
+                                                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                                                };
+                                                var infoWindow = new google.maps.InfoWindow();
+                                                var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+                                                for (i = 0; i < markers.length; i++) {
+                                                    var data = markers[i]
+                                                    var myLatlng = new google.maps.LatLng(data.lat, data.lng);
+                                                    var marker = new google.maps.Marker({
+                                                        position: myLatlng,
+                                                        map: map,
+                                                        title: data.title
+                                                    });
+                                                    (function (marker, data) {
+                                                       
+                                                    })(marker, data);
+                                                }
+                                            }
+                                        </script>
+                                        <div onclick="LoadMap();" class="loadmapbtntop" >
+                                                <i class="fa fa-refresh fa-spin" style="color: #023E72;"></i>بارگذاری مجدد نقشه</div>
+                                        <div id="dvMap" style="width: 100%; height: 500px">
+                                        </div>
+                                    </form>
+                            <div class="box-overlay p-absolute w-100 h-100"></div>
+
+                            <div class="container">
+                                <label class="d-flex a-item-center p-relative">
+                                    <input class="input" type="checkbox" />
+                                    <div class="toggle-wrapper p-relative">
+                                        <span class="selector p-absolute"></span>
+                                    </div>
+                                    <p class="notification p-relative">
+                                       مشاهده نقشه <span class="selected"
+                                                                data-text-select="MAP"></span>
+                                    </p>
+                                </label>
+                                <div class="box-text box-text-contact-2 p-relative">
+                                    <div class="address-container">
+                                        <br>
+                                        <ul class="d-flex row myul">
+                                            <li class="col-md-3 contact-info-item p-relative d-flex background-theme">
+                                               
+                                                <strong class="sm-title-block address-box" style="margin-right: 0px !important;width: 100%;text-align: center;">شماره </strong>
+                                                <p class="address-box" dir="rtl" style="margin-right: 0px !important;width: 100%;text-align: center;"><%=data.phone%></p>
+
+
+                                                
+                                            </li>
+
+                                            <li class="col-md-3 contact-info-item p-relative d-flex background-theme">
+                                                
+                                                <strong style="margin-right: 0px !important;width: 100%;text-align: center;" class="sm-title-block address-box">وب سایت</strong>
+                                                
+                                                <div class=" over-hidden address-box" ><a class="link-hover " style="color:#5f5d5d"
+                                                    data-hover-text="<%=data.site.replace('http://','').replace('https://','')%>" href="http://<%=data.site%>"><%=data.site.replace('http://','').replace('https://','')%></a>
+                       </div>
+                                                
+                                            </li>
+
+                                            <li class="col-md-3 contact-info-item p-relative d-flex background-theme">
+                                                
+                                                <strong class="sm-title-block" style="margin-right: 0px !important;width: 100%;text-align: center;">آدرس</strong>
+                                                <p class="address-box"><%=data.address%></p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </header>
+            </div>
+
+
+
+
+
+        </div>
+    </main>
+
+    
+    <div class="day-night">
+        <div class="night active" data-dsn-theme="dark">
+            <svg width="48" height="48" viewBox="0 0 48 48">
+                <rect x="12.3" y="23.5" width="2.6" height="1"></rect>
+                <rect x="16.1" y="15.3" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -6.8871 16.5732)" width="1"
+                    height="2.6"></rect>
+                <rect x="23.5" y="12.3" width="1" height="2.6"></rect>
+                <rect x="30.1" y="16.1" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -2.5145 27.0538)" width="2.6"
+                    height="1"></rect>
+                <rect x="33.1" y="23.5" width="2.6" height="1"></rect>
+                <rect x="30.9" y="30.1" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -12.9952 31.4264)" width="1"
+                    height="2.6"></rect>
+                <rect x="23.5" y="33.1" width="1" height="2.6"></rect>
+                <rect x="15.3" y="30.9" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -17.3677 20.9457)" width="2.6"
+                    height="1"></rect>
+                <path
+                    d="M24,18.7c-2.9,0-5.3,2.4-5.3,5.3s2.4,5.3,5.3,5.3s5.3-2.4,5.3-5.3S26.9,18.7,24,18.7z M24,28.3c-2.4,0-4.3-1.9-4.3-4.3s1.9-4.3,4.3-4.3s4.3,1.9,4.3,4.3S26.4,28.3,24,28.3z">
+                </path>
+            </svg>
+        </div>
+        <div class="moon" data-dsn-theme="night">
+            <svg width="48" height="48" viewBox="0 0 48 48">
+                <path
+                    d="M24,33.9c-5.4,0-9.9-4.4-9.9-9.9c0-4.3,2.7-8,6.8-9.4l0.8-0.3l-0.1,0.9c-0.2,0.6-0.2,1.3-0.2,1.9c0,5.2,4.3,9.5,9.5,9.5c0.6,0,1.3-0.1,1.9-0.2l0.8-0.2L33.3,27C32,31.1,28.3,33.9,24,33.9z M20.4,15.9c-3.2,1.4-5.3,4.5-5.3,8.1c0,4.9,4,8.9,8.9,8.9c3.6,0,6.7-2.1,8.1-5.3c-0.4,0-0.8,0.1-1.3,0.1c-5.8,0-10.5-4.7-10.5-10.5C20.4,16.7,20.4,16.3,20.4,15.9z">
+                </path>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <script src="../assets/js/jquery-3.1.1.min.js"></script>
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/js/dsn-grid.js"></script>
+    <script src="../assets/js/custom.js"></script>
+
+</body>
+
+
+<!-- Mirrored from theme.dsngrid.com/daro/light/project4.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 08 Dec 2020 15:21:50 GMT -->
+</html>

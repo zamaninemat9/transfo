@@ -1,0 +1,204 @@
+<%- include('../header3')-%>
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>افزودن مزایده</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-12">
+                   
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+<!--                            <h3 class="card-title">مثال ساده</h3>-->
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <!-- <form role="form" enctype="multipart/form-data" method="post" action="/admin/mzyd/add" > -->
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="news_title">عنوان مزایده</label>
+                                    <input type="text" class="form-control" id="title" name="title" placeholder="عنوان خبر را وارد کنید">
+                                </div>
+                                <div class="form-group">
+                                    <label for="img">تصویر مزایده</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="img" name="img">
+                                            <label class="custom-file-label" for="img">انتخاب فایل</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="file">فایل پی دی اف</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="file" name="file">
+                                            <label class="custom-file-label" for="file">انتخاب فایل</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="file2">2 فایل پی دی اف</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="file2" name="file2">
+                                            <label class="custom-file-label" for="file2">انتخاب فایل</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="file3">3 فایل پی دی اف</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="file3" name="file3">
+                                            <label class="custom-file-label" for="file3">انتخاب فایل</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="file4">4 فایل پی دی اف</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="file4" name="file4">
+                                            <label class="custom-file-label" for="file4">انتخاب فایل</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">توضیحات</label>
+                                    <div name="description" id="description"></div>
+                                </div>
+								<div class="form-group">
+                                    <label for="to_date">تاریخ </label>
+                                    <input  class="form-control" id="to_date" name="to_date" placeholder=" 1399/01/01">
+
+									
+                                </div>
+								
+                            </div>
+                            <div class="card-footer">
+                                <button id="submit" class="btn btn-primary">ارسال</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script>
+var fullEditor = new Quill('#description', {
+         bounds: '#description',
+         modules: {
+           'syntax': true,
+           'toolbar': [
+             [ 'bold', 'italic', 'underline', 'strike' ],
+             [{ 'color': [] }, { 'background': [] }],
+             [{ 'script': 'super' }, { 'script': 'sub' }],
+             [{ 'header': '1' }, { 'header': '2' }, 'blockquote', 'code-block' ],
+             [{ 'list': 'ordered' }, { 'list': 'bullet'}, { 'indent': '-1' }, { 'indent': '+1' }],
+             [ {'direction': 'rtl'}, { 'align': [] }],
+             [ 'link', 'image', 'formula' ],
+             //[ 'link', 'image', 'video', 'formula' ],
+             [ 'clean' ]
+           ],
+         },
+         theme: 'snow'
+       });
+       
+$("#submit").click(()=>{
+
+let formData = new FormData();
+        //title
+        if (!$("#title").val()) {
+            warn.iconClass = "toast-warning";
+            return toastr.error('عنوان  نمیتواند خالی بماند ', 'خطا', warn)
+        }
+        formData.append("title", $("#title").val());
+      
+        //file
+        let img1 = document.querySelector('#file');
+        if(!img1.files[0]){
+            warn.iconClass = "toast-warning";
+            return toastr.error('فایل پی دی اف نمیتواند خالی بماند', 'خطا', warn)
+        }
+        formData.append("file", img1.files[0]);
+        
+        //file2
+        let file2=document.querySelector('#file2');
+        if(file2.files[0]) formData.append("file2", file2.files[0]);
+        //file3
+        let file3=document.querySelector('#file3');
+        if(file3.files[0]) formData.append("file3", file3.files[0]);
+        //file4
+        let file4=document.querySelector('#file4');
+        if(file4.files[0]) formData.append("file4", file4.files[0]);
+        //img
+        let img2 = document.querySelector('#img');
+        if(!img2.files[0]){
+            warn.iconClass = "toast-warning";
+            return toastr.error('فایل پی دی اف نمیتواند خالی بماند', 'خطا', warn)
+        }
+        formData.append("img", img2.files[0]);
+        //description
+        let description=fullEditor.root.innerHTML;
+        if(description=='<p><br></p>'||!description){
+            warn.iconClass = "toast-warning";
+            return toastr.error('توضیحات  نمیتواند خالی بماند', 'خطا', warn)
+        }
+        formData.append("description", description);
+    //to_date
+       if (!$("#to_date").val()) {
+            warn.iconClass = "toast-warning";
+            return toastr.error('تاریخ خبر نمیتواند خالی بماند ', 'خطا', warn)
+        }
+        var regEx = /^\d{4}\/\d{2}\/\d{2}$/;
+        if(!$("#to_date").val().match(regEx)){
+            warn.iconClass = "toast-warning";
+            return toastr.error('فرمت تاریخ اشتباه میباشد', 'خطا', warn)
+        }
+        formData.append("to_date", $("#to_date").val());
+
+     axios.post('<%=uRoute%>/admin/mzyd/add', formData, {
+        headers: {
+        'Content-Type': 'multipart/form-data'
+     }
+        }) 
+        .then(r=>{
+            if(r.data.status==200){
+                warn.iconClass = "toast-success";
+                 toastr.error('عملیات با موفقیت انجام شد', '', warn)
+                 setTimeout(()=>{
+                    window.location.href='<%=uRoute%>/admin/mzyd'
+                 },2000)
+                 
+            }else if(r.data.status==403){
+                window.location.href='<%=uRoute%>/admin/login'
+            }else{
+                warn.iconClass = "toast-warning";
+                return toastr.error(r.data.data, 'خطا', warn)  
+            }
+        })
+        .catch(()=>{
+            warn.iconClass = "toast-error";
+                return toastr.error('خطا در برقراری ارتباط با سرور', 'خطا', warn)
+        })
+});
+
+
+</script>
+
+<%- include('../footer3')-%>

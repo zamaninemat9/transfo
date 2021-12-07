@@ -1,0 +1,196 @@
+<%- include('header_main.ejs'); -%>
+
+<main class="main-root">
+    <div id="dsn-scrollb1ar">
+        <header dir="rtl">
+            <img src="<%=bnr%>" class="img-fluid" style="width: 100%;">
+        </header>
+
+
+        <div class="wrapper root-contact">
+
+            <div class="image-head p-relative mb-section" style="height: auto !important;">
+                <div class="container">
+                    <% if(f){ %>
+                        <% if(f == 1){ %>
+                            <div class="alert alert-success" style="background: green;
+    text-align: center;
+    width: 180px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 12px;
+    color: #fff;
+    border-radius: 7px;">با موفقیت ثبت شد</div>
+                        <% }else {%>
+                        <div class="alert alert-danger" style="background: red;
+    text-align: center;
+    width: 180px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 12px;
+    color: #fff;
+    border-radius: 7px;"><%=de%></div>
+                        <% } %>
+                    <% } %>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-box">
+                                <div class=" mt-2 section-title text-center">
+                                </div>
+                                <form action="/cooperation" method="post">
+                                    <div>
+                                        <div class="messages"></div>
+                                        <div class="input__wrap controls">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <div class="entry">
+                                                            <label style="float:right">* نام شركت - كارگاه </label>
+                                                            <input id="form_name" type="text" name="name" placeholder="">
+                                                        </div>
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <div class="entry">
+                                                            <label style="float:right">* تلفن و نمابر (با ذكر پيش شماره) </label>
+                                                            <input id="form_name" type="text" name="mobile" placeholder="">
+                                                        </div>
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <div class="entry">
+                                                            <label style="float:right">آدرس سايت اينترنتي</label>
+                                                            <input id="form_name" type="text" name="site" placeholder="">
+                                                        </div>
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <div class="entry">
+                                                            <label style="float:right" >كد اقتصادي</label>
+                                                            <input id="form_name" type="text" name="egh_code" placeholder="">
+                                                        </div>
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <div class="entry">
+                                                            <label style="float:right">وضعيت حقوقي</label>
+                                                            <select name="ho_status">
+                                                                <option value="1">سهامی عام</option>
+                                                                <option value="2">سهامی خاص</option>
+                                                                <option value="3">با مسئوليت محدود</option>
+                                                                <option value="4">ساير با ذکر عنوان</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <div class="entry">
+                                                            <label style="float:right">عنوان وضعیت حقوقی در صورت نیاز</label>
+                                                            <input id="form_name" type="text" name="ho_say" placeholder="">
+                                                        </div>
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <div class="entry">
+                                                            <label style="float:right">نحوه تامين</label>
+                                                            <select name="z_nahveyetamin">
+                                                                <option value="1">شرکت اصلی</option>
+                                                                <option value="2">فروشندگی</option>
+                                                                <option value="3">نمايندگی</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <div class="entry">
+                                                            <label style="float:right">نشاني شركت / كارگاه</label>
+                                                            <input id="form_name" type="text" name="z_neshany" placeholder="">
+                                                        </div>
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <div class="entry">
+                                                            <label style="float:right">اهم زمينه هاي فعاليت شركت(بترتيب اولويت)باذكرمدت فعاليت درهرزمينه</label>
+                                                            <input id="form_name" type="text" name="z_faaliyat" placeholder="">
+                                                        </div>
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <div class="entry">
+                                                            <label style="float:right">اهم سوابق كاري باذكرنام شركتهاي طرف قرارداد(بترتيب اولويت) در سه سال گذشته</label>
+                                                            <input id="form_name" type="text" name="z_sesal" placeholder="">
+                                                        </div>
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <div class="entry">
+                                                            <label style="float:right" >نام و نام خانوادگی</label>
+                                                            <input id="form_name" type="text" name="z_fullname" placeholder="">
+                                                        </div>
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <div class="entry">
+                                                            <label style="float:right">سمت</label>
+                                                            <input id="form_name" type="text" name="z_semat" placeholder="">
+                                                        </div>
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <div class="entry">
+                                                            <label style="float:right">شماره تماس</label>
+                                                            <input id="form_name" type="text" name="z_tamas" placeholder="">
+                                                        </div>
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <div class="image-zoom w-auto d-inline-block"
+                                                             data-dsn="parallax">
+                                                            <button type="submit" class="btn-form">
+                                                                <span class="label">ارسال پیام</span>
+                                                                <span class="icon-c"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <%- include('foot1.ejs'); -%>
+        <!--rgb(234,220,21)-->
