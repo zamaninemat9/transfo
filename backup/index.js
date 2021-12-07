@@ -60,7 +60,7 @@ app.get('/', async (req, res) => {
     let slider = await slider_model.find().sort({_id:-1}).exec()
     let after_sell = await after_sell_model.find().exec();
     let news_slider = await news_slider_model.find().sort({_id:-1}).exec();
-    res.render('index.ejs', {tbe, news, gallery, product_slider, slider, after_sell, news_slider})
+    res.render('new/index.ejs', {tbe, news, gallery, product_slider, slider, after_sell, news_slider})
 });
 app.get('/products',async (req, res) => {
     let bannerD=await banner.findOne({type:12}).exec();
